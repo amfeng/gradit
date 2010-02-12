@@ -1,5 +1,9 @@
-<% form_tag(search_path, :method => "get") do %>
-  <%= label_tag(:word, "Search for:") %>
-  <%= text_field_tag(:word) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div id="logo"></div>
+<div id="vocab_searchbox">
+	Search for a GRE vocabulary word, and we'll find it in context for you!
+	<% form_tag(search_path, :method => "get") do %>
+	  <%= label_tag(:word, "Search for:") %>
+	  <%= text_field_tag(:word) %>
+	  <%= submit_tag("Search") %>
+	<% end %>
+</div>

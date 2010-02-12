@@ -1,5 +1,8 @@
 class SearchController < ApplicationController
-	def get_context
-		query = params[:word];
+	def context
+		@query = params[:word];
+	end
+	
+	def search
 	end
 end

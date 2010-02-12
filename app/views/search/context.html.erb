@@ -1,0 +1,8 @@
+<div="searchword">
+<%= @query %>
+</div>
+<div="contexts">
+<% for c in @contexts%>
+	<%= render :partial => "context", :locals => {:word => @query} %>
+<% end %>
+</div>
