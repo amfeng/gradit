@@ -1,0 +1,16 @@
+<h1>Editing wordlist</h1>
+
+<% form_for(@wordlist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :string %><br />
+    <%= f.text_field :string %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @wordlist %> |
+<%= link_to 'Back', wordlists_path %>
