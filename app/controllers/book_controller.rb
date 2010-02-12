@@ -8,6 +8,7 @@ class BookController < ApplicationController
         a.source = book
         a.save
         num=num+1
-      end      
+      end
+	  book.save
 	end
 end
