@@ -3,6 +3,6 @@
 </div>
 <div="contexts">
 <% for c in @contexts%>
-	<%= render :partial => "context", :locals => {:word => @query} %>
+	<%= render :partial => "context", :locals => {:c => c} %>
 <% end %>
 </div>
