@@ -12,17 +12,14 @@ class SearchController < ApplicationController
 			buf[0] = f.gets
 			buf[1] = f.gets
 			buf[2] = f.gets
-			#puts buf
 			count = 0;
 			while (line = f.gets)
 				if (line != "\n")
 					if (buf[1].include?(@query))
-						#puts buf
-						#puts @contexts
-						#puts "FUN HAPPENS HERE"
-						@contexts << Array.new(buf)
+						temp = Array.new(buf)
+						temp << filename
+						@contexts << temp
 						puts @contexts
-						#puts buf
 						count = count+1
 					end
 					buf.shift
