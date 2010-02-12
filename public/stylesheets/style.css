@@ -23,6 +23,7 @@ a:hover { color: #fff; background-color:#000; }
 #everything{
 	float: left;
 	margin: auto;
+	margin-top: 15px;
 	height: 100%;
 	width: 100%;
 }
@@ -45,6 +46,15 @@ a:hover { color: #fff; background-color:#000; }
 	margin: auto;
 	margin-top: 20px;
 	width: 316px;
+}
+
+/*Layout - Context */
+
+.context_wrapper{
+	width: 50%;
+	padding: 10px;
+	background: #ccc;
+	vertical-align: top;
 }
 
 /*Error*/
