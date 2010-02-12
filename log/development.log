@@ -316,3 +316,103 @@ Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:16:53) [GET]
 Rendering template within layouts/application
 Rendering home/index
 Completed in 36ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:18:51) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-12 12:18:54) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"hello"}
+Rendering template within layouts/application
+Rendering search/context
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #5 of app/views/search/context.html.erb:
+2: <%= @query %>
+3: </div>
+4: <div="contexts">
+5: <% for c in @contexts%>
+6: 	<%= render :partial => "context", :locals => {:word => @query} %>
+7: <% end %>
+8: </div>
+
+    app/views/search/context.html.erb:5
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (136.0ms)
+Rendered rescues/_request_and_response (6.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:19:29) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-12 12:19:30) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"sdf"}
+Rendering template within layouts/application
+Rendering search/context
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/search?word=sdf&commit=Search]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:22:41) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:23:32) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:23:36) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:23:48) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:24:21) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:24:40) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:24:45) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-12 12:24:53) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/]
