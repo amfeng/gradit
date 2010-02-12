@@ -1,12 +1,12 @@
 <h1>Add a new Book</h1>
 
 <%= error_messages_for :book %>
-<% form_for :book, :url => 	users_path do |f| -%>
+<% form_for :book, :url => "create" do |f| -%>
 <p><%= label_tag 'Book Name' %><br/>
 <%= f.text_field :name %></p>
 
 <p><%= label_tag 'content' %><br/>
-<%= f.text_field :content %></p>
+<%= f.text_area :content, :size => "30x10" %></p>
 
 <p><%= submit_tag 'Submit' %></p>
-<% end -%>
+<% end %>

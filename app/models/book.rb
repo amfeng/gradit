@@ -1,3 +1,3 @@
 class Book < ActiveRecord::Base
-	has_many lines
+	has_many :book_lines
 end
