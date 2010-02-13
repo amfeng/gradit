@@ -2,32 +2,18 @@ class SearchController < ApplicationController
 	def context
 		@query = params[:word]
 		@contexts = Array.new()
-		fa = Array.new()
-		fa << "h.txt"
-		fa << "s.txt"
+		la = BookLine.find(:all, :conditions => ["line like ?", "%" + @query + "%"])
 
-		for filename in fa do
-			f = File.open(filename)
-			buf = Array.new(3)
-			buf[0] = f.gets
-			buf[1] = f.gets
-			buf[2] = f.gets
-			count = 0;
-			while (line = f.gets)
-				if (line != "\n")
-					if (buf[1].include?(@query))
-						temp = Array.new(buf)
-						temp << filename
-						@contexts << temp
-						puts @contexts
-						count = count+1
-					end
-					buf.shift
-					buf << line
-				end
-			end
+		for line in la do
+			beforeline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
+			afterline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum + 1, line.source])
+			if (beforeline != nil) then beforeline = beforeline.line end
+			if (afterline != nil) then afterline = afterline.line end
+			bookname = Book.find(line.source).name
+			if (line != nil) then linecontent = line.line end
+			@contexts << [beforeline, linecontent, afterline, bookname]
 		end
-		puts @contexts
+		
 	end
 	
 	def search

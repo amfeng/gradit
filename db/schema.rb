@@ -9,10 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100212225449) do
+ActiveRecord::Schema.define(:version => 20100212233805) do
 
-# Could not dump table "book_lines" because of following StandardError
-#   Unknown type 'resource' for column 'source'
+  create_table "book_lines", :force => true do |t|
+    t.text     "line"
+    t.integer  "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "linenum"
+  end
 
   create_table "books", :force => true do |t|
     t.string   "name"

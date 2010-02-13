@@ -1,10 +1,10 @@
-class CreateBookLines < ActiveRecord::Migration
+class AddBookLines < ActiveRecord::Migration
   def self.up
     create_table :book_lines do |t|
       t.integer :id
       t.text :line
-      t.resource :source
-
+      t.integer :source
+	  t.integer :linenum
       t.timestamps
     end
   end
