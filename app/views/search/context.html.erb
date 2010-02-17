@@ -1,7 +1,7 @@
-<div="searchword">
-<%= @query %>
+<div id="searchword">
+Your search query was: <%= @query %>
 </div>
-<div="contexts">
+<div id="contexts">
 <% for c in @contexts%>
 	<%= render :partial => "context", :locals => {:c => c} %>
 <% end %>

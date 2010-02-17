@@ -1176,3 +1176,206 @@ Migrating to AddLineNumber (20100212223042)
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
   [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("wordlists")[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("words")[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100212183852)
+Migrating to CreateWords (20100212184717)
+Migrating to CreateWordlists (20100212185014)
+Migrating to CreateContexts (20100212192414)
+Migrating to CreateBooks (20100212214316)
+Migrating to AddBookLines (20100212233555)
+Migrating to AddBookLinenums (20100212233805)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("book_lines")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("books")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("contexts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("wordlists")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("words")[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-17 00:08:19) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 6200ms (View: 6197, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:08:32) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;36;1mBookLine Load (140.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;35;1mBookLine Load (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (14.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (5.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (7.0ms)
+Rendered search/_context (1.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 391ms (View: 107, DB: 162) | 200 OK [http://localhost/search?word=legacy&commit=Search]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:10:02) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;35;1mBookLine Load (103.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (17.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (9.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 211ms (View: 5, DB: 138) | 200 OK [http://localhost/search?word=legacy&commit=Search]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:11:42) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;36;1mBookLine Load (91.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (13.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (6.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 156ms (View: 13, DB: 112) | 200 OK [http://localhost/search?word=legacy&commit=Search]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:12:01) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;35;1mBookLine Load (90.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (14.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (6.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 148ms (View: 6, DB: 114) | 200 OK [http://localhost/search?word=legacy&commit=Search]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:13:08) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;36;1mBookLine Load (76.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (14.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (5.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (2.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 231ms (View: 13, DB: 99) | 200 OK [http://localhost/search?word=legacy&commit=Search]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:13:46) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;35;1mBookLine Load (84.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (18.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (6.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (1.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 157ms (View: 5, DB: 111) | 200 OK [http://localhost/search?word=legacy&commit=Search]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-17 00:14:28) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"legacy"}
+  [4;36;1mBookLine Load (77.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (line like '%legacy%') [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7 and source = 1) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (13.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 665 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (5.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 667 and source = 4) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Rendered search/_context (0.0ms)
+Completed in 140ms (View: 13, DB: 98) | 200 OK [http://localhost/search?word=legacy&commit=Search]
