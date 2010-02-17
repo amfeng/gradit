@@ -6,7 +6,18 @@ class BookController < ApplicationController
 #      puts params[:book][:content]
 #	  puts "\n\n\n"
 	  book.save
-	  content = params[:book][:content].split("\n")
+      text = params[:book][:content]
+      file = params[:textfile]
+      content = text.empty? ? File.open(file) : text
+      if content.is_a?(File)
+        tmp = []
+        while(line = content.gets)
+          tmp << line
+        end
+        content = tmp
+      else
+        content = content.split("\n")
+      end
       num = 0
       for line in content
         a = BookLine.new(:line=>line,:linenum=>num)
