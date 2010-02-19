@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100212233805) do
+ActiveRecord::Schema.define(:version => 20100219183323) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(:version => 20100212233805) do
   create_table "words", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "words_wordlists", :force => true do |t|
+    t.integer "word_id"
+    t.integer "wordlist_id"
   end
 
 end

@@ -6733,3 +6733,1218 @@ Processing SearchController#context (for 127.0.0.1 at 2010-02-17 10:16:07) [GET]
 Rendering template within layouts/application
 Rendering search/context
 Completed in 47ms (View: 1, DB: 41) | 200 OK [http://localhost/search?word=adultry&commit=Search]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-02-18 09:31:51) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 165ms (View: 158, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SearchController#context (for 127.0.0.1 at 2010-02-18 09:31:56) [GET]
+  Parameters: {"commit"=>"Search", "word"=>"world"}
+  [4;36;1mBookLine Load (346.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (line like '%world%') [0m
+  [4;35;1mBookLine Load (0.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 265 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 267 and source = 1) LIMIT 1[0m
+  [4;35;1mBook Load (0.7ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 501 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 503 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 577 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 579 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 673 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 675 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1004 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1006 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1158 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1160 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1300 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1302 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1345 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1347 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1392 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1394 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1560 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1562 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1578 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1580 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1647 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1649 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1919 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1921 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1921 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1923 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2145 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2147 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2507 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2509 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2531 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2533 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2582 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2584 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2654 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2656 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2807 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2809 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2883 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2885 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (0.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2975 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2977 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (0.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3000 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3002 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3009 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (0.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3011 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3062 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (0.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3064 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3088 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3090 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3138 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3140 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3160 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3162 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3168 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3170 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3220 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3222 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3263 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3265 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3564 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3566 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3643 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3645 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3720 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3722 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3722 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3724 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3756 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3758 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3970 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3972 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3993 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3995 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4216 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4218 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4245 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4247 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4617 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4619 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4634 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4636 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4686 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4688 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4744 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4746 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5070 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5072 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5091 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5093 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5199 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5201 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5273 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5275 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5306 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5308 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5330 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5332 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5331 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5333 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5416 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5418 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5419 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5421 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5440 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5442 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5451 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5453 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5883 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5885 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5984 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5986 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6041 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6043 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6299 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6301 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6466 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6468 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6479 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6481 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6548 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6550 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6558 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6560 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6594 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6596 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6606 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6608 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6770 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6772 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6803 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6805 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6864 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6866 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (1.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6876 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6878 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6936 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6938 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7139 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7141 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7289 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (1.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7291 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7389 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7391 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (1.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7394 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7396 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7456 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7458 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7521 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7523 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7581 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7583 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7624 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7626 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7641 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7643 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7936 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7938 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7944 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7946 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7999 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8001 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8020 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8022 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8310 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8312 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8415 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8417 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8437 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8439 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8477 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8479 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8556 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8558 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8577 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8579 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8604 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8606 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8618 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8620 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8681 and source = 1) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8683 and source = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;35;1mBookLine Load (2.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8693 and source = 1) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8695 and source = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 1) [0m
+  [4;36;1mBookLine Load (2.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 167 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 169 and source = 4) LIMIT 1[0m
+  [4;36;1mBook Load (0.2ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (2.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 463 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 465 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (2.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 508 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 510 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (2.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 735 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 737 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (2.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1093 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1095 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (2.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1213 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (2.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1215 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1934 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (2.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1936 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2382 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (7.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2384 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2461 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2463 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2479 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2481 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2583 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2585 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2741 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2743 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2767 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2769 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2807 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2809 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3006 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3008 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3294 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3296 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3644 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3646 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3732 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3734 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3936 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3938 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5436 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5438 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5495 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5497 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5578 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5580 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5589 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5591 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5630 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5632 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5709 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5711 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5758 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5760 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5792 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5794 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (3.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5838 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5840 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (3.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6229 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6231 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6481 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6483 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6626 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (3.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6628 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6692 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (3.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6694 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7434 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7436 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7583 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7585 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7658 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7660 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7664 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7666 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7681 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7683 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7719 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7721 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7823 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7825 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7885 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7887 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8203 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8205 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8340 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8342 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8589 and source = 4) LIMIT 1[0m
+  [4;35;1mBookLine Load (4.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8591 and source = 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;35;1mBookLine Load (4.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8623 and source = 4) LIMIT 1[0m
+  [4;36;1mBookLine Load (4.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8625 and source = 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 4) [0m
+  [4;36;1mBookLine Load (4.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 361 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (8.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 363 and source = 5) LIMIT 1[0m
+  [4;36;1mBook Load (0.2ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (9.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 413 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (8.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 415 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (9.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1151 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (9.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1153 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (9.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1498 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (9.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1500 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (9.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1591 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (9.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1593 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (9.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1866 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (9.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1868 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (9.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1921 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (9.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1923 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (10.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2673 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (10.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2675 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (9.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2753 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (10.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2755 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (10.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2867 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (10.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2869 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (10.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2894 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (10.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2896 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (10.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3164 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (10.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3166 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (10.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3285 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (10.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3287 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (10.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3482 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3484 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (11.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3709 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (10.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3711 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (11.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4237 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4239 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (10.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4487 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (11.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4489 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (11.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4626 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4628 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (11.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4862 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (11.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4864 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (12.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5140 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5142 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (11.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5350 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (12.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5352 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (11.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5569 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5571 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (11.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5713 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (11.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5715 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (12.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5901 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5903 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (11.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5969 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (11.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5971 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (11.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6217 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (11.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6219 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (11.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6310 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (12.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6312 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (11.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6549 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (12.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6551 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (12.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6673 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (11.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6675 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (12.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6768 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (12.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6770 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (12.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7425 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (12.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7427 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (12.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7446 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (12.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7448 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (12.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7841 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (12.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7843 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (12.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7990 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (12.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7992 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (12.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8246 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (13.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8248 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (13.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8508 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (12.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8510 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (13.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8870 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (13.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8872 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (14.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9141 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (14.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9143 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (14.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9453 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (13.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9455 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (13.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9768 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (13.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9770 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (13.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9813 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (13.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9815 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (14.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10087 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (13.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10089 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (14.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10151 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (13.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10153 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (13.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10238 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (13.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10240 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (14.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10831 and source = 5) LIMIT 1[0m
+  [4;35;1mBookLine Load (14.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10833 and source = 5) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;35;1mBookLine Load (14.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 11589 and source = 5) LIMIT 1[0m
+  [4;36;1mBookLine Load (14.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 11591 and source = 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+  [4;36;1mBookLine Load (15.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 101 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (15.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 103 and source = 7) LIMIT 1[0m
+  [4;36;1mBook Load (0.2ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 288 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (15.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 290 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 289 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 291 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 377 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (15.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 379 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 636 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (15.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 638 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 713 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 715 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 774 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 776 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 786 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 788 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 988 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 990 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1023 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1025 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1049 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1051 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1056 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1058 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1450 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1452 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1483 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1485 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1502 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1504 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1508 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1510 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1638 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1640 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1699 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1701 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1872 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1874 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1956 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1958 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (16.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2023 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2025 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2045 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2047 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2048 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (16.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2050 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2080 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2082 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2099 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2101 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (16.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2100 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2102 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (18.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2200 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2202 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2201 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (16.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2203 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2240 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2242 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2328 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2330 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2364 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2366 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2419 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2421 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2484 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2486 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2524 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2526 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2580 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2582 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2657 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2659 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2820 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2822 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2823 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2825 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2910 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2912 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2943 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2945 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2975 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2977 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3008 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3010 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3082 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3084 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3100 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3102 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3114 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3116 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (18.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3233 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3235 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3367 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3369 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3390 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3392 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3459 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3461 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (18.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3620 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3622 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3672 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3674 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (18.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3678 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (17.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3680 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (17.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 3909 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (18.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 3911 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (17.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4074 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (18.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4076 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (18.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4162 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (17.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4164 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (18.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4264 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (18.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4266 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (18.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4269 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (18.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4271 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4425 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4427 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (19.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4758 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4760 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4811 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (18.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4813 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (18.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 4814 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (18.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 4816 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (18.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5053 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5055 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (19.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5727 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (18.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5729 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 5864 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (18.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 5866 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (18.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6117 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6119 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6239 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (18.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6241 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (19.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6256 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (18.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6258 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6281 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6283 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (18.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6302 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6304 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 6992 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 6994 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (19.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7228 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7230 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7266 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7268 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (19.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7285 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7287 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (25.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7461 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7463 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (19.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7480 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7482 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 7486 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (19.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 7488 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8091 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8093 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (19.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8145 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8147 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8256 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (19.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8258 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8472 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8474 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8697 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8699 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8714 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8716 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8715 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8717 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8752 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8754 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8855 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8857 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (22.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8894 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8896 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8903 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8905 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (21.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8918 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (21.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8920 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (21.1ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8940 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8942 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8959 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8961 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 8962 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 8964 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9011 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.3ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9013 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9068 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.7ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9070 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9106 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9108 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (21.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9209 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9211 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9219 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9221 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9364 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.6ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9366 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (21.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9485 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9487 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.5ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9576 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9578 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (20.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9797 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (20.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9799 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (20.9ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9963 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (20.9ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9965 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (22.2ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 9976 and source = 7) LIMIT 1[0m
+  [4;36;1mBookLine Load (21.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 9978 and source = 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;36;1mBookLine Load (21.0ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 10022 and source = 7) LIMIT 1[0m
+  [4;35;1mBookLine Load (21.0ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 10024 and source = 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 7) [0m
+  [4;35;1mBookLine Load (21.1ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 707 and source = 24) LIMIT 1[0m
+  [4;36;1mBookLine Load (21.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 709 and source = 24) LIMIT 1[0m
+  [4;35;1mBook Load (0.3ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+  [4;36;1mBookLine Load (21.6ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 882 and source = 24) LIMIT 1[0m
+  [4;35;1mBookLine Load (21.8ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 884 and source = 24) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+  [4;35;1mBookLine Load (21.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1379 and source = 24) LIMIT 1[0m
+  [4;36;1mBookLine Load (22.2ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1381 and source = 24) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+  [4;36;1mBookLine Load (21.8ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1382 and source = 24) LIMIT 1[0m
+  [4;35;1mBookLine Load (21.5ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1384 and source = 24) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+  [4;35;1mBookLine Load (22.4ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 1828 and source = 24) LIMIT 1[0m
+  [4;36;1mBookLine Load (22.4ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 1830 and source = 24) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+  [4;36;1mBookLine Load (22.7ms)[0m   [0;1mSELECT * FROM "book_lines" WHERE (linenum = 2737 and source = 24) LIMIT 1[0m
+  [4;35;1mBookLine Load (22.3ms)[0m   [0mSELECT * FROM "book_lines" WHERE (linenum = 2739 and source = 24) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering search/context
+Rendered search/_context (2.7ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.3ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (44.9ms)
+Rendered search/_context (0.7ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Rendered search/_context (0.1ms)
+Completed in 6878ms (View: 221, DB: 6089) | 200 OK [http://localhost/search?word=world&commit=Search]
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100212183852)
+Migrating to CreateWords (20100212184717)
+Migrating to CreateWordlists (20100212185014)
+Migrating to CreateContexts (20100212192414)
+Migrating to CreateBooks (20100212214316)
+Migrating to AddBookLines (20100212233555)
+Migrating to AddBookLinenums (20100212233805)
+Migrating to CreateWordWordlistsJoinTable (20100219183323)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "words_wordlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "word_id" integer, "wordlist_id" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100219183323')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("book_lines")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("books")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("contexts")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("wordlists")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("words")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("words_wordlists")[0m
