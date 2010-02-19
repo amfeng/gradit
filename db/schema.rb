@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100219183323) do
+ActiveRecord::Schema.define(:version => 20100219191933) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(:version => 20100219183323) do
     t.string   "word"
     t.text     "before"
     t.text     "after"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_players", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

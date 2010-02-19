@@ -9,7 +9,7 @@
 		<% end %>
 	</div>
 	<div id="play">
-		Or give yourself a quick vocab review? You can create your own or choose from multiple premade wordlists.
+		Or give yourself a quick vocab review? You can <%= link_to "create your own", new_wordlist_path %> or choose from multiple premade wordlists.
 		<br>
 		<% for a in @wordlists %>
 			<%= link_to a.name, a %>
