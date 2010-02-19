@@ -1,0 +1,18 @@
+<p>
+  <b>References:</b>
+  <%=h @game.references %>
+</p>
+
+<p>
+  <b>Boolean:</b>
+  <%=h @game.boolean %>
+</p>
+
+<p>
+  <b>Integer:</b>
+  <%=h @game.integer %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

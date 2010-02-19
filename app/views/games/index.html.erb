@@ -1,0 +1,24 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>References</th>
+    <th>Boolean</th>
+    <th>Integer</th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%=h game.references %></td>
+    <td><%=h game.boolean %></td>
+    <td><%=h game.integer %></td>
+    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New game', new_game_path %>
