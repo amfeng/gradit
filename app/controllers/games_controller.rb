@@ -22,7 +22,8 @@ class GamesController < ApplicationController
   end
   
   def game_entry
-  	word = params[:id]
+  	word = params[:current_word]
+  	
   	contexts = Search.search(word) #get context
   	a = contexts.first
   	if(!a)
@@ -51,8 +52,12 @@ class GamesController < ApplicationController
   	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
   	
   	word = game.wordlist.words.first
-  	puts "You suck"
-  	redirect_to(:controller=> :games, :action=> :game_entry, :id => word)
+  	if(word)
+  		redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id, :current_word => word)
+  		return
+  	end
+  	flash[:notice] = "Wordlist has no words!"
+  	redirect_to :back
   end
   
   def game_page
