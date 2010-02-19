@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100219202946) do
+ActiveRecord::Schema.define(:version => 20100219204002) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -77,16 +77,16 @@ ActiveRecord::Schema.define(:version => 20100219202946) do
     t.datetime "updated_at"
   end
 
+  create_table "wordlists_words", :force => true do |t|
+    t.integer "word_id"
+    t.integer "wordlist_id"
+  end
+
   create_table "words", :force => true do |t|
     t.string   "word"
     t.text     "definition"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "words_wordlists", :force => true do |t|
-    t.integer "word_id"
-    t.integer "wordlist_id"
   end
 
 end
