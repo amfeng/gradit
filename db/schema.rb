@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100219204600) do
+ActiveRecord::Schema.define(:version => 20100219235039) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20100219204600) do
     t.integer  "winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "currentword"
   end
 
   create_table "searches", :force => true do |t|
