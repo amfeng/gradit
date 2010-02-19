@@ -1,9 +1,9 @@
 class CreateGamePlayers < ActiveRecord::Migration
   def self.up
     create_table :game_players do |t|
-      t.user :references
-      t.game :references
-      t.score :integer
+      t.references :user
+      t.references :game
+      t.integer :score
 
       t.timestamps
     end

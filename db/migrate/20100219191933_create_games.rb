@@ -1,9 +1,9 @@
 class CreateGames < ActiveRecord::Migration
   def self.up
     create_table :games do |t|
-      t.wordlist :references
-      t.finished :boolean
-      t.winner_id :integer
+      t.references :wordlist
+      t.boolean :finished
+      t.integer :winner_id
 
       t.timestamps
     end
