@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(:version => 20100219183323) do
   create_table "book_lines", :force => true do |t|
     t.text     "line"
     t.integer  "source"
+    t.integer  "linenum"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "linenum"
   end
 
   create_table "books", :force => true do |t|
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20100219183323) do
   end
 
   create_table "contexts", :force => true do |t|
+    t.string   "word"
+    t.text     "before"
+    t.text     "after"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,11 +50,15 @@ ActiveRecord::Schema.define(:version => 20100219183323) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "wordlists", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "words", :force => true do |t|
+    t.string   "word"
+    t.text     "definition"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

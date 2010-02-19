@@ -8,4 +8,11 @@
 		  <%= submit_tag("Search") %>
 		<% end %>
 	</div>
+	<div id="play">
+		Or give yourself a quick vocab review? You can create your own or choose from multiple premade wordlists.
+		<br>
+		<% for a in @wordlists %>
+			<%= link_to a.name, a %>
+		<% end %>
+	</div>
 </div>

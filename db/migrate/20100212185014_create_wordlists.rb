@@ -1,7 +1,8 @@
 class CreateWordlists < ActiveRecord::Migration
   def self.up
     create_table :wordlists do |t|
-      t.name :string
+      t.string :name
+      t.text :description
 
       t.timestamps
     end
