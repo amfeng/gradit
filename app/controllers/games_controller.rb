@@ -42,6 +42,7 @@ class GamesController < ApplicationController
       add << w.word
     end
     @multipleChoice += Array.new(add)
+    @multipleChoice = @multipleChoice.sort_by{ rand }
     puts @multipleChoice
     
     word = game.wordlist.words
