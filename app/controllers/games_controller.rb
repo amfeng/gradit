@@ -23,23 +23,31 @@ class GamesController < ApplicationController
   
   def game_entry
   	word = params[:current_word]
-  	
-  	contexts = Search.search(word) #get context
+  	@disp = ''
+    game = Game.find(params[:id])
+
+    contexts = Search.search(word) #get context
   	a = contexts.first
   	if(!a)
-  		flash[:notice] = "Sorry, word not found in context"
-  		return
-  	end
-  	@para = a[0] << a[1] << a[2]
-  	@para.gsub(word, '___________') #underline the missing word
-  	
-  	@words = Array.new
-  	#randomize 4 other vocabulary words
-  	for i in 1..4
-  		@words << Word.find(i)
+      @para = "Sorry, word not found in context"
+    else
+      @para = a[0] << a[1] << a[2]
+      @para.gsub!(word, '___________') #underline the missing word
   	end
 
-  	
+  	@multipleChoice = Array.new([word])
+  	#randomize 4 other vocabulary words
+    add = Array.new()
+  	for w in Word.all(:order=>'RANDOM()', :limit=>3)
+      add << w.word
+    end
+    @multipleChoice += Array.new(add)
+    puts @multipleChoice
+    
+    word = game.wordlist.words
+    nextword = word[rand(word.length)].word
+    nexturl = url_for :controller => :games, :action => :game_entry, :id => game.id, :current_word => nextword
+    @disp = nexturl
   end
 
   def new_game
@@ -60,6 +68,9 @@ class GamesController < ApplicationController
   	redirect_to :back
   end
   
+  def next_word
+  end
+
   def game_page
   end
   	
