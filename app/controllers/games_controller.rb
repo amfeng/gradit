@@ -53,7 +53,7 @@ class GamesController < ApplicationController
   	
   	word = game.wordlist.words.first
   	if(word)
-  		redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id, :current_word => word)
+  		redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id, :current_word => word.word)
   		return
   	end
   	flash[:notice] = "Wordlist has no words!"
