@@ -20,7 +20,39 @@ class GamesController < ApplicationController
       format.xml  { render :xml => @game }
     end
   end
+  
+  def game_entry(word)
+  	#word = params[:current_word]
+  	
+  	contexts = Search.search(word) #get context
+  	a = contexts.first
+  	@para = a[0] << a[1] << a[2]
+  	@para.gsub(word, '___________') #underline the missing word
+  	
+  	@words = Array.new
+  	#randomize 4 other vocabulary words
+  	for i in 1..4
+  		@words << Word.find(:random)
+  	end
+  	
+  end
 
+  def new_game
+  	user_id = 0
+  	user_id = current_user.id if(current_user)
+  	
+  	game = Game.new(:wordlist_id => params[:wordlist_id], :finished => false, :winner_id => nil)
+  	game.save
+  	
+  	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
+  	
+  	word = game.wordlist.words.first
+  	game_entry(word)
+  end
+  
+  def game_page
+  end
+  	
   # GET /games/new
   # GET /games/new.xml
   def new
