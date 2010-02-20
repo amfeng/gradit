@@ -24,7 +24,9 @@ class GamesController < ApplicationController
   def game_entry
     game = Game.find(params[:id])
   	word = game.currentword
-  	@disp = ''
+    definition = Word.find_by_word(word).definition
+    puts definition
+    @disp = ''
     @para = false
     
     contexts = Search.search(word) #get context
