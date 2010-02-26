@@ -20,7 +20,24 @@ class GamesController < ApplicationController
       format.xml  { render :xml => @game }
     end
   end
-  
+
+  def ans
+    game = Game.find(params[:id])
+    if game.answer_choice(params[:answer])
+      wordlist = game.wordlist.words
+      game.currentword = wordlist[rand(wordlist.length)].word
+      game.save
+      #redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
+      render :update do |page|
+        page.replace_html 'ans', "You are correct!" 
+      end
+    else
+      render :update do |page|
+        page.replace_html 'ans', "You fail." 
+      end
+    end
+  end
+
   def game_entry
     game = Game.find(params[:id])
   	word = game.currentword
@@ -28,7 +45,6 @@ class GamesController < ApplicationController
     puts definition
     @disp = ''
     @para = false
-    
     contexts = Search.search(word) #get context
   	con = contexts[rand(contexts.length)]
   	if(con)
@@ -43,22 +59,19 @@ class GamesController < ApplicationController
       end
       @multipleChoice += Array.new(add)
       @multipleChoice = @multipleChoice.sort_by{ rand }
-      
-  	else
+    else
       puts "NO CONTEXT!"
+      wordlist = game.wordlist.words
+      game.currentword = wordlist[rand(wordlist.length)].word
+      game.save
       redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
     end    
-    word = game.wordlist.words
-    #!!!NO TWO USERS WILL SEE THE SAME WORD
-    #Move the game.currentword update to the method used to answer questions!
-    game.currentword = word[rand(word.length)].word
-    game.save
     nexturl = url_for :controller => :games, :action => :game_entry, :id => game.id
     @disp = nexturl
   end
 
   def new_game
-  	user_id = 0
+    user_id = 0
   	user_id = current_user.id if(current_user)
   	
   	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
