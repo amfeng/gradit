@@ -1,10 +1,10 @@
 <% render :partial => "answer" %>
 <% if @para %>
 <%= @para %><p>
-A) <%= link_to @multipleChoice[0], :answer=>@multipleChoice[0], :id=>params[:id] %><br />
-B) <%= link_to @multipleChoice[1], :answer=>@multipleChoice[1], :id=>params[:id] %><br />
-C) <%= link_to @multipleChoice[2], :answer=>@multipleChoice[2], :id=>params[:id] %><br />
-D) <%= link_to @multipleChoice[3], :answer=>@multipleChoice[3], :id=>params[:id] %><br />
+A) <%= link_to @multipleChoice[0], :controller => :games, :action => :ans, :answer=>@multipleChoice[0], :id=>params[:id] %><br />
+B) <%= link_to @multipleChoice[1], :controller => :games, :action => :ans, :answer=>@multipleChoice[1], :id=>params[:id] %><br />
+C) <%= link_to @multipleChoice[2], :controller => :games, :action => :ans, :answer=>@multipleChoice[2], :id=>params[:id] %><br />
+D) <%= link_to @multipleChoice[3], :controller => :games, :action => :ans, :answer=>@multipleChoice[3], :id=>params[:id] %><br />
 </p>
 <% else %>
 <p>
