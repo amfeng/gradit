@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100219235039) do
+ActiveRecord::Schema.define(:version => 20100305195411) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(:version => 20100219235039) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "currentword"
+  end
+
+  create_table "multiple_choices", :force => true do |t|
+    t.string   "choice1"
+    t.string   "choice2"
+    t.string   "choice3"
+    t.string   "choice4"
+    t.integer  "word_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "searches", :force => true do |t|
