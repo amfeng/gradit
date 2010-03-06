@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100305195411) do
+ActiveRecord::Schema.define(:version => 20100305234733) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(:version => 20100305195411) do
     t.string   "currentword"
   end
 
+  create_table "intersects", :force => true do |t|
+    t.integer  "seta"
+    t.integer  "setb"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "multiple_choices", :force => true do |t|
     t.string   "choice1"
     t.string   "choice2"
@@ -58,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20100305195411) do
     t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_intersection"
+    t.integer  "intersection_id"
   end
 
   create_table "searches", :force => true do |t|
