@@ -51,14 +51,15 @@ class GamesController < ApplicationController
       @para = con[0] << con[1] << con[2]
       @para.gsub!(word, '___________') #underline the missing word
       
-      @multipleChoice = Array.new([word])
-      #randomize 4 other vocabulary words
-      add = Array.new()
-      for w in Word.all(:order=>'RANDOM()', :limit=>3)
-        add << w.word
-      end
-      @multipleChoice += Array.new(add)
-      @multipleChoice = @multipleChoice.sort_by{ rand }
+	  @multipleChoice = word.choices
+      #@multipleChoice = Array.new([word])
+      ##randomize 4 other vocabulary words
+      #add = Array.new()
+      #for w in Word.all(:order=>'RANDOM()', :limit=>3)
+      #  add << w.word
+      #end
+      #@multipleChoice += Array.new(add)
+      #@multipleChoice = @multipleChoice.sort_by{ rand }
     else
       puts "NO CONTEXT!"
       wordlist = game.wordlist.words

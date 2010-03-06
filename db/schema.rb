@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100305234733) do
+ActiveRecord::Schema.define(:version => 20100306033844) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20100305234733) do
     t.datetime "updated_at"
     t.boolean  "is_intersection"
     t.integer  "intersection_id"
+    t.integer  "score"
   end
 
   create_table "searches", :force => true do |t|
@@ -107,6 +108,14 @@ ActiveRecord::Schema.define(:version => 20100305234733) do
     t.text     "definition"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "wrong_choices", :force => true do |t|
+    t.integer  "wrong_choice_id"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "word_id"
   end
 
 end
