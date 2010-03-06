@@ -3,8 +3,8 @@ class Word < ActiveRecord::Base
   has_many :multiple_choices
   #attr_accessor :multiple_choices
   def choices
-    mc = multiple_choices
+    mc = self.multiple_choices
     mc = mc[rand(mc.length)]
-    mc = Intersect.find(mc.intersection_id).generateChoices if mc.is_intersection
+    mc = mc.is_intersection ? Intersect.find(mc.intersection_id).generateChoices : mc
   end    
 end
