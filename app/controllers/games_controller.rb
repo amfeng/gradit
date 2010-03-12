@@ -40,26 +40,16 @@ class GamesController < ApplicationController
 
   def game_entry
     game = Game.find(params[:id])
-  	word = game.currentword
-    definition = Word.find_by_word(word).definition
+  	word = Word.find_by_word(game.currentword)
+    definition = word.definition
     puts definition
-    @disp = ''
     @para = false
-    contexts = Search.search(word) #get context
+    contexts = Search.search(word.word) #get context
   	con = contexts[rand(contexts.length)]
   	if(con)
       @para = con[0] << con[1] << con[2]
-      @para.gsub!(word, '___________') #underline the missing word
-      
-	  @multipleChoice = word.choices
-      #@multipleChoice = Array.new([word])
-      ##randomize 4 other vocabulary words
-      #add = Array.new()
-      #for w in Word.all(:order=>'RANDOM()', :limit=>3)
-      #  add << w.word
-      #end
-      #@multipleChoice += Array.new(add)
-      #@multipleChoice = @multipleChoice.sort_by{ rand }
+      @para.gsub!(word.word, '___________') #underline the missing word
+      @multipleChoice = word.choices
     else
       puts "NO CONTEXT!"
       wordlist = game.wordlist.words
