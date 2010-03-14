@@ -16,20 +16,60 @@ html, body {
 	
 }
 
-input{
+
+a { }
+a:visited {  }
+a:hover { }
+
+#everything {
+	float:left;
+	width:880px;
+	margin-top:0px;
+	background: #FFFFFF;
+	min-height: 100%;
+	
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+#inside {
+	padding: 40px;
+}
 
-#everything{
+#shadowleft {
 	float: left;
+	opacity: .2;
+	left: -17px;
+	width:17px;
+	min-height:1px;
+	background-image: url('/images/trans_left1.png');
+	background-position: right;
+	background-repeat: repeat-y;
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
+
+}
+
+#shadowright {
+	float:left;
+	opacity: .2;
+	width:17px;
+	min-height:1px;
+	background-image: url('/images/trans_right1.png');
+	background-position: left;
+	background-repeat: repeat-y;
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
+}
+
+#wrapper {
+	position:relative;
 	margin: auto;
-	margin-top: 15px;
-	padding: 20px;
-	height: 100%;
-	width: 100%;
+	width: 920px;
+	margin-top: 0px;
+	padding-top: 0px;
+	overflow:hidden;
+	min-height: 100%;
 }
 
 /*Layout - Home page*/
@@ -40,12 +80,21 @@ a:hover { color: #fff; background-color:#000; }
 
 }
 #logo{
-	margin: auto;
-	width: 405px;
-	height: 191px;
-	background: url('/images/logo_2.png') no-repeat;
+	float: left;
+	width: 162px;
+	height: 76px;
 }
 
+#login_bar{
+	float:right;
+}
+
+#content{
+	position: relative;
+	clear: both;
+	top: 20px;
+}
+}
 #vocab_searchbox{
 	position: relative;
 	margin: auto;
@@ -84,10 +133,9 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 .context_wrapper{
-	width: 50%;
 	padding: 5px;
 	margin: 10px;
-	background: #ccc;
+	background: #ffffcc;
 	vertical-align: top;
 }
 

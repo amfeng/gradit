@@ -16,8 +16,6 @@ html, body {
 	
 }
 
-input{
-}
 
 a { color: #000; }
 a:visited { color: #666; }
@@ -30,6 +28,54 @@ a:hover { color: #fff; background-color:#000; }
 	padding: 20px;
 	height: 100%;
 	width: 100%;
+}
+
+#shadowleft {
+	float: left;
+	left: -20px;
+	width:20px;
+	min-height:1px;
+	background-image: url('../images/trans_left1.png');
+	background-position: right;
+	background-repeat: repeat-y;
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
+
+}
+
+#shadowright {
+	float:left;
+	width:20px;
+	min-height:1px;
+	background-image: url('../images/trans_right1.png');
+	background-position: left;
+	background-repeat: repeat-y;
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
+}
+
+#wrapper {
+	position:relative;
+	margin: auto;
+	width: 840px;
+	margin-top: 0px;
+	padding-top: 0px;
+	overflow:hidden;
+	min-height: 100%;
+}
+
+#everything {
+	position:relative;
+	margin:auto;
+	width:800px;
+	margin-top:0px;
+	padding-top:0px;
+	float:left;
+	background: #FFFFFF;
+	min-height: 100%;
+	
+	margin-bottom:-9999px;
+	padding-bottom:9999px;
 }
 
 /*Layout - Home page*/
