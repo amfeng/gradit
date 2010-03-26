@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <th>String</th>
+    <th>Title</th>
   </tr>
 
 <% @wordlists.each do |wordlist| %>
   <tr>
-    <td><%=h wordlist.string %></td>
+    <td><%=h wordlist.name %></td>
     <td><%= link_to 'Show', wordlist %></td>
     <td><%= link_to 'Edit', edit_wordlist_path(wordlist) %></td>
     <td><%= link_to 'Destroy', wordlist, :confirm => 'Are you sure?', :method => :delete %></td>
