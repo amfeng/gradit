@@ -1,19 +1,30 @@
-<% render :partial => "answer" %>
-<% if @para %>
-<%= @para %><p>
-A) <%= link_to_remote @multipleChoice[0], :controller => :games, :action => :ans, :answer=>@multipleChoice[0], :id=>params[:id] %><br />
-B) <%= link_to_remote @multipleChoice[1], :controller => :games, :action => :ans, :answer=>@multipleChoice[1], :id=>params[:id] %><br />
-C) <%= link_to_remote @multipleChoice[2], :controller => :games, :action => :ans, :answer=>@multipleChoice[2], :id=>params[:id] %><br />
-D) <%= link_to_remote @multipleChoice[3], :controller => :games, :action => :ans, :answer=>@multipleChoice[3], :id=>params[:id] %><br />
-</p>
-<% else %>
-<p>
-Sorry, no context was found.
-</p>
-<% end %>
-<p>
-<a href="<%= @disp %>"> Next Word >> </a>
-</p>
+<div id="ans_result">
+</div>
+<div id="game_entry">
+	<div id="game_entry_queston">
+		<% if @para %>
+		From <%= @para_book %><br>
+		<%= @para %>
+	</div>
+	<div id="game_entry_mc">
+		A) <%= link_to_remote @multipleChoice[0], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[0], :id=>params[:id]} %>
+		<br />
+		B) <%= link_to_remote @multipleChoice[1], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[1], :id=>params[:id]} %>
+		<br />
+		C) <%= link_to_remote @multipleChoice[2], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[2], :id=>params[:id]} %>
+		<br />
+		D) <%= link_to_remote @multipleChoice[3], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[3], :id=>params[:id]} %>
+		<br />
+	</div>
+	<% else %>
+	<p>
+	Sorry, no context was found.
+	</p>
+	<% end %>
+	<p>
+	<a href="<%= @disp %>"> Next Word >> </a>
+	</p>
+</div>
 
 
 

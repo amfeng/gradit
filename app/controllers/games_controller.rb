@@ -22,18 +22,19 @@ class GamesController < ApplicationController
   end
 
   def ans
+  	puts "PRESSED ANSWER"
     game = Game.find(params[:id])
     if game.answer_choice(params[:answer])
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
       game.save
-      render :text => "right"
+      render :text => "You are correct!"
       #redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
       #render :update do |page|
       #  page.replace_html 'ans', "You are correct!"
       #end
     else
-    	render :text => "wrong"
+    	render :text => "You fail."
       #render :update do |page|
       #  page.replace_html 'ans', "You fail." 
       #end
@@ -50,6 +51,7 @@ class GamesController < ApplicationController
     contexts = Search.search(word.word) #get context
   	con = contexts[rand(contexts.length)]
   	if(con)
+  	  @para_book = con[3];
       @para = con[0] << con[1] << con[2]
       @para.gsub!(word.word, '___________') #underline the missing word
       @multipleChoice = word.choices
