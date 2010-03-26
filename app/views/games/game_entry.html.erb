@@ -1,5 +1,6 @@
 <div id="player_panel">
-	Player Score: <span id="player_score"><%= @player.score %></span>
+	Player Score: <span id="player_score"><%= @player.score %></span><br>
+	<%= link_to "Quit Game", :controller => :games, :action => :quit_game, :game_id => @game_id, :id => params[:id] %>
 </div>
 <div id="ans_result">
 </div>

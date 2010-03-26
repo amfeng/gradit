@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
   has_many :game_players
+  has_many :games, :through => :game_players
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40

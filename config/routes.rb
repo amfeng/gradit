@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users
   map.search '/search', :controller => 'search', :action => 'context'
+  map.search '/dashboard', :controller => 'dashboard'
 
   map.resource :session
 
