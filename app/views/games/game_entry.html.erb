@@ -1,3 +1,6 @@
+<div id="player_panel">
+	Player Score: <span id="player_score"><%= @player.score %></span>
+</div>
 <div id="ans_result">
 </div>
 <div id="game_entry">
@@ -7,13 +10,13 @@
 		<%= @para %>
 	</div>
 	<div id="game_entry_mc">
-		A) <%= link_to_remote @multipleChoice[0], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[0], :id=>params[:id]} %>
+		A) <%= link_to_remote @multipleChoice[0], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[0], :id=>params[:id]} %>
 		<br />
-		B) <%= link_to_remote @multipleChoice[1], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[1], :id=>params[:id]} %>
+		B) <%= link_to_remote @multipleChoice[1], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[1], :id=>params[:id]} %>
 		<br />
-		C) <%= link_to_remote @multipleChoice[2], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[2], :id=>params[:id]} %>
+		C) <%= link_to_remote @multipleChoice[2], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[2], :id=>params[:id]} %>
 		<br />
-		D) <%= link_to_remote @multipleChoice[3], :update => "ans_result", :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[3], :id=>params[:id]} %>
+		D) <%= link_to_remote @multipleChoice[3], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[3], :id=>params[:id]} %>
 		<br />
 	</div>
 	<% else %>

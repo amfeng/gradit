@@ -15,7 +15,12 @@
 				<div id="header_wrapper">
 					<div id="logo"></div>
 					<div id="user_bar">
-						Welcome, Guest!
+						Welcome, 
+						<% if logged_in? %>
+							<%= current_user.login %>
+						<% else %>
+							Guest!
+						<% end %>
 					</div>
 				</div>
 			</div>

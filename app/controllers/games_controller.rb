@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+	
+  before_filter :login_required
   # GET /games
   # GET /games.xml
   def index
@@ -22,29 +24,45 @@ class GamesController < ApplicationController
   end
 
   def ans
-  	puts "PRESSED ANSWER"
-    game = Game.find(params[:id])
+  	user_id = curr_user_id
+  	game = Game.find(params[:id])
+  	
+  	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+  	
+    
     if game.answer_choice(params[:answer])
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
       game.save
-      render :text => "You are correct!"
-      #redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
-      #render :update do |page|
-      #  page.replace_html 'ans', "You are correct!"
-      #end
+      @player.score += 10
+      @player.save
+      #render :text => "You are correct!"
+      render :update do |page|
+    	page[:ans_result].replace_html "right!"
+     	page[:player_score].replace_html "#{@player.score}"
+     	page[:player_score].highlight
+  	  end
     else
-    	render :text => "You fail."
-      #render :update do |page|
-      #  page.replace_html 'ans', "You fail." 
-      #end
+    	@player.score -= 5
+    	@player.save
+    	#render :text => "You fail."
+    	render :update do |page|
+	    	page[:ans_result].replace_html "wrong!"
+	    	page[:player_score].replace_html "#{@player.score}"
+	    	page[:player_score].highlight
+  	    end
     end
   end
   
 
   def game_entry
-    game = Game.find(params[:id])
+  	user_id = curr_user_id
+  	
+  	game = Game.find(params[:id])
   	word = Word.find_by_word(game.currentword)
+  	
+  	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+    
     definition = word.definition
     puts definition
     @para = false
@@ -67,14 +85,13 @@ class GamesController < ApplicationController
   end
 
   def new_game
-    user_id = 0
-  	user_id = current_user.id if(current_user)
+    user_id = curr_user_id
   	
   	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
   	game.save
   	
   	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
-  	
+  	player.save
   	word = game.wordlist.words
     word = word[rand(word.length)]
   	if(word)
@@ -153,5 +170,12 @@ class GamesController < ApplicationController
       format.html { redirect_to(games_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def curr_user_id
+  	user_id = 0
+  	user_id = current_user.id if(current_user)
+  	
+  	return user_id
   end
 end
