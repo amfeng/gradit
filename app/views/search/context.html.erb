@@ -1,8 +1,8 @@
 <div id="searchword">
-Your search query was: <%= @query %>
+	Your context query <b><%= @query %></b> returned <%= @contexts_size %> results. <%= link_to "Try another word?", :controller => :home %>
 </div>
 <div id="contexts">
-<% for c in @contexts%>
-	<%= render :partial => "context", :locals => {:c => c} %>
-<% end %>
+	<% for c in @contexts%>
+		<%= render :partial => "context", :locals => {:c => c} %>
+	<% end %>
 </div>

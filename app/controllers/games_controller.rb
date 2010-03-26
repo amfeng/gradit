@@ -27,16 +27,19 @@ class GamesController < ApplicationController
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
       game.save
+      render :text => "right"
       #redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
-      render :update do |page|
-        page.replace_html 'ans', "You are correct!" 
-      end
+      #render :update do |page|
+      #  page.replace_html 'ans', "You are correct!"
+      #end
     else
-      render :update do |page|
-        page.replace_html 'ans', "You fail." 
-      end
+    	render :text => "wrong"
+      #render :update do |page|
+      #  page.replace_html 'ans', "You fail." 
+      #end
     end
   end
+  
 
   def game_entry
     game = Game.find(params[:id])

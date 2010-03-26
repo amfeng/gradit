@@ -126,18 +126,7 @@ a:hover { }
 	width: 500px;
 }
 
-/*Layout - Context */
 
-.context_wrapper_title{
-	font-weight: bold;
-}
-
-.context_wrapper{
-	padding: 5px;
-	margin: 10px;
-	background: #ffffcc;
-	vertical-align: top;
-}
 
 /*Error*/
 
