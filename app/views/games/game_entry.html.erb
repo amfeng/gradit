@@ -1,29 +1,34 @@
-<div id="player_panel">
-	Player Score: <span id="player_score"><%= @player.score %></span><br>
-	<%= link_to "Quit Game", :controller => :games, :action => :quit_game, :game_id => @game_id, :id => params[:id] %>
-</div>
 <div id="ans_result">
 </div>
-<div id="game_entry">
-	<div id="game_entry_queston">
-		<% if @para %>
-		From <%= @para_book %><br>
-		<%= @para %>
+<div id="player_panel">
+	Player Score: <span id="player_score"><%= @player.score %></span> | <a href="<%= @disp %>"> Next Word >> </a> | 
+	<%= link_to "Quit Game", :controller => :games, :action => :quit_game, :game_id => @game_id, :id => params[:id] %>
+</div>
+<div class="game_entry">
+	<% if @para %>
+		From <u><%= @para_book %></u> -- [ Rating: <span id="mc_rating"><%= @mc.score %></span> / 
+		<span id="mc_voting">
+			<%= link_to_remote "Up vote", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "up", :mc_id => @mc.id }%>
+			 | 
+		 	<%= link_to_remote "Down vote", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "down", :mc_id => @mc.id }%>
+		 
+	 	</span> ]
+	<div class="game_entry_question">
+		"..<%= @para %>.."
 	</div>
-	<div id="game_entry_mc">
-		A) <%= link_to_remote @multipleChoice[0], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[0], :id=>params[:id]} %>
+	<div class="game_entry_mc">
+		A) <%= link_to_remote @mc_array[0], :url => {:controller => :games, :action => :ans, :answer=>@mc_array[0], :id=>params[:id]} %>
 		<br />
-		B) <%= link_to_remote @multipleChoice[1], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[1], :id=>params[:id]} %>
+		B) <%= link_to_remote @mc_array[1], :url => {:controller => :games, :action => :ans, :answer=>@mc_array[1], :id=>params[:id]} %>
 		<br />
-		C) <%= link_to_remote @multipleChoice[2], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[2], :id=>params[:id]} %>
+		C) <%= link_to_remote @mc_array[2], :url => {:controller => :games, :action => :ans, :answer=>@mc_array[2], :id=>params[:id]} %>
 		<br />
-		D) <%= link_to_remote @multipleChoice[3], :url => {:controller => :games, :action => :ans, :answer=>@multipleChoice[3], :id=>params[:id]} %>
+		D) <%= link_to_remote @mc_array[3], :url => {:controller => :games, :action => :ans, :answer=>@mc_array[3], :id=>params[:id]} %>
 		<br />
 	</div>
 	<% else %>
 	Sorry, no context was found.
 	<% end %>
-	<a href="<%= @disp %>"> Next Word >> </a>
 </div>
 
 

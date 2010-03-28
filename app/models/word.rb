@@ -24,11 +24,12 @@ class Word < ActiveRecord::Base
 	  mclist << allwords[counter].word
 	  counter = counter + 1
 	end
-	if (mc.nil? or mc.is_intersection) 
-	  MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 20)
-	end
-	retlist = []
-	retlist << mclist[0] << mclist[1] << mclist[2] << self.word
-	return retlist.sort_by{ rand }
+	#if (mc.nil? or mc.is_intersection) 
+	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)
+	#end
+	#retlist = []
+	#retlist << mclist[0] << mclist[1] << mclist[2] << self.word
+	#return retlist.sort_by{ rand }
+	return mc_new
   end    
 end

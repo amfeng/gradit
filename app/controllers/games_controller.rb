@@ -74,7 +74,8 @@ class GamesController < ApplicationController
   	  @para_book = con[3];
       @para = con[0] << con[1] << con[2]
       @para.gsub!(word.word, '___________') #underline the missing word
-      @multipleChoice = word.choices
+      @mc = word.choices
+      @mc_array = @mc.getChoices
     else
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
@@ -112,13 +113,28 @@ class GamesController < ApplicationController
   	redirect_to :controller => :dashboard
   end
   
+  def vote_mc
+ 	vote = params[:vote] #true for up, false for down
+ 	mc = MultipleChoice.find(params[:mc_id])
+  	puts vote
+  	mc.score = mc.score + 1 if vote == "up"
+  	mc.score = mc.score - 1 if vote == "down"
+  	mc.save
+  	
+	render :update do |page|
+	    page[:mc_voting].replace_html "Your rating for this multiple choice question has been recorded."
+	    page[:mc_rating].replace_html "#{mc.score}"
+	    page[:mc_rating].highlight
+  	end
+  	
+  end
+  
   def next_word
   end
 
   def game_page
   end
 
-  
   def curr_user_id
   	user_id = 0
   	user_id = current_user.id if(current_user)
