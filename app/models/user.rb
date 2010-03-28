@@ -65,14 +65,23 @@ class User < ActiveRecord::Base
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
   end
+  
+  def has_active_game
+  	games = self.games
+  	for g in games
+  		return g if !g.finished
+  	end
+  	return false
+  end
 
   protected
     
 
-    def make_activation_code
+  def make_activation_code
   
       self.activation_code = self.class.make_token
-    end
+  end
+  
 
 
 end

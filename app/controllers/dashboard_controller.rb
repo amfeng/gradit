@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   def index
+  	active = current_user.has_active_game
+	@game_url = url_for :controller => :games, :action => :game_entry, :id => active.id if active
   	@finished_games = current_user.games
   end
   
