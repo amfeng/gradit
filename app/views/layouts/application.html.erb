@@ -13,7 +13,9 @@
 		<div id='everything'>
 			<div id="banner_top">
 				<div id="header_wrapper">
-					<div id="logo"></div>
+					<div id="logo">
+						<%= link_to image_tag('/images/gradit_inside_logo.png'), :controller => :home%>
+					</div>
 					<div id="user_bar">
 						Welcome, 
 						<% if logged_in? %>

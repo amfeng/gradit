@@ -1,3 +1,9 @@
+<div id="vocab_searchbox">
+	<% form_tag('/search', :method => "get") do %>
+		  <%= text_field_tag(:word, "Type in a vocabulary word!", {:size => 25, :class => "search_field"}) %>
+		  <%= submit_tag "", :class => "search_button" %>
+		<% end %>
+</div>
 <div id="searchword">
 	Your context query <b><%= @query %></b> returned <%= @contexts_size %> results. <%= link_to "Try another word?", :controller => :home %>
 </div>

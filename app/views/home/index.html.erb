@@ -1,7 +1,7 @@
 <div id="home_contents">
 	<div id="logo"></div>
 	<div id="vocab_searchbox">
-		<% form_tag(search_path, :method => "get") do %>
+		<% form_tag('/search', :method => "get") do %>
 		  <%= text_field_tag(:word, "Type in a vocabulary word!", {:size => 25, :class => "search_field"}) %>
 		  <%= submit_tag "", :class => "search_button" %>
 		<% end %>

@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :multiple_choices
-
   map.resources :games
 
   map.resources :wordlists
