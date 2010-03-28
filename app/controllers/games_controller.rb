@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 	
   before_filter :login_required
+  before_filter :active_filter, :only => [:new_game]
   # GET /games
   # GET /games.xml
   def index
@@ -104,6 +105,15 @@ class GamesController < ApplicationController
   	end
   	flash[:notice] = "Wordlist has no words!"
   	redirect_to :back
+  end
+  
+  def active_filter
+  	active = current_user.has_active_game
+  	if active
+  		flash[:notice] = "Oops! You already have an active game. Please quit the current game before you try to open a new one!"
+  		redirect_to :back
+  	end
+  	return true
   end
   
   def quit_game
