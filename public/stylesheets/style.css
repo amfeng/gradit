@@ -8,7 +8,6 @@ html, body {
 	
 	font-family: "Trebuchet MS", arial, helvetica, sans-serif;
   	font-size:   13px;
-  	line-height: 15px;
 	
 }
 
@@ -82,11 +81,15 @@ a:hover { color: #fff; background-color:#000; }
 .game_entry{
 	background: #ffffcc;
 	padding: 10px;
-	margin: 10px;
+	margin: 20px;
 }
 .game_entry_question{
-	font-size: 16px;
+	font-size: 20px;
 	padding: 10px;
+}
+
+.mult_choice{
+	font-size: 18px;
 }
 
 /*Layout - Context */
