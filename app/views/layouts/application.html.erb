@@ -17,11 +17,12 @@
 						<%= link_to image_tag('/images/gradit_inside_logo.png'), :controller => :home%>
 					</div>
 					<div id="user_bar">
-						Welcome, 
 						<% if logged_in? %>
-							<%= current_user.login %>
+							Welcome, <%= current_user.login %><br>
+							<%= link_to "Log Out", '/logout'%>
 						<% else %>
-							Guest!
+							Welcome, Guest!<br>
+							<%= link_to "Log in", '/login' %> | <%= link_to "Sign Up", '/signup'%>	
 						<% end %>
 						<br>
 						<%= link_to "Dashboard", :controller => :dashboard%>

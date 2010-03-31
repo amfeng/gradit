@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 	
-  before_filter :login_required
+  before_filter :guest_filter
   before_filter :active_filter, :only => [:new_game]
   # GET /games
   # GET /games.xml
@@ -114,6 +114,19 @@ class GamesController < ApplicationController
   		redirect_to :back
   	end
   	return true
+  end
+  
+  def guest_filter
+  	if User.guest_account_enabled
+	  	if !authorized?
+	  		self.current_user = User.find_by_login("guest")
+	      	new_cookie_flag = (params[:remember_me] == "1")
+	     	 handle_remember_cookie! new_cookie_flag
+	  	end
+	  	return true
+  	else
+  		return false
+  	end
   end
   
   def quit_game

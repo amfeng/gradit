@@ -9,8 +9,7 @@
   <tr>
     <td><%=h wordlist.name %></td>
     <td><%= link_to 'Show', wordlist %></td>
-    <td><%= link_to 'Edit', edit_wordlist_path(wordlist) %></td>
-    <td><%= link_to 'Destroy', wordlist, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to "Play a game with this wordlist", {:controller=>:games, :action=>:new_game, :id=>wordlist.id} %></td>
   </tr>
 <% end %>
 </table>

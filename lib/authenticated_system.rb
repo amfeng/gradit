@@ -49,6 +49,7 @@ module AuthenticatedSystem
     #
     #   skip_before_filter :login_required
     #
+    
     def login_required
       authorized? || access_denied
     end

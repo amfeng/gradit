@@ -67,12 +67,17 @@ class User < ActiveRecord::Base
   end
   
   def has_active_game
+  	return false if User.is_guest(self) && User.guest_account_enabled
   	games = self.games
   	for g in games
   		return g if !g.finished
   	end
   	return false
   end
+  
+   def self.is_guest(current_user)
+    	current_user == User.find_by_login("guest")
+    end
 
   protected
     
@@ -80,6 +85,10 @@ class User < ActiveRecord::Base
   def make_activation_code
   
       self.activation_code = self.class.make_token
+  end
+  
+  def self.guest_account_enabled
+  	User.find_by_login("guest")
   end
   
 

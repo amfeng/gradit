@@ -4,7 +4,5 @@
 	</p>
 	
 	<%= link_to "Play a game with this wordlist", {:controller=>:games, :action=>:new_game, :id=>@wordlist.id} %>
-	
-	<%= link_to 'Edit', edit_wordlist_path(@wordlist) %> |
 	<%= link_to 'Back', wordlists_path %>
 </div>

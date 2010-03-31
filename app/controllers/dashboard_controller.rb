@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_filter :login_required
+  
   def index
   	active = current_user.has_active_game
 	@game_url = url_for :controller => :games, :action => :game_entry, :id => active.id if active
