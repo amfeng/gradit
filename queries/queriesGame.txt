@@ -1,0 +1,22 @@
+./controllers/games_controller.rb:    @games = Game.all
+./controllers/games_controller.rb:    @game = Game.find(params[:id])
+./controllers/games_controller.rb:  	game = Game.find(params[:id])
+./controllers/games_controller.rb:  	game = Game.find(params[:id])
+./controllers/games_controller.rb:  	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
+./controllers/games_controller.rb:  	game = Game.find(params[:game_id])
+./controllers/#games_controller.rb#:    @games = Game.all
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    game = Game.find(params[:id])
+./controllers/#games_controller.rb#:  	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
+./controllers/#games_controller.rb#:    @game = Game.new
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    @game = Game.new(params[:game])
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:    @games = Game.all
+./controllers/.svn/text-base/games_controller.rb.svn-base:    @game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.find(params[:game_id])

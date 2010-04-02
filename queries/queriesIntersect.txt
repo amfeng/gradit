@@ -1,0 +1,2 @@
+./models/word.rb:        mclist = Intersect.find(mc.intersection_id).generateChoices
+./models/.svn/text-base/word.rb.svn-base:        mclist = Intersect.find(mc.intersection_id).generateChoices

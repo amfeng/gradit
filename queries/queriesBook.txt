@@ -1,0 +1,4 @@
+./controllers/book_controller.rb:      book = Book.new(:name=>params[:book][:name])
+./controllers/.svn/text-base/book_controller.rb.svn-base:      book = Book.new(:name=>params[:book][:name])
+./models/search.rb:			bookname = Book.find(line.source).name
+./models/.svn/text-base/search.rb.svn-base:			bookname = Book.find(line.source).name

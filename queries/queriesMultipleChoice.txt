@@ -1,0 +1,26 @@
+./controllers/games_controller.rb: 	mc = MultipleChoice.find(params[:mc_id])
+./controllers/multiple_choices_controller.rb:    @multiple_choices = MultipleChoice.all
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.new
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.new(params[:multiple_choice])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/words_controller.rb:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => @word.word, :score => 20)
+./controllers/words_controller.rb:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[3], :choice2 => mclist[4], :choice3 => mclist[5], :choice4 => @word.word, :score => 20)
+./controllers/.svn/text-base/words_controller.rb.svn-base:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => @word.word, :score => 20)
+./controllers/.svn/text-base/words_controller.rb.svn-base:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[3], :choice2 => mclist[4], :choice3 => mclist[5], :choice4 => @word.word, :score => 20)
+./controllers/.svn/text-base/games_controller.rb.svn-base: 	mc = MultipleChoice.find(params[:mc_id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choices = MultipleChoice.all
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.new
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.new(params[:multiple_choice])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./models/word.rb:	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)
+./models/intersect.rb:    setA = MultipleChoice.find(seta)
+./models/intersect.rb:    setB = MultipleChoice.find(setb)
+./models/.svn/text-base/intersect.rb.svn-base:    setA = MultipleChoice.find(seta)
+./models/.svn/text-base/intersect.rb.svn-base:    setB = MultipleChoice.find(setb)
+./models/.svn/text-base/word.rb.svn-base:	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)

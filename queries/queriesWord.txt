@@ -1,0 +1,21 @@
+./controllers/games_controller.rb:  	word = Word.find_by_word(game.currentword)
+./controllers/#games_controller.rb#:  	word = Word.find_by_word(game.currentword)
+./controllers/words_controller.rb:    @words = Word.all
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/words_controller.rb:    @word = Word.new
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/words_controller.rb:    @word = Word.new(params[:word])
+./controllers/words_controller.rb:	    allwords = Word.all(:order=>'RANDOM()', :limit=>6)
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @words = Word.all
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.new
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.new(params[:word])
+./controllers/.svn/text-base/words_controller.rb.svn-base:	    allwords = Word.all(:order=>'RANDOM()', :limit=>6)
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	word = Word.find_by_word(game.currentword)
+./models/word.rb:	allwords = Word.all(:order=>'RANDOM()', :limit=>4)
+./models/.svn/text-base/word.rb.svn-base:	allwords = Word.all(:order=>'RANDOM()', :limit=>4)

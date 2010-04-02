@@ -1,0 +1,142 @@
+./controllers/book_controller.rb:        a = BookLine.new(:line=>line,:linenum=>num)
+./controllers/.svn/text-base/book_controller.rb.svn-base:        a = BookLine.new(:line=>line,:linenum=>num)
+./models/search.rb:		la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+./models/search.rb:			beforeline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
+./models/search.rb:			afterline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum + 1, line.source])
+./models/.svn/text-base/search.rb.svn-base:		la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+./models/.svn/text-base/search.rb.svn-base:			beforeline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
+./models/.svn/text-base/search.rb.svn-base:			afterline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum + 1, line.source])
+./controllers/book_controller.rb:      book = Book.new(:name=>params[:book][:name])
+./controllers/.svn/text-base/book_controller.rb.svn-base:      book = Book.new(:name=>params[:book][:name])
+./models/search.rb:			bookname = Book.find(line.source).name
+./models/.svn/text-base/search.rb.svn-base:			bookname = Book.find(line.source).name
+./controllers/games_controller.rb:  	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+./controllers/games_controller.rb:  	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+./controllers/games_controller.rb:  	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
+./controllers/#games_controller.rb#:  	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
+./controllers/dashboard_controller.rb:  	GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => current_user.id})
+./controllers/.svn/text-base/dashboard_controller.rb.svn-base:  	GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => current_user.id})
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
+./controllers/games_controller.rb:    @games = Game.all
+./controllers/games_controller.rb:    @game = Game.find(params[:id])
+./controllers/games_controller.rb:  	game = Game.find(params[:id])
+./controllers/games_controller.rb:  	game = Game.find(params[:id])
+./controllers/games_controller.rb:  	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
+./controllers/games_controller.rb:  	game = Game.find(params[:game_id])
+./controllers/#games_controller.rb#:    @games = Game.all
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    game = Game.find(params[:id])
+./controllers/#games_controller.rb#:  	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
+./controllers/#games_controller.rb#:    @game = Game.new
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    @game = Game.new(params[:game])
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/#games_controller.rb#:    @game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:    @games = Game.all
+./controllers/.svn/text-base/games_controller.rb.svn-base:    @game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	game = Game.find(params[:game_id])
+./models/word.rb:        mclist = Intersect.find(mc.intersection_id).generateChoices
+./models/.svn/text-base/word.rb.svn-base:        mclist = Intersect.find(mc.intersection_id).generateChoices
+./controllers/games_controller.rb: 	mc = MultipleChoice.find(params[:mc_id])
+./controllers/multiple_choices_controller.rb:    @multiple_choices = MultipleChoice.all
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.new
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.new(params[:multiple_choice])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/multiple_choices_controller.rb:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/words_controller.rb:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => @word.word, :score => 20)
+./controllers/words_controller.rb:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[3], :choice2 => mclist[4], :choice3 => mclist[5], :choice4 => @word.word, :score => 20)
+./controllers/.svn/text-base/words_controller.rb.svn-base:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => @word.word, :score => 20)
+./controllers/.svn/text-base/words_controller.rb.svn-base:		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[3], :choice2 => mclist[4], :choice3 => mclist[5], :choice4 => @word.word, :score => 20)
+./controllers/.svn/text-base/games_controller.rb.svn-base: 	mc = MultipleChoice.find(params[:mc_id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choices = MultipleChoice.all
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.new
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.new(params[:multiple_choice])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./controllers/.svn/text-base/multiple_choices_controller.rb.svn-base:    @multiple_choice = MultipleChoice.find(params[:id])
+./models/word.rb:	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)
+./models/intersect.rb:    setA = MultipleChoice.find(seta)
+./models/intersect.rb:    setB = MultipleChoice.find(setb)
+./models/.svn/text-base/intersect.rb.svn-base:    setA = MultipleChoice.find(seta)
+./models/.svn/text-base/intersect.rb.svn-base:    setB = MultipleChoice.find(setb)
+./models/.svn/text-base/word.rb.svn-base:	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)
+./controllers/search_controller.rb:		@contexts = Search.search(@query);	
+./controllers/games_controller.rb:    contexts = Search.search(word.word) #get context
+./controllers/#games_controller.rb#:    contexts = Search.search(word.word) #get context
+./controllers/.svn/text-base/search_controller.rb.svn-base:		@contexts = Search.search(@query);	
+./controllers/.svn/text-base/games_controller.rb.svn-base:    contexts = Search.search(word.word) #get context
+./models/user_observer.rb:    UserMailer.deliver_signup_notification(user)
+./models/user_observer.rb:    UserMailer.deliver_activation(user) if user.recently_activated?
+./models/.svn/text-base/user_observer.rb.svn-base:    UserMailer.deliver_signup_notification(user)
+./models/.svn/text-base/user_observer.rb.svn-base:    UserMailer.deliver_activation(user) if user.recently_activated?
+./controllers/sessions_controller.rb:    user = User.authenticate(params[:login], params[:password])
+./controllers/users_controller.rb:    @user = User.new
+./controllers/users_controller.rb:    @user = User.new(params[:user])
+./controllers/users_controller.rb:    user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
+./controllers/games_controller.rb:  	if User.guest_account_enabled
+./controllers/games_controller.rb:	  		self.current_user = User.find_by_login("guest")
+./controllers/.svn/text-base/sessions_controller.rb.svn-base:    user = User.authenticate(params[:login], params[:password])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	if User.guest_account_enabled
+./controllers/.svn/text-base/games_controller.rb.svn-base:	  		self.current_user = User.find_by_login("guest")
+./controllers/.svn/text-base/users_controller.rb.svn-base:    @user = User.new
+./controllers/.svn/text-base/users_controller.rb.svn-base:    @user = User.new(params[:user])
+./controllers/.svn/text-base/users_controller.rb.svn-base:    user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
+./models/user.rb:  	return false if User.is_guest(self) && User.guest_account_enabled
+./models/user.rb:    	current_user == User.find_by_login("guest")
+./models/user.rb:  	User.find_by_login("guest")
+./models/.svn/text-base/user.rb.svn-base:  	return false if User.is_guest(self) && User.guest_account_enabled
+./models/.svn/text-base/user.rb.svn-base:    	current_user == User.find_by_login("guest")
+./models/.svn/text-base/user.rb.svn-base:  	User.find_by_login("guest")
+./controllers/wordlists_controller.rb:    @wordlists = Wordlist.all
+./controllers/wordlists_controller.rb:    @wordlist = Wordlist.find(params[:id])
+./controllers/wordlists_controller.rb:    @wordlist = Wordlist.new
+./controllers/wordlists_controller.rb:    @wordlist = Wordlist.find(params[:id])
+./controllers/wordlists_controller.rb:    @wordlist = Wordlist.new(params[:wordlist])
+./controllers/wordlists_controller.rb:    @wordlist = Wordlist.find(params[:id])
+./controllers/wordlists_controller.rb:    @wordlist = Wordlist.find(params[:id])
+./controllers/home_controller.rb:		@wordlists = Wordlist.all
+./controllers/#wordlists_controller.rb#:    @wordlists = Wordlist.all
+./controllers/#wordlists_controller.rb#:    @wordlist = Wordlist.find(params[:id])
+./controllers/#wordlists_controller.rb#:    @wordlist = Wordlist.new
+./controllers/#wordlists_controller.rb#:    @wordlist = Wordlist.find(params[:id])
+./controllers/#wordlists_controller.rb#:    @wordlist = Wordlist.new(params[:wordlist])
+./controllers/#wordlists_controller.rb#:    @wordlist = Wordlist.find(params[:id])
+./controllers/#wordlists_controller.rb#:    @wordlist = Wordlist.find(params[:id])
+./controllers/.svn/text-base/home_controller.rb.svn-base:		@wordlists = Wordlist.all
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlists = Wordlist.all
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlist = Wordlist.find(params[:id])
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlist = Wordlist.new
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlist = Wordlist.find(params[:id])
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlist = Wordlist.new(params[:wordlist])
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlist = Wordlist.find(params[:id])
+./controllers/.svn/text-base/wordlists_controller.rb.svn-base:    @wordlist = Wordlist.find(params[:id])
+./controllers/games_controller.rb:  	word = Word.find_by_word(game.currentword)
+./controllers/#games_controller.rb#:  	word = Word.find_by_word(game.currentword)
+./controllers/words_controller.rb:    @words = Word.all
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/words_controller.rb:    @word = Word.new
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/words_controller.rb:    @word = Word.new(params[:word])
+./controllers/words_controller.rb:	    allwords = Word.all(:order=>'RANDOM()', :limit=>6)
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/words_controller.rb:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @words = Word.all
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.new
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.new(params[:word])
+./controllers/.svn/text-base/words_controller.rb.svn-base:	    allwords = Word.all(:order=>'RANDOM()', :limit=>6)
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/words_controller.rb.svn-base:    @word = Word.find(params[:id])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	word = Word.find_by_word(game.currentword)
+./models/word.rb:	allwords = Word.all(:order=>'RANDOM()', :limit=>4)
+./models/.svn/text-base/word.rb.svn-base:	allwords = Word.all(:order=>'RANDOM()', :limit=>4)

@@ -1,0 +1,18 @@
+./controllers/sessions_controller.rb:    user = User.authenticate(params[:login], params[:password])
+./controllers/users_controller.rb:    @user = User.new
+./controllers/users_controller.rb:    @user = User.new(params[:user])
+./controllers/users_controller.rb:    user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
+./controllers/games_controller.rb:  	if User.guest_account_enabled
+./controllers/games_controller.rb:	  		self.current_user = User.find_by_login("guest")
+./controllers/.svn/text-base/sessions_controller.rb.svn-base:    user = User.authenticate(params[:login], params[:password])
+./controllers/.svn/text-base/games_controller.rb.svn-base:  	if User.guest_account_enabled
+./controllers/.svn/text-base/games_controller.rb.svn-base:	  		self.current_user = User.find_by_login("guest")
+./controllers/.svn/text-base/users_controller.rb.svn-base:    @user = User.new
+./controllers/.svn/text-base/users_controller.rb.svn-base:    @user = User.new(params[:user])
+./controllers/.svn/text-base/users_controller.rb.svn-base:    user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
+./models/user.rb:  	return false if User.is_guest(self) && User.guest_account_enabled
+./models/user.rb:    	current_user == User.find_by_login("guest")
+./models/user.rb:  	User.find_by_login("guest")
+./models/.svn/text-base/user.rb.svn-base:  	return false if User.is_guest(self) && User.guest_account_enabled
+./models/.svn/text-base/user.rb.svn-base:    	current_user == User.find_by_login("guest")
+./models/.svn/text-base/user.rb.svn-base:  	User.find_by_login("guest")

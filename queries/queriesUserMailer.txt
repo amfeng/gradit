@@ -1,0 +1,4 @@
+./models/user_observer.rb:    UserMailer.deliver_signup_notification(user)
+./models/user_observer.rb:    UserMailer.deliver_activation(user) if user.recently_activated?
+./models/.svn/text-base/user_observer.rb.svn-base:    UserMailer.deliver_signup_notification(user)
+./models/.svn/text-base/user_observer.rb.svn-base:    UserMailer.deliver_activation(user) if user.recently_activated?

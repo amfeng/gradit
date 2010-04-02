@@ -1,0 +1,8 @@
+./controllers/book_controller.rb:        a = BookLine.new(:line=>line,:linenum=>num)
+./controllers/.svn/text-base/book_controller.rb.svn-base:        a = BookLine.new(:line=>line,:linenum=>num)
+./models/search.rb:		la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+./models/search.rb:			beforeline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
+./models/search.rb:			afterline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum + 1, line.source])
+./models/.svn/text-base/search.rb.svn-base:		la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+./models/.svn/text-base/search.rb.svn-base:			beforeline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
+./models/.svn/text-base/search.rb.svn-base:			afterline = BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum + 1, line.source])

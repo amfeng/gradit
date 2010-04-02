@@ -1,0 +1,5 @@
+./controllers/search_controller.rb:		@contexts = Search.search(@query);	
+./controllers/games_controller.rb:    contexts = Search.search(word.word) #get context
+./controllers/#games_controller.rb#:    contexts = Search.search(word.word) #get context
+./controllers/.svn/text-base/search_controller.rb.svn-base:		@contexts = Search.search(@query);	
+./controllers/.svn/text-base/games_controller.rb.svn-base:    contexts = Search.search(word.word) #get context
