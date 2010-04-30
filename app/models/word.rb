@@ -3,6 +3,28 @@ class Word < ActiveRecord::Base
   has_many :multiple_choices
   has_many :wrong_choices
   #attr_accessor :multiple_choices
+  #attr_accessor :wrong_choices
+  
+
+  #adds to the list of attractive distractors associated with this
+  #word. 
+  #params: wrong_choice is a String object
+  def add_wrong_choice(wrong_choice)
+    wrong_word = Word.find_by_word(wrong_choice)
+    existing_wrong_choices = self.wrong_choices 
+    #attractive_distractors = existing_wrong_choices.map{|x| Word.find(x.wrong_choice_id)}
+
+    #if !wrong_word.nil?
+    if existing_wrong_choices.map{|x| x.wrong_choice_id}.include?(wrong_word.id)
+      wc = existing_wrong_choices.select{|x| x.wrong_choice_id == wrong_word.id}.pop
+      wc.count = wc.count + 1
+      wc.save
+    else
+      self.wrong_choices << WrongChoice.create(:wrong_choice_id => wrong_word.id, :count => 1)
+    end
+  end
+    
+
   def choices
     mc = self.multiple_choices
     mc = mc[rand(mc.length)]
