@@ -27,11 +27,12 @@ class GamesController < ApplicationController
   def ans
   	user_id = curr_user_id
   	game = Game.find(params[:id])
-  	
+  	word = Word.find_by_word(game.currentword)
+
   	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
-  	
-    
-    if game.answer_choice(params[:answer])
+  	choice = params[:answer]
+
+    if game.answer_choice(choice)
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
       game.save
@@ -46,14 +47,15 @@ class GamesController < ApplicationController
   	  end
       
     else
-    	@player.score -= 5
-    	@player.save
-    	#render :text => "You fail."
-    	render :update do |page|
-	    	page[:ans_result].replace_html "Wrong, try again!"
+      @player.score -= 5
+      @player.save
+      word.wrong_choices << WrongChoice.create(:wrong_choice_id => Word.find_by_word(choice).id)
+      #render :text => "You fail."
+      render :update do |page|
+        page[:ans_result].replace_html "Wrong, try again!"
 	    	page[:player_score].replace_html "#{@player.score}"
-	    	page[:player_score].highlight
-  	    end
+        page[:player_score].highlight
+      end
     end
   end
   
