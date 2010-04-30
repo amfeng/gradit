@@ -10,14 +10,16 @@ class BookController < ApplicationController
       file = params[:textfile]
       content = text.empty? ? File.open(file) : text
       if content.is_a?(File)
-        tmp = []
+        tmp = ""
         while(line = content.gets)
-          tmp << line
+		  line.gsub("\n", "")
+          tmp << " " << line
         end
         content = tmp
-      else
-        content = content.split("\n")
       end
+	  
+	  content = content.split(/[\.\?\!]+[\n ]+)/);
+	  
       num = 0
       for line in content
         a = BookLine.new(:line=>line,:linenum=>num)

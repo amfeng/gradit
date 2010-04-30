@@ -26,20 +26,36 @@ class Word < ActiveRecord::Base
     
 
   def choices
-    mc = self.multiple_choices
-    mc = mc[rand(mc.length)]
+    #mc = self.multiple_choices
+    #mc = mc[rand(mc.length)]
     mclist = []
 	# add wrong choices, if any
-	if (mc)
-      if (mc.is_intersection)
-        mclist = Intersect.find(mc.intersection_id).generateChoices
-      else
-        mclist = [ mc.choice1, mc.choice2, mc.choice3, mc.choice4 ]
-      end
-      if (self.wrong_choices.length > 0 && mclist.length<4)
-        mclist = [self.wrong_choices[rand(4)]]
-      end
-    end
+
+	#if (mc)
+    #  if (mc.is_intersection)
+    #    mclist = Intersect.find(mc.intersection_id).generateChoices
+    #  else
+    #    mclist = [ mc.choice1, mc.choice2, mc.choice3, mc.choice4 ]
+    #  end
+    #  if (self.wrong_choices.length > 0 && mclist.length<4)
+    #    mclist = [self.wrong_choices[rand(4)]]
+    #  end
+    #end
+	
+	wrongchoices = self.wrong_choices
+	
+	if (wrongchoices.length > 0)
+		#generate one attractive distractor if there are wrong choices (attractive distractors) available
+		r1 = rand(wrongchoices.length)
+		mclist << wrongchoices[r1]
+		wrongchoices.delete_at(r1)
+		if (wrongchoices.length>0)
+			r2 = rand(wrongchoices.length)
+			mclist << wrongchoices[r2]
+			wrongchoices.delete_at(r2)
+		end
+	end
+	
 	allwords = Word.all(:order=>'RANDOM()', :limit=>4)
 	counter = 0
 	while (mclist.length < 4)

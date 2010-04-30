@@ -6,9 +6,6 @@ class AddMultipleChoice < ActiveRecord::Migration
       t.string :choice3
 	  t.string :choice4
 	  t.integer :word_id
-	  t.boolean :is_intersection
-	  t.integer :intersection_id
-	  t.integer :score
 
       t.timestamps
     end
