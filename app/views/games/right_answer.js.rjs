@@ -1,0 +1,2 @@
+page[:ans_result].replace_html "Right!"
+page[:ans_result].highlight
