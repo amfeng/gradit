@@ -8,9 +8,9 @@
 	<% if @para %>
 		From <u><%= @para_book %></u> -- [ Rating: <span id="mc_rating"><%= @mc.score %></span> / 
 		<span id="mc_voting">
-			<%= link_to_remote "Up vote", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "up", :mc_id => @mc.id }%>
+			<%= link_to_remote "This is a good question", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "up", :mc_id => @mc.id }%>
 			 | 
-		 	<%= link_to_remote "Down vote", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "down", :mc_id => @mc.id }%>
+		 	<%= link_to_remote "This is a bad question", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "down", :mc_id => @mc.id }%>
 		 
 	 	</span> ]
 	<br><br>
