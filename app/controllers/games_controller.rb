@@ -33,6 +33,8 @@ class GamesController < ApplicationController
 
   	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
   	choice = params[:answer]
+  	word = Word.find_by_word(choice)
+    definition = word.definition
 
 	#If correct answer
     if game.answer_choice(choice)
@@ -50,6 +52,8 @@ class GamesController < ApplicationController
     	page[:ans_result].replace_html "Correct! Press next." #**NEED TO HAVE THIS REDIRECT, BUT IT DOESN'T WORK**
      	page[:player_score].replace_html "#{@player.score}"
      	page[:player_score].highlight
+     	
+        page["mult_choice_#{choice}"].replace_html "<b>#{choice} - #{definition}</b>"
   	  end
       
 	else #Incorrect answer
@@ -57,12 +61,12 @@ class GamesController < ApplicationController
       @player.score -= 5
       @player.save
       
-      word = Word.find_by_word(choice)
+     
       #Add wrong choice to the database for making questions "smarter"
       word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
       
       #Add defintion to incorrectly chosen word
-      definition = word.definition
+      
       #AJAX update page to reflect changes in score, let user know they are incorrect
       render :update do |page|
         page[:ans_result].replace_html "Wrong, try again!"
