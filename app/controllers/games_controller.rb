@@ -24,7 +24,9 @@ class GamesController < ApplicationController
     end
   end
 
+  #Check if the answer was correct
   def ans
+  	#Find the current user, game, and word
   	user_id = curr_user_id
   	game = Game.find(params[:id])
   	word = Word.find_by_word(game.currentword)
@@ -32,34 +34,46 @@ class GamesController < ApplicationController
   	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
   	choice = params[:answer]
 
+	#If correct answer
     if game.answer_choice(choice)
+      #Pick a new "current" word **NEED TO OPTIMIZE THIS**
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
       game.save
+      
+      #Add points to the user's score
       @player.score += 10
       @player.save
-      #render :text => "You are correct!"
-      #redirect_to(:controller => :games, :action => :game_entry, :id => game.id, :right => true)
+      
+      #AJAX update page to reflect changes in score, let the user know they are correct
       render :update do |page|
-    	page[:ans_result].replace_html "Correct! Press next."
+    	page[:ans_result].replace_html "Correct! Press next." #**NEED TO HAVE THIS REDIRECT, BUT IT DOESN'T WORK**
      	page[:player_score].replace_html "#{@player.score}"
      	page[:player_score].highlight
   	  end
       
-    else
+	else #Incorrect answer
+	  #Lower score 
       @player.score -= 5
       @player.save
-      word.wrong_choices << WrongChoice.create(:wrong_choice_id => Word.find_by_word(choice).id)
-      #render :text => "You fail."
+      
+      word = Word.find_by_word(choice)
+      #Add wrong choice to the database for making questions "smarter"
+      word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
+      
+      #Add defintion to incorrectly chosen word
+      definition = word.definition
+      #AJAX update page to reflect changes in score, let user know they are incorrect
       render :update do |page|
         page[:ans_result].replace_html "Wrong, try again!"
-	    	page[:player_score].replace_html "#{@player.score}"
+	    page[:player_score].replace_html "#{@player.score}"
         page[:player_score].highlight
+        page["mult_choice_#{choice}"].replace_html "#{choice} - #{definition}"
       end
     end
   end
   
-
+  #Displaying/picking questions
   def game_entry
   	user_id = curr_user_id
   	
@@ -68,18 +82,22 @@ class GamesController < ApplicationController
   	
   	@player = GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
     @game_id = game.id
+    
     definition = word.definition
-    puts definition
+    
+    #Get a random context for the word
     @para = false
     contexts = Search.search(word.word) #get context
   	con = contexts[rand(contexts.length)]
   	if(con)
+  	  #Initialize paragraph, multiple choice settings
   	  @para_book = con[3];
       @para = con[0] << con[1] << con[2]
       @para.gsub!(word.word, '___________') #underline the missing word
       @mc = word.choices
       @mc_array = @mc.getChoices
     else
+      #Find another word to use, no contexts
       wordlist = game.wordlist.words
       game.currentword = wordlist[rand(wordlist.length)].word
       game.save
@@ -92,13 +110,19 @@ class GamesController < ApplicationController
   def new_game
     user_id = curr_user_id
   	
+    #Create the actual game object
   	game = Game.new(:wordlist_id => params[:id], :finished => false, :winner_id => nil)
   	game.save
   	
+  	#Create Game Player for the user
   	player = GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
   	player.save
+  	
+  	#Select a random word from the wordlist for the new "current" word
   	word = game.wordlist.words
     word = word[rand(word.length)]
+    
+    #If there is a word
   	if(word)
       game.currentword = word.word
       game.save
@@ -110,6 +134,7 @@ class GamesController < ApplicationController
   end
   
   def active_filter
+  	#Is the user currently in an active (not-over) game?
   	active = current_user.has_active_game
   	if active
   		flash[:notice] = "Oops! You already have an active game. Please quit the current game before you try to open a new one!"
@@ -119,6 +144,7 @@ class GamesController < ApplicationController
   end
   
   def guest_filter
+  	#Allow guest access for playing games without login
   	if User.guest_account_enabled
 	  	if !authorized?
 	  		self.current_user = User.find_by_login("guest")
@@ -132,6 +158,7 @@ class GamesController < ApplicationController
   end
   
   def quit_game
+  	#Quit the game - end the game and return to dashboard
   	game = Game.find(params[:game_id])
   	game.finished = true
   	game.save
@@ -139,13 +166,16 @@ class GamesController < ApplicationController
   end
   
   def vote_mc
+  	#Up/down voting multiple choices
  	vote = params[:vote] #true for up, false for down
  	mc = MultipleChoice.find(params[:mc_id])
-  	puts vote
+  	
+ 	#Change multiple choice score accordingly
   	mc.score = mc.score + 1 if vote == "up"
   	mc.score = mc.score - 1 if vote == "down"
   	mc.save
   	
+  	#AJAX update the page to reflect changes
 	render :update do |page|
 	    page[:mc_voting].replace_html "Your rating for this multiple choice question has been recorded."
 	    page[:mc_rating].replace_html "#{mc.score}"
