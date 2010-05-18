@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306033844) do
+ActiveRecord::Schema.define(:version => 20100518193424) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(:version => 20100306033844) do
     t.text     "after"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "book_id"
+  end
+
+  create_table "contexts_words", :id => false, :force => true do |t|
+    t.integer "context_id"
+    t.integer "word_id"
   end
 
   create_table "game_players", :force => true do |t|
@@ -45,14 +51,6 @@ ActiveRecord::Schema.define(:version => 20100306033844) do
     t.integer  "wordlist_id"
     t.boolean  "finished"
     t.integer  "winner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "currentword"
-  end
-
-  create_table "intersects", :force => true do |t|
-    t.integer  "seta"
-    t.integer  "setb"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,6 +106,11 @@ ActiveRecord::Schema.define(:version => 20100306033844) do
     t.text     "definition"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "words_wordlists", :force => true do |t|
+    t.integer "word_id"
+    t.integer "wordlist_id"
   end
 
   create_table "wrong_choices", :force => true do |t|
