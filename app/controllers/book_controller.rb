@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class BookController < ApplicationController
 	def create
       book = Book.new(:name=>params[:book][:name])
 #	  puts "\n\n\n"
