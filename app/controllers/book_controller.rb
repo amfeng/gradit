@@ -6,7 +6,7 @@ class BookController < ApplicationController
 #      puts params[:book][:content]
 #	  puts "\n\n\n"
 	  book.save
-      text = params[:content]
+      text = params[:books][:content]
       file = params[:textfile]
       content = text.empty? ? File.open(file) : text
       if content.is_a?(File)
