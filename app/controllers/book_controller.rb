@@ -18,7 +18,7 @@ class BookController < ApplicationController
         content = tmp
       end
 	  
-	  content = content.split(/[\.\?\!]+[\n]/);
+	  content = content.split(/[\.\?\!]+[\n]/)
 	  
       num = 0
       for line in content
