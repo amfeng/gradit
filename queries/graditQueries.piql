@@ -1,4 +1,6 @@
 BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+QUERY bookLineQuery
+	FETCH book_line
 BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
 Book.find(line.source)
 GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
