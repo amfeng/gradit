@@ -1,8 +1,9 @@
 class Word < ActiveRecord::Base
   has_and_belongs_to_many :wordlists
-  has_and_belongs_to_many :contexts
+  has_many :contexts
   has_many :multiple_choices
   has_many :wrong_choices
+  has_one :context_cache
   #attr_accessor :multiple_choices
   #attr_accessor :wrong_choices
   

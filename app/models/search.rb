@@ -1,7 +1,17 @@
 class Search < ActiveRecord::Base
   
   def self.search(query)
+	w = Word.find_by_word(query)
+  	if(w) #If word exists, context might exist
+  		if(w.context_cache) #If word exists in context cache
+  			return w.contexts unless w.context_cache.dirty
+  		end
+  	else #Else, create word
+  		w = Word.new(:word => query)
+  		w.save	
+  	end
   	
+  	#Else, have to search from scratch
     @contexts = Array.new()
     la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
     
@@ -18,9 +28,24 @@ class Search < ActiveRecord::Base
         	linecontent = line.line
         	linecontent.gsub!(query, "<b><u>#{query}</u></b>")
     	end
-        @contexts << [beforeline, linecontent, afterline, bookname]   
+    	
+    	#Add contexts in
+    	c = Context.new(:before => beforeline, :after => afterline, :wordline => linecontent)
+    	c.book = Book.find(line.source)
+    	c.word = w;
+    	c.save
+    	
+        @contexts << c
       end
     end
+    #Add to context cache
+	if(w.context_cache) 
+		w.context_cache.dirty = false
+	else
+		cc = ContextCache.new(:dirty => false)
+		cc.word = w;
+		cc.save
+	end
     return @contexts
   end
 end
