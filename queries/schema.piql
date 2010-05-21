@@ -58,7 +58,7 @@ ENTITY game
 	int created_at,
 	int updated_at,
 	string currentword
-	PRIMARY(wordlist_id, winner_id)
+	PRIMARY(game_id)
 }
 
 ENTITY intersect
@@ -109,7 +109,7 @@ ENTITY user
 	int remember_token_expires_at,
 	string activation_code,
 	int activated_at
-	PRIMARY(user_id)
+	PRIMARY(login)
 }
 
 ENTITY wordlist
