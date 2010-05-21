@@ -5,40 +5,47 @@ BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
 BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
 	QUERY bookLineBeforeAndAfter
 	FETCH book_line
-	WHERE book_line.linenum = [1:linenum] AND book_line.source = [2:linesource]
+	WHERE linenum = [1:linenum] AND source = [2:linesource]
+	LIMIT 1 MAX 1
 Book.find(line.source)
-	QUERY findBook
+	QUERY findBookByName
 	FETCH book
-	WHERE book.name = [1:bookname]
+	WHERE name = [1:bookname]
+	LIMIT 1 MAX 1
 GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
 GamePlayer.new(:game_id => game.id, :user_id => user_id, :score => 0)
 Game.all
 	QUERY allGames
 	FETCH game
-	LIMIT [1:count] MAX 500
+	LIMIT 500 MAX 500
 Game.find(params[:id])
-	QUERY findGame
+	QUERY findGameById
 	FETCH game
 	WHERE game.game_id = [1:game_id]
+	LIMIT 1 MAX 1
 Intersect.find(mc.intersection_id)
 MultipleChoice.find(params[:mc_id])
 MultipleChoice.all	
 	QUERY allMulltipleChoices
 	FETCH multiple_choice
-	LIMIT [1:count] MAX 500
+	LIMIT 500 MAX 500
 MultipleChoice.find(seta)
 User.find_by_activation_code(params[:activation_code])
 User.find_by_login("guest")
+	QUERY userByLogin
+	FETCH user
+	WHERE login = [1:username]
+	LIMIT 1 MAX 1
 Wordlist.all
 	QUERY allWordlists
 	FETCH word_list
-	LIMIT [1:count] MAX 500
+	LIMIT 500 MAX 500
 Wordlist.find(params[:id])
 Word.find_by_word(game.currentword)
 Word.all
 	QUERY allWords
 	FETCH word
-	LIMIT [1:count] MAX 1000
+	LIMIT 1000 MAX 1000
 Word.find(params[:id])
 	
 Word.all(:order=>'RANDOM()', :limit=>4)

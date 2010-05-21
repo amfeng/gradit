@@ -1,4 +1,4 @@
-ENTITY book_line
+ENTITY book_lines
 {
 	int book_line_id,
 	string line,
@@ -9,7 +9,7 @@ ENTITY book_line
 	PRIMARY(source, linenum)
 }
 
-ENTITY book
+ENTITY books
 {
 	int book_id,
 	string name,
@@ -18,7 +18,7 @@ ENTITY book
 	PRIMARY(name)
 }
 
-ENTITY context
+ENTITY contexts
 {
 	int context_id,
 	int word_id,
@@ -30,7 +30,7 @@ ENTITY context
 	PRIMARY(context_id)
 }
 
-ENTITY context_cache
+ENTITY context_caches
 {
 	int context_cache_id
 	int word_id,
@@ -38,7 +38,7 @@ ENTITY context_cache
 	PRIMARY(context_cache_id)
 }
 
-ENTITY game_player
+ENTITY game_players
 {
 	int game_player_id,
 	FOREIGN KEY user_id REF users,
@@ -49,7 +49,7 @@ ENTITY game_player
 	PRIMARY(game_player_id)
 }
 
-ENTITY game
+ENTITY games
 {
 	int game_id,
 	FOREIGN KEY wordlist_id REF wordlists,
@@ -61,7 +61,7 @@ ENTITY game
 	PRIMARY(game_id)
 }
 
-ENTITY intersect
+ENTITY intersects
 {
 	int intersect_id,
 	int seta,
@@ -71,7 +71,7 @@ ENTITY intersect
 	PRIMARY(intersect_id)
 }
 
-ENTITY multiple_choice
+ENTITY multiple_choices
 {
 	int multiple_choice_id,
 	string choice1,
@@ -87,7 +87,7 @@ ENTITY multiple_choice
 	PRIMARY(multiple_choice_id)
 }
 
-ENTITY search
+ENTITY searches
 {
 	int searche_id,
 	int created_at,
@@ -95,7 +95,7 @@ ENTITY search
 	PRIMARY(searche_id)
 }
 
-ENTITY user
+ENTITY users
 {
 	int user_id,
 	string login,
@@ -112,7 +112,7 @@ ENTITY user
 	PRIMARY(login)
 }
 
-ENTITY wordlist
+ENTITY wordlists
 {
 	int wordlist_id,
 	string name,
@@ -122,7 +122,7 @@ ENTITY wordlist
 	PRIMARY(name)
 }
 
-ENTITY wordlists_word
+ENTITY wordlists_words
 {
 	int wordlists_word_id,
 	FOREIGN KEY word_id REF words,
@@ -130,7 +130,7 @@ ENTITY wordlists_word
 	PRIMARY(wordlists_word_id)
 }
 
-ENTITY word
+ENTITY words
 {
 	int word_id,
 	string word,
@@ -140,7 +140,7 @@ ENTITY word
 	PRIMARY(word)
 }
 
-ENTITY wrong_choice
+ENTITY wrong_choices
 {
 	int wrong_choice_id,
 	FOREIGN KEY wrong_choice_id REF wrong_choices,
