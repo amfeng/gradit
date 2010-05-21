@@ -1,0 +1,162 @@
+ENTITY book_lines
+{
+	int book_line_id,
+	string line,
+	int source,
+	int linenum,
+	int created_at,
+	int updated_at
+	PRIMARY(line, source)
+}
+
+ENTITY books
+{
+	int book_id,
+	string name,
+	int created_at,
+	int updated_at
+	PRIMARY(name)
+}
+
+ENTITY context_caches
+{
+	int context_cache_id,
+	FOREIGN KEY word_id REF words,
+	bool dirty,
+	int created_at,
+	int updated_at
+	PRIMARY(context_cache_id)
+}
+
+ENTITY contexts
+{
+	int context_id,
+	string wordline,
+	string before,
+	string after,
+	int created_at,
+	int updated_at,
+	FOREIGN KEY book_id REF books,
+	FOREIGN KEY word_id REF words
+	PRIMARY(context_id)
+}
+
+ENTITY contexts_words
+{
+	int contexts_word_id,
+	FOREIGN KEY context_id REF contexts,
+	FOREIGN KEY word_id REF words
+	PRIMARY(contexts_word_id)
+}
+
+ENTITY game_players
+{
+	int game_player_id,
+	FOREIGN KEY user_id REF users,
+	FOREIGN KEY game_id REF games,
+	int score,
+	int created_at,
+	int updated_at
+	PRIMARY(user_id, game_id)
+}
+
+ENTITY games
+{
+	int game_id,
+	FOREIGN KEY wordlist_id REF wordlists,
+	bool finished,
+	FOREIGN KEY winner_id REF winners,
+	int created_at,
+	int updated_at,
+	string currentword
+	PRIMARY(game_id)
+}
+
+ENTITY multiple_choices
+{
+	int multiple_choice_id,
+	string choice1,
+	string choice2,
+	string choice3,
+	string choice4,
+	FOREIGN KEY word_id REF words,
+	int created_at,
+	int updated_at,
+	bool is_intersection,
+	FOREIGN KEY intersection_id REF intersections,
+	int score
+	PRIMARY(multiple_choice_id)
+}
+
+ENTITY searches
+{
+	int searche_id,
+	int created_at,
+	int updated_at
+	PRIMARY(searche_id)
+}
+
+ENTITY users
+{
+	int user_id,
+	string login,
+	string name,
+	string email,
+	string crypted_password,
+	string salt,
+	int created_at,
+	int updated_at,
+	string remember_token,
+	int remember_token_expires_at,
+	string activation_code,
+	int activated_at
+	PRIMARY(login)
+}
+
+ENTITY wordlists
+{
+	int wordlist_id,
+	string name,
+	string description,
+	int created_at,
+	int updated_at
+	PRIMARY(name)
+}
+
+ENTITY wordlists_words
+{
+	int wordlists_word_id,
+	FOREIGN KEY word_id REF words,
+	FOREIGN KEY wordlist_id REF wordlists
+	PRIMARY(wordlists_word_id)
+}
+
+ENTITY words
+{
+	int word_id,
+	string word,
+	string definition,
+	int created_at,
+	int updated_at
+	PRIMARY(word)
+}
+
+ENTITY words_wordlists
+{
+	int words_wordlist_id,
+	FOREIGN KEY word_id REF words,
+	FOREIGN KEY wordlist_id REF wordlists
+	PRIMARY(words_wordlist_id)
+}
+
+ENTITY wrong_choices
+{
+	int wrong_choice_id,
+	FOREIGN KEY wrong_choice_id REF wrong_choices,
+	int count,
+	int created_at,
+	int updated_at,
+	FOREIGN KEY word_id REF words
+	PRIMARY(wrong_choice_id)
+}
+

@@ -9,29 +9,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100518193424) do
+ActiveRecord::Schema.define(:version => 20100521035226) do
 
   create_table "book_lines", :force => true do |t|
-    t.text     "line"
-    t.integer  "source"
+    t.text     "line", :primary_key => true
+    t.integer  "source", :primary_key => true
     t.integer  "linenum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "books", :force => true do |t|
-    t.string   "name"
+    t.string   "name", :primary_key => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "context_caches", :force => true do |t|
+    t.integer  "word_id"
+    t.boolean  "dirty"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "contexts", :force => true do |t|
-    t.string   "word"
+    t.string   "wordline"
     t.text     "before"
     t.text     "after"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "book_id"
+    t.integer  "word_id"
   end
 
   create_table "contexts_words", :id => false, :force => true do |t|
@@ -40,8 +48,8 @@ ActiveRecord::Schema.define(:version => 20100518193424) do
   end
 
   create_table "game_players", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
+    t.integer  "user_id", :primary_key => true
+    t.integer  "game_id", :primary_key => true
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20100518193424) do
     t.integer  "winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "currentword"
   end
 
   create_table "multiple_choices", :force => true do |t|
@@ -74,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20100518193424) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                     :limit => 40
+    t.string   "login", :primary_key => true,  :limit => 40
     t.string   "name",                      :limit => 100, :default => ""
     t.string   "email",                     :limit => 100
     t.string   "crypted_password",          :limit => 40
@@ -90,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20100518193424) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "wordlists", :force => true do |t|
-    t.string   "name"
+    t.string   "name", :primary_key => true
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -102,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20100518193424) do
   end
 
   create_table "words", :force => true do |t|
-    t.string   "word"
+    t.string   "word", :primary_key => true
     t.text     "definition"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -114,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20100518193424) do
   end
 
   create_table "wrong_choices", :force => true do |t|
-    t.integer  "wrong_choice_id"
+    t.integer  "wrong_choice_id", :primary_key => true
     t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
