@@ -95,7 +95,7 @@ class GamesController < ApplicationController
   	con = contexts[rand(contexts.length)]
   	if(con)
   	  #Initialize paragraph, multiple choice settings
-  	  @para_book = con[3];
+  	  @para_book = con.book.name;
       @para = con.before << con.wordline << con.after
       @para.gsub!(word.word, '___________') #underline the missing word
       @mc = word.choices
