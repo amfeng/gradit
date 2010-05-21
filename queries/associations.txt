@@ -1,0 +1,77 @@
+Search ".word" (28 hits in 8 files)
+  D:\Old Computer\2nd Year\radlab\gradit\app\controllers\words_controller.rb (3 hits)
+	Line 50: 		  mclist << allwords[counter].word
+	Line 53: 		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => @word.word, :score => 20)
+	Line 54: 		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[3], :choice2 => mclist[4], :choice3 => mclist[5], :choice4 => @word.word, :score => 20)
+  D:\Old Computer\2nd Year\radlab\gradit\app\controllers\games_controller.rb (12 hits)
+	Line 42:       wordlist = game.wordlist.words
+	Line 42:       wordlist = game.wordlist.words
+	Line 43:       game.currentword = wordlist[rand(wordlist.length)].word
+	Line 94:     contexts = Search.search(word.word) #get context
+	Line 99:       @para = con.before << con.wordline << con.after
+	Line 100:       @para.gsub!(word.word, '___________') #underline the missing word
+	Line 105:       wordlist = game.wordlist.words
+	Line 105:       wordlist = game.wordlist.words
+	Line 106:       game.currentword = wordlist[rand(wordlist.length)].word
+	Line 126:   	word = game.wordlist.words
+	Line 126:   	word = game.wordlist.words
+	Line 131:       game.currentword = word.word
+  D:\Old Computer\2nd Year\radlab\gradit\app\models\search.rb (2 hits)
+	Line 35:     	c.word = w;
+	Line 46: 		cc.word = w;
+  D:\Old Computer\2nd Year\radlab\gradit\app\models\word.rb (7 hits)
+	Line 60: 		mclist << wrongchoices[r1].word
+	Line 61: 		attractivedistractors << wrongchoices[r1].word
+	Line 65: 			mclist << wrongchoices[r2].word
+	Line 66: 			attractivedistractors << wrongchoices[r2].word
+	Line 78: 	  mclist << allwords[counter].word
+	Line 82: 	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)
+	Line 85: 	#retlist << mclist[0] << mclist[1] << mclist[2] << self.word
+  D:\Old Computer\2nd Year\radlab\gradit\app\views\search\_context.html.erb (1 hits)
+	Line 6: 		...<%= c.before %><%= c.wordline %><%= c.after %>...
+  D:\Old Computer\2nd Year\radlab\gradit\app\views\dashboard\index.html.erb (1 hits)
+	Line 12: 			You played wordlist "<%= game.wordlist.name%>", with a score of <%= @controller.your_game_player(game).score %>
+  D:\Old Computer\2nd Year\radlab\gradit\app\views\words\index.html.erb (1 hits)
+	Line 10:     <td><%=h word.word %></td>
+  D:\Old Computer\2nd Year\radlab\gradit\app\views\words\show.html.erb (1 hits)
+	Line 3:   <%=h @word.word %>
+
+
+Search ".wordlist" (4 hits in 2 files)
+  D:\Old Computer\2nd Year\radlab\gradit\app\controllers\games_controller.rb (3 hits)
+	Line 42:       wordlist = game.wordlist.words
+	Line 105:       wordlist = game.wordlist.words
+	Line 126:   	word = game.wordlist.words
+  D:\Old Computer\2nd Year\radlab\gradit\app\views\dashboard\index.html.erb (1 hits)
+	Line 12: 			You played wordlist "<%= game.wordlist.name%>", with a score of <%= @controller.your_game_player(game).score %>
+
+Search ".context" (5 hits in 1 files)
+  D:\Old Computer\2nd Year\radlab\gradit\app\models\search.rb (5 hits)
+	Line 6:   		if(w.context_cache) #If word exists in context cache
+	Line 7:   			return w.contexts unless w.context_cache.dirty
+	Line 7:   			return w.contexts unless w.context_cache.dirty
+	Line 42: 	if(w.context_cache) 
+	Line 43: 		w.context_cache.dirty = false
+
+Search ".multiple_choice" (1 hits in 1 files)
+  D:\Old Computer\2nd Year\radlab\gradit\app\models\word.rb (1 hits)
+	Line 31:     #mc = self.multiple_choices
+
+Search ".wrong_choice" (9 hits in 2 files)
+  D:\Old Computer\2nd Year\radlab\gradit\app\controllers\games_controller.rb (1 hits)
+	Line 66:       word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
+  D:\Old Computer\2nd Year\radlab\gradit\app\models\word.rb (8 hits)
+	Line 16:     existing_wrong_choices = self.wrong_choices 
+	Line 17:     #attractive_distractors = existing_wrong_choices.map{|x| Word.find(x.wrong_choice_id)}
+	Line 20:     if existing_wrong_choices.map{|x| x.wrong_choice_id}.include?(wrong_word.id)
+	Line 21:       wc = existing_wrong_choices.select{|x| x.wrong_choice_id == wrong_word.id}.pop
+	Line 25:       self.wrong_choices << WrongChoice.create(:wrong_choice_id => wrong_word.id, :count => 1)
+	Line 42:     #  if (self.wrong_choices.length > 0 && mclist.length<4)
+	Line 43:     #    mclist = [self.wrong_choices[rand(4)]]
+	Line 47: 	wrongchoices = self.wrong_choices
+
+Search ".game" (2 hits in 2 files)
+  D:\Old Computer\2nd Year\radlab\gradit\app\controllers\dashboard_controller.rb (1 hits)
+	Line 7:   	@finished_games = current_user.games
+  D:\Old Computer\2nd Year\radlab\gradit\app\models\user.rb (1 hits)
+	Line 71:   	games = self.games
