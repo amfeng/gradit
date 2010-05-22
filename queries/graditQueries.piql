@@ -55,3 +55,55 @@ Word.all(:order=>'RANDOM()', :limit=>4)
 	FETCH words
 	???
 
+wordlist = game.wordlist.words
+	QUERY wordlistFromGame
+	FETCH wordlists
+		OF games BY wordlist_id
+	WHERE games.game_id = [1:game_id]
+	LIMIT 1 MAX 1
+
+	QUERY wordsFromWordlist
+	FETCH words
+		OF wordlists_words BY word_id
+	WHERE wordlists_words.wordlist_id = [1:wordlist_id]
+	LIMIT 1 MAX 1
+	
+c.word = w;
+	???
+cc.word = w;
+	???
+
+w.contexts
+	QUERY contextsFromWord
+	FETCH contexts
+	WHERE word_id = [1:word_id]
+	LIMIT [2:count] MAX 100
+
+w.context_cache
+	QUERY contextCacheFromWord
+	FETCH context_caches
+	WHERE word_id = [1:word_id]
+	LIMIT 1 MAX 1
+	
+word.multiple_choices
+	QUERY multipleChoicesFromWord
+	FETCH multiple_choices
+	WHERE word_id = [1:word_id]
+	LIMIT [2:count] MAX 10
+
+word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
+	???
+	
+word.wrong_choices 
+	QUERY wrongChoicesFromWord
+	FETCH wrong_choices
+	WHERE word_id = [1:word_id]
+	LIMIT [2:count] MAX 10
+
+current_user.games
+	QUERY gamesByUser
+	FETCH games
+		OF game_players BY game_id
+	WHERE game_players.user_id = [1:user_id]
+	LIMIT [2:count] MAX 25
+ 

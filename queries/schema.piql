@@ -21,7 +21,7 @@ ENTITY books
 ENTITY contexts
 {
 	int context_id,
-	int word_id,
+	FOREIGN KEY word_id REF words,
 	string wordline,
 	string before,
 	string after,
@@ -33,7 +33,7 @@ ENTITY contexts
 ENTITY context_caches
 {
 	int context_cache_id
-	int word_id,
+	FOREIGN KEY word_id REF words,
 	int dirty
 	PRIMARY(context_cache_id)
 }
@@ -89,10 +89,10 @@ ENTITY multiple_choices
 
 ENTITY searches
 {
-	int searche_id,
+	int search_id,
 	int created_at,
 	int updated_at
-	PRIMARY(searche_id)
+	PRIMARY(search_id)
 }
 
 ENTITY users
