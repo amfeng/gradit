@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100521035226) do
+ActiveRecord::Schema.define(:version => 20100528103221) do
 
   create_table "book_lines", :force => true do |t|
     t.text     "line"
-    t.integer  "source",     :limit => nil
-    t.integer  "linenum",    :limit => nil
+    t.integer  "source"
+    t.integer  "linenum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20100521035226) do
   end
 
   create_table "context_caches", :force => true do |t|
-    t.integer  "word_id",    :limit => nil
+    t.integer  "word_id"
     t.boolean  "dirty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,27 +38,27 @@ ActiveRecord::Schema.define(:version => 20100521035226) do
     t.text     "after"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "book_id",    :limit => nil
-    t.integer  "word_id",    :limit => nil
+    t.integer  "book_id"
+    t.integer  "word_id"
   end
 
   create_table "contexts_words", :id => false, :force => true do |t|
-    t.integer "context_id", :limit => nil
-    t.integer "word_id",    :limit => nil
+    t.integer "context_id"
+    t.integer "word_id"
   end
 
   create_table "game_players", :force => true do |t|
-    t.integer  "user_id",    :limit => nil
-    t.integer  "game_id",    :limit => nil
-    t.integer  "score",      :limit => nil
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "games", :force => true do |t|
-    t.integer  "wordlist_id", :limit => nil
+    t.integer  "wordlist_id"
     t.boolean  "finished"
-    t.integer  "winner_id",   :limit => nil
+    t.integer  "winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "currentword"
@@ -69,12 +69,12 @@ ActiveRecord::Schema.define(:version => 20100521035226) do
     t.string   "choice2"
     t.string   "choice3"
     t.string   "choice4"
-    t.integer  "word_id",         :limit => nil
+    t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_intersection"
-    t.integer  "intersection_id", :limit => nil
-    t.integer  "score",           :limit => nil
+    t.integer  "intersection_id"
+    t.integer  "score"
   end
 
   create_table "searches", :force => true do |t|
@@ -94,9 +94,18 @@ ActiveRecord::Schema.define(:version => 20100521035226) do
     t.datetime "remember_token_expires_at"
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
+    t.integer  "fb_user_id"
+    t.string   "email_hash"
   end
 
-  add_index "users", ["\"login\""], :name => "index_users_on_login", :unique => true
+  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "word_references", :id => false, :force => true do |t|
+    t.integer  "word"
+    t.integer  "bookline"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "wordlists", :force => true do |t|
     t.string   "name"
@@ -106,8 +115,8 @@ ActiveRecord::Schema.define(:version => 20100521035226) do
   end
 
   create_table "wordlists_words", :id => false, :force => true do |t|
-    t.integer "word_id",     :limit => nil
-    t.integer "wordlist_id", :limit => nil
+    t.integer "word_id"
+    t.integer "wordlist_id"
   end
 
   create_table "words", :force => true do |t|
@@ -118,16 +127,16 @@ ActiveRecord::Schema.define(:version => 20100521035226) do
   end
 
   create_table "words_wordlists", :force => true do |t|
-    t.integer "word_id",     :limit => nil
-    t.integer "wordlist_id", :limit => nil
+    t.integer "word_id"
+    t.integer "wordlist_id"
   end
 
   create_table "wrong_choices", :force => true do |t|
-    t.integer  "wrong_choice_id", :limit => nil
-    t.integer  "count",           :limit => nil
+    t.integer  "wrong_choice_id"
+    t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "word_id",         :limit => nil
+    t.integer  "word_id"
   end
 
 end

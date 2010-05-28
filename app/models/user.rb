@@ -22,6 +22,7 @@ class User
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   before_create :make_activation_code 
+  after_create :register_user_to_fb
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -92,6 +93,41 @@ class User
   	User.find_by_login("guest")
   end
   
+  def self.find_by_fb_user(fb_user)
+    User.find_by_fb_user_id(fb_user.uid) || User.find_by_email_hash(fb_user.email_hashes)
+  end
+  
+  def self.create_from_fb_connect(fb_user)
+    new_facebooker = User.new(:name => fb_user.name, :login => "facebooker_#{fb_user.uid}", :password => "", :email => "")
+    new_facebooker.fb_user_id = fb_user.uid.to_i
+    new_facebooker.save(false)
+    new_facebooker.register_user_to_fb
+  end
+  
 
-
+  def link_fb_connect(fb_user_id)
+    unless fb_user_id.nil?
+      #check for existing account
+      existing_fb_user = User.find_by_fb_user_id(fb_user_id)
+      #unlink the existing account
+      unless existing_fb_user.nil?
+        existing_fb_user.fb_user_id = nil
+        existing_fb_user.save(false)
+      end
+      #link the new one
+      self.fb_user_id = fb_user_id
+      save(false)
+    end
+  end
+  
+  def register_user_to_fb
+    users = {:email => email, :account_id => id}
+    Facebooker::User.register([users])
+    self.email_hash = Facebooker::User.hash_email(email)
+    save(false)
+  end
+  def facebook_user?
+    return !fb_user_id.nil? && fb_user_id > 0
+  end
+  
 end

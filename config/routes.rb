@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search '/search', :controller => 'search', :action => 'context'
   map.search '/dashboard', :controller => 'dashboard'
 
+  map.resources :users, :collection => {:link_user_accounts => :get}
   map.resource :session
 
   # The priority is based upon order of creation: first created -> highest priority.
