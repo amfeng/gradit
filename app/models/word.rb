@@ -1,4 +1,6 @@
-class Word < ActiveRecord::Base
+
+class Word
+  include PIQLEntry
   has_and_belongs_to_many :wordlists
   has_many :contexts
   has_many :multiple_choices

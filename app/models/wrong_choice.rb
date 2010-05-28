@@ -1,3 +1,4 @@
-class WrongChoice < ActiveRecord::Base
+class WrongChoice
+  include PIQLEntry
   belongs_to :word
 end

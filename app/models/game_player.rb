@@ -1,4 +1,5 @@
-class GamePlayer < ActiveRecord::Base
+class GamePlayer
+	include PIQLEntry
 	belongs_to :game
 	belongs_to :user
 end

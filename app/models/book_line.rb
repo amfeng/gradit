@@ -1,2 +1,3 @@
-class BookLine < ActiveRecord::Base
+class BookLine
+	include PIQLEntry
 end

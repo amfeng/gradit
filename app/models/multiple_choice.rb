@@ -1,4 +1,5 @@
-class MultipleChoice < ActiveRecord::Base
+class MultipleChoice
+  include PIQLEntry
   belongs_to :word
   
   def getChoices

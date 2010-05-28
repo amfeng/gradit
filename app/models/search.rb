@@ -1,5 +1,5 @@
-class Search < ActiveRecord::Base
-  
+class Search
+  include PIQLEntry
   def self.search(query)
 	w = Word.find_by_word(query)
   	if(w) #If word exists, context might exist

@@ -1,6 +1,7 @@
 require 'digest/sha1'
 
-class User < ActiveRecord::Base
+class User 
+  include PIQLEntry
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken

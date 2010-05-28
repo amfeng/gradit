@@ -1,4 +1,5 @@
-class Intersect < ActiveRecord::Base
+class Intersect
+  include PIQLEntry
   def generateChoices
     setA = MultipleChoice.find(seta)
     setB = MultipleChoice.find(setb)

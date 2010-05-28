@@ -1,61 +1,61 @@
-BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
-	QUERY bookLineQuery
-	FETCH book_lines
-	???
-BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
+//BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+//	QUERY bookLineQuery
+//	FETCH book_lines
+//	???
+//BookLine.find(:first, :conditions => ["linenum = ? and source = ?", line.linenum - 1, line.source])
 	QUERY bookLineBeforeAndAfter
 	FETCH book_lines
 	WHERE linenum = [1:linenum] AND source = [2:linesource]
 	LIMIT 1 MAX 1
-Book.find(line.source)
+//Book.find(line.source)
 	QUERY bookByName
 	FETCH books
 	WHERE name = [1:bookname]
 	LIMIT 1 MAX 1
-GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
+//GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
 	QUERY gamePlayerByGame
 	FETCH game_player
 	WHERE game_id = [1:gameid] AND login = [2:login]
 	LIMIT 1 MAX 1
-Game.find(params[:id])
+//Game.find(params[:id])
 	QUERY gameById
 	FETCH games
 	WHERE game_id = [1:game_id]
 	LIMIT 1 MAX 1
-MultipleChoice.find(params[:mc_id])
+//MultipleChoice.find(params[:mc_id])
 	QUERY multipleChoiceById
 	FETCH multiple_choices
 	WHERE multiple_choice_id = [1:mc_id]
 	LIMIT 1 MAX 1
-User.find_by_login("guest")
+//User.find_by_login("guest")
 	QUERY userByLogin
 	FETCH users
 	WHERE login = [1:username]
 	LIMIT 1 MAX 1
-Wordlist.all
+//Wordlist.all
 	QUERY allWordlists
 	FETCH word_lists
 	LIMIT 500 MAX 500
-Wordlist.find(params[:id])
+//Wordlist.find(params[:id])
 	QUERY wordlistByName
 	FETCH word_lists
 	WHERE name = [1:wordlist_name]
 	LIMIT 1 MAX 1
-Word.find_by_word(game.currentword)
+//Word.find_by_word(game.currentword)
 	QUERY wordByWord
 	FETCH words
 	WHERE word = [1:word]
 	LIMIT 1 MAX 1
-Word.all
+//Word.all
 	QUERY allWords
 	FETCH words
 	LIMIT 1000 MAX 1000
-Word.all(:order=>'RANDOM()', :limit=>4)
-	QUERY randomWords
-	FETCH words
-	???
+//Word.all(:order=>'RANDOM()', :limit=>4)
+//	QUERY randomWords
+//	FETCH words
+//	???
 
-wordlist = game.wordlist.words
+//wordlist = game.wordlist.words
 	QUERY wordlistFromGame
 	FETCH wordlists
 		OF games BY wordlist_id
@@ -68,39 +68,39 @@ wordlist = game.wordlist.words
 	WHERE wordlists_words.wordlist_id = [1:wordlist_id]
 	LIMIT 1 MAX 1
 	
-c.word = w;
-	???
-cc.word = w;
-	???
+//c.word = w;
+//	???
+//cc.word = w;
+//	???
 
-w.contexts
+//w.contexts
 	QUERY contextsFromWord
 	FETCH contexts
 	WHERE word_id = [1:word_id]
 	LIMIT [2:count] MAX 100
 
-w.context_cache
+//w.context_cache
 	QUERY contextCacheFromWord
 	FETCH context_caches
 	WHERE word_id = [1:word_id]
 	LIMIT 1 MAX 1
 	
-word.multiple_choices
+//word.multiple_choices
 	QUERY multipleChoicesFromWord
 	FETCH multiple_choices
 	WHERE word_id = [1:word_id]
 	LIMIT [2:count] MAX 10
 
-word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
-	???
+//word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
+//	???
 	
-word.wrong_choices 
+//word.wrong_choices 
 	QUERY wrongChoicesFromWord
 	FETCH wrong_choices
 	WHERE word_id = [1:word_id]
 	LIMIT [2:count] MAX 10
 
-current_user.games
+//current_user.games
 	QUERY gamesByUser
 	FETCH games
 		OF game_players BY game_id

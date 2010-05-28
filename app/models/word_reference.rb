@@ -1,2 +1,3 @@
-class WordReference < ActiveRecord::Base
+class WordReference
+	include PIQLEntry
 end

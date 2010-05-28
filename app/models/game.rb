@@ -1,4 +1,5 @@
-class Game < ActiveRecord::Base
+class Game
+	include PIQLEntry
 	belongs_to :wordlist
 	has_many :game_players
 	has_many :users, :through => :game_players
