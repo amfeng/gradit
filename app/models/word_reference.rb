@@ -1,3 +1,3 @@
 class WordReference
-	include PIQLEntry
+	include PIQLEntity
 end

@@ -1,4 +1,4 @@
 class Book
-	include PIQLEntry
+	include PIQLEntity
 	has_many :book_lines
 end

@@ -1,5 +1,5 @@
 class Search
-  include PIQLEntry
+  include PIQLEntity
   def self.search(query)
 	w = Word.find_by_word(query)
   	if(w) #If word exists, context might exist

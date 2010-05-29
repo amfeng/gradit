@@ -1,3 +1,3 @@
 class BookLine
-	include PIQLEntry
+	include PIQLEntity
 end

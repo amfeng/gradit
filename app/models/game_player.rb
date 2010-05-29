@@ -1,5 +1,5 @@
 class GamePlayer
-	include PIQLEntry
+	include PIQLEntity
 	belongs_to :game
 	belongs_to :user
 end

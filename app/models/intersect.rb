@@ -1,5 +1,5 @@
 class Intersect
-  include PIQLEntry
+  include PIQLEntity
   def generateChoices
     setA = MultipleChoice.find(seta)
     setB = MultipleChoice.find(setb)

@@ -1,6 +1,6 @@
 
 class Word
-  include PIQLEntry
+  include PIQLEntity
   has_and_belongs_to_many :wordlists
   has_many :contexts
   has_many :multiple_choices

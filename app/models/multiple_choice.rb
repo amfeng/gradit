@@ -1,5 +1,5 @@
 class MultipleChoice
-  include PIQLEntry
+  include PIQLEntity
   belongs_to :word
   
   def getChoices

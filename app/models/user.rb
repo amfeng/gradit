@@ -1,25 +1,25 @@
 require 'digest/sha1'
 
 class User 
-  include PIQLEntry
-  include Authentication
-  include Authentication::ByPassword
-  include Authentication::ByCookieToken
+  include PIQLEntity
+  #include Authentication
+  #include Authentication::ByPassword
+  #include Authentication::ByCookieToken
   has_many :game_players
   has_many :games, :through => :game_players
   
-  validates_presence_of     :login
-  validates_length_of       :login,    :within => 3..40
-  validates_uniqueness_of   :login
-  validates_format_of       :login,    :with => Authentication.login_regex, :message => Authentication.bad_login_message
+  #validates_presence_of     :login
+  #validates_length_of       :login,    :within => 3..40
+  #validates_uniqueness_of   :login
+  #validates_format_of       :login,    :with => Authentication.login_regex, :message => Authentication.bad_login_message#
 
-  validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
+#  validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
   validates_length_of       :name,     :maximum => 100
 
   validates_presence_of     :email
   validates_length_of       :email,    :within => 6..100 #r@a.wk
   validates_uniqueness_of   :email
-  validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
+  #validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
   before_create :make_activation_code 
   after_create :register_user_to_fb

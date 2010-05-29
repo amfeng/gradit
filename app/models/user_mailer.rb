@@ -1,5 +1,5 @@
 class UserMailer
-  include PIQLEntry
+  include PIQLEntity
   def signup_notification(user)
     setup_email(user)
     @subject    += 'Please activate your new account'

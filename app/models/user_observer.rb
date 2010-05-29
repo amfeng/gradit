@@ -1,5 +1,5 @@
 class UserObserver
-  include PIQLEntry
+  include PIQLEntity
 	def after_create(user)
     UserMailer.deliver_signup_notification(user)
   end

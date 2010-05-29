@@ -1,4 +1,4 @@
 class WrongChoice
-  include PIQLEntry
+  include PIQLEntity
   belongs_to :word
 end

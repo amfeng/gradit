@@ -1,5 +1,5 @@
 class Game
-	include PIQLEntry
+	include PIQLEntity
 	belongs_to :wordlist
 	has_many :game_players
 	has_many :users, :through => :game_players

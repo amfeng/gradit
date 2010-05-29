@@ -9,6 +9,17 @@ ENTITY BookLine
 	PRIMARY(linenum, source)
 }
 
+ENTITY BookLine
+{
+	int book_line_id,
+	string line,
+	int source,
+	int linenum,
+	int created_at,
+	int updated_at
+	PRIMARY(linenum, source)
+}
+
 ENTITY Book
 {
 	int book_id,
