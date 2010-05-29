@@ -24,11 +24,14 @@ class Word
       wc.count = wc.count + 1
       wc.save
     else
-      self.wrong_choices << WrongChoice.create(:wrong_choice_id => wrong_word.id, :count => 1)
+      w = WordList.new
+      w.puts("wrong_choice_id", wrong_word.id)
+      w.puts("count", 1)
+      #NEED TO CHANGE THE FOLLOWING LINE
+      self.wrong_choices << w
     end
   end
     
-
   def choices
     #mc = self.multiple_choices
     #mc = mc[rand(mc.length)]
@@ -46,32 +49,41 @@ class Word
     #  end
     #end
 	
-	wrongchoices = self.wrong_choices
-	
-	if (wrongchoices.length > 0)
-		#generate one attractive distractor if there are wrong choices (attractive distractors) available
-		r1 = rand(wrongchoices.length)
-		mclist << wrongchoices[r1]
-		wrongchoices.delete_at(r1)
-		if (wrongchoices.length>0)
-			r2 = rand(wrongchoices.length)
-			mclist << wrongchoices[r2]
-			wrongchoices.delete_at(r2)
-		end
-	end
-	
-	allwords = Word.all(:order=>'RANDOM()', :limit=>4)
-	counter = 0
-	while (mclist.length < 4)
-	  mclist << allwords[counter].word
-	  counter = counter + 1
-	end
-	#if (mc.nil? or mc.is_intersection) 
-	  mc_new = MultipleChoice.create(:word_id => self.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => self.word, :score => 0)
-	#end
-	#retlist = []
-	#retlist << mclist[0] << mclist[1] << mclist[2] << self.word
-	#return retlist.sort_by{ rand }
-	return mc_new
+    wrongchoices = self.wrong_choices
+    
+    if (wrongchoices.length > 0)
+      #generate one attractive distractor if there are wrong choices (attractive distractors) available
+      r1 = rand(wrongchoices.length)
+      mclist << wrongchoices[r1]
+      wrongchoices.delete_at(r1)
+      if (wrongchoices.length>0)
+        r2 = rand(wrongchoices.length)
+        mclist << wrongchoices[r2]
+        wrongchoices.delete_at(r2)
+      end
+    end
+    
+    allwords = Query.allWord
+    allwords = aw.sort {rand}
+    
+    counter = 0
+    while (mclist.length < 4)
+      mclist << allwords[counter].word
+      counter = counter + 1
+    end
+    #if (mc.nil? or mc.is_intersection) 
+    mc_new = MultipleChoice.new
+    mc_new.puts(":word_id", self.id)
+    mc_new.puts("is_intersection", false)
+    mc_new.puts("choice1", mclist[0])
+    mc_new.puts("choice2", mclist[1])
+    mc_new.puts("choice3", mclist[2])
+    mc_new.puts("choice4", self.word)
+    mc_new.puts("score", 0)
+    #end
+    #retlist = []
+    #retlist << mclist[0] << mclist[1] << mclist[2] << self.word
+    #return retlist.sort_by{ rand }
+    return mc_new
   end    
 end
