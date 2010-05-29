@@ -1,20 +1,23 @@
 class Search
   include PIQLEntity
   def self.search(query)
-	w = Word.find_by_word(query)
-  	if(w) #If word exists, context might exist
-  		if(w.context_cache) #If word exists in context cache
+	w = Query.wordByWord(query)
+	w_empty = w.empty?
+  	if(!w_empty) #If word exists, context might exist
+  		if(Query.contextCacheFromWord(w)) #If word exists in context cache
   			return w.contexts unless w.context_cache.dirty
   		end
   	else #Else, create word
-  		w = Word.new(:word => query)
+  		w = Word.new
+  		w.put("word", query)
   		w.save	
   	end
   	
   	#Else, have to search from scratch
     @contexts = Array.new()
-    la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
-    
+    #la = BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
+    #REPLACE WITH WORD REFERENCES THINGY
+    la = []
     reg = /\b#{query}\b/i
     
     for line in la do
@@ -42,9 +45,14 @@ class Search
 	if(w.context_cache) 
 		w.context_cache.dirty = false
 	else
-		cc = ContextCache.new(:dirty => false)
-		cc.word = w;
-		cc.save
+		puts "something wrong?"
+		cc = ContextCache.new	
+		puts cc
+		cc.put("dirty", false)
+		puts cc
+		cc.put("word_word", w)
+		puts cc
+		cc.save($piql_env)
 	end
     return @contexts
   end
