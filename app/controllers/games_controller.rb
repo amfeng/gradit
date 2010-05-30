@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   # GET /games.xml
   def index
     #Note: .all does not yet work
-    @games = Game.all
+    #@games = Game.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -120,7 +120,7 @@ class GamesController < ApplicationController
     #Create the actual game object
     
     game = Game.new
-    game.puts("wordlist_id", params[:id])
+    game.puts("wordlist_name", params[:name])
     game.puts("finished", false)
     game.puts("winner_id", nil)
     game.save

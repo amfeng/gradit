@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
 	def index
-		@wordlists = Query.wordlistByName("Wordist 1")
+		puts "Wordlist"
+		@wordlists = Query.wordlistByName("amber")
+		puts @wordlists
+		@wordlists = Query.wordlistByName("hello")
 		puts @wordlists
 		@word = Query.wordByWord("vex").first
 		puts "Word"

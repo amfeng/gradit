@@ -9,7 +9,7 @@
   <tr>
     <td><%=h wordlist.name %></td>
     <td><%= link_to 'Show', wordlist %></td>
-    <td><%= link_to "Play a game with this wordlist", {:controller=>:games, :action=>:new_game, :id=>wordlist.id} %></td>
+    <td><%= link_to "Play a game with this wordlist", {:controller=>:games, :action=>:new_game, :id=>wordlist.name} %></td>
   </tr>
 <% end %>
 </table>
