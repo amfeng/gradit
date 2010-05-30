@@ -1,11 +1,12 @@
 class Search
   include PIQLEntity
   def self.search(query)
-	w = Query.wordByWord(query)
+	w = Query.wordByWord(query).first
 	w_empty = w.empty?
   	if(!w_empty) #If word exists, context might exist
-  		if(Query.contextCacheFromWord(w)) #If word exists in context cache
-  			return w.contexts unless w.context_cache.dirty
+  		if(w.contextCacheFromWord($piql_env)) #If word exists in context cache
+  			#return w.contexts unless w.context_cache.dirty
+  			return w.contextsFromWord(5, $piql_env)
   		end
   	else #Else, create word
   		w = Word.new
