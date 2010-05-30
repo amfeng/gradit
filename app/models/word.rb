@@ -21,10 +21,10 @@ class Word
     #if !wrong_word.nil?
     if existing_wrong_choices.map{|x| x.wrong_choice_id}.include?(wrong_word.id)
       wc = existing_wrong_choices.select{|x| x.wrong_choice_id == wrong_word.id}.pop
-      wc.count = wc.count + 1
+      wc.puts("count", wc.count + 1)
       wc.save
     else
-      w = WordList.new
+      w = WrongChoice.new
       w.puts("wrong_choice_id", wrong_word.id)
       w.puts("count", 1)
       #NEED TO CHANGE THE FOLLOWING LINE
@@ -64,7 +64,7 @@ class Word
     end
     
     allwords = Query.allWord
-    allwords = aw.sort {rand}
+    allwords = allwords.sort {rand}
     
     counter = 0
     while (mclist.length < 4)
@@ -73,6 +73,7 @@ class Word
     end
     #if (mc.nil? or mc.is_intersection) 
     mc_new = MultipleChoice.new
+    #NEED TO ADD multiple_choice_id
     mc_new.puts(":word_id", self.id)
     mc_new.puts("is_intersection", false)
     mc_new.puts("choice1", mclist[0])
@@ -80,6 +81,8 @@ class Word
     mc_new.puts("choice3", mclist[2])
     mc_new.puts("choice4", self.word)
     mc_new.puts("score", 0)
+    #WHAT IS MultipleChoice.word_word? NEED TO ADD THAT
+
     #end
     #retlist = []
     #retlist << mclist[0] << mclist[1] << mclist[2] << self.word

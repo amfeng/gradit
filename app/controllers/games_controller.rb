@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.xml
   def show
-    @game = Game.find(params[:id])
+    @game = Query.gameById(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -65,6 +65,7 @@ class GamesController < ApplicationController
      
       #Add wrong choice to the database for making questions "smarter"
       #How do associations work in rails? Which fields do we set?
+
       #NEED TO CHANGE THE FOLLOWING LINE
       word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
       
@@ -87,7 +88,7 @@ class GamesController < ApplicationController
     game = Query.gameById(params[:id])
     word = Query.wordByWord(game.currentword)
     
-    @player = Query.gamePlayerByGame(:game_id => game.id, :user_id => user_id)
+    @player = Query.gamePlayerByGame(game.id, user_id)
     @game_id = game.id
     
     definition = word.definition
@@ -161,7 +162,7 @@ class GamesController < ApplicationController
     #Allow guest access for playing games without login
     if User.guest_account_enabled
       if !authorized?
-        self.current_user = User.find_by_login("guest")
+        self.current_user = Queries.userByLogin("guest")
         new_cookie_flag = (params[:remember_me] == "1")
         handle_remember_cookie! new_cookie_flag
       end
