@@ -2,22 +2,11 @@ ENTITY BookLine
 {
 	int book_line_id,
 	string line,
-	int source,
+	FOREIGN KEY book_name REF Book,
 	int linenum,
 	int created_at,
 	int updated_at
-	PRIMARY(linenum, source)
-}
-
-ENTITY BookLine
-{
-	int book_line_id,
-	string line,
-	int source,
-	int linenum,
-	int created_at,
-	int updated_at
-	PRIMARY(linenum, source)
+	PRIMARY(linenum, book_name)
 }
 
 ENTITY Book
@@ -158,6 +147,14 @@ ENTITY GlobalId
 	int row_id,
 	int id_counter
 	PRIMARY(row_id)	
+}
+
+ENTITY WordReference
+{
+	int word_reference_id,
+	FOREIGN KEY word_word REF Word,
+	FOREIGN KEY context REF Context
+	PRIMARY(word_reference_id)
 }
 
 ////****Explicit Find Calls****

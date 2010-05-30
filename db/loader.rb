@@ -1,8 +1,7 @@
-gi1 = GlobalId.new
-gi1.row_id = 1
-gi1.id_counter = 1
-gi1.save
-
+#gi1 = GlobalId.new
+#gi1.row_id = 1
+#gi1.id_counter = 1
+#gi1.save
 
 # Sample user
 # username: allen
@@ -76,16 +75,61 @@ ww.put("wordlist_name", wl)
 ww.save($piql_env)
 
 bookline1 = BookLine.new
-bookline1.line = "But one day, when she had been peculiarly wayward, rejecting her breakfast, complaining that the servants did not do what she told them; that the mistress would allow her to be nothing in the house, and Edgar neglected her; that she had caught a cold with the doors being left open, and we let the parlour fire go out on purpose to vex her, with a hundred yet more frivolous accusations, Mrs. Linton peremptorily insisted that she should get to bed; and, having scolded her heartily, threatened to send for the doctor."
-bookline1.linenum = 1
-bookline1.source = b1.book_id
+bookline1.put("line", "But one day, when she had been peculiarly wayward, rejecting her breakfast, complaining that the servants did not do what she told them; that the mistress would allow her to be nothing in the house, and Edgar neglected her; that she had caught a cold with the doors being left open, and we let the parlour fire go out on purpose to vex her, with a hundred yet more frivolous accusations, Mrs. Linton peremptorily insisted that she should get to bed; and, having scolded her heartily, threatened to send for the doctor.")
+#bookline1.put("linenum", 1)
+bookline1.put("source", b1)
+bookline1.save($piql_env)
+
+c1 = Context.new
+c1.context_id = 1.to_i
+c1.wordline = bookline1.line
+c1.before = ""
+c1.after = ""
+c1.book_name = b1
+c1.word_word = nw2
+c1.save
+
+wr1 = WordReference.new
+wr1.word_word = nw2
+wr1.context_id = c1
+wr1.save
 
 bookline2 = BookLine.new
-bookline2.line = "That sounds ill-natured: but she was so proud it became really impossible to pity her distresses, till she should be chastened into more humility."
-bookline2.linenum = 2
-bookline2.source = b1.book_id
+bookline2.put("line", "That sounds ill-natured: but she was so proud it became really impossible to pity her distresses, till she should be chastened into more humility.")
+#bookline2.put("linenum", 2)
+bookline2.put("source", b1)
+bookline2.save($piql_env)
+
+c2 = Context.new
+c2.context_id = 2.to_i
+c2.wordline = bookline2.line
+c2.before = ""
+c2.after = ""
+c2.book_name = b1
+c2.word_word = nw3
+c2.save
+
+wr1 = WordReference.new
+wr1.word_word = nw3
+wr1.context_id = c2
+wr1.save
 
 bookline3 = BookLine.new
-bookline3.line = "‘It’s well the hellish villain has kept his word!’ growled my future host, searching the darkness beyond me in expectation of discovering Heathcliff; and then he indulged in a soliloquy of execrations, and threats of what he would have done had the ‘fiend’ deceived him."
-bookline3.linenum = 3
-bookline3.source = b1.book_id
+bookline3.put("line", "‘It’s well the hellish villain has kept his word!’ growled my future host, searching the darkness beyond me in expectation of discovering Heathcliff; and then he indulged in a soliloquy of execrations, and threats of what he would have done had the ‘fiend’ deceived him.")
+#bookline3.put("linenum", 3)
+bookline3.put("source", b1)
+bookline3.put($piql_env)
+
+c3 = Context.new
+c2.context_id = 3.to_i
+c3.wordline = bookline3.line
+c3.before = ""
+c3.after = ""
+c3.book_name = b1
+c3.word_word = nw1
+c3.save
+
+wr1 = WordReference.new
+wr1.word_word = nw1
+wr1.context_id = c3
+wr1.save

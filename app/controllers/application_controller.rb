@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
   #before_filter :set_facebook_session
   #helper_method :facebook_session
   include AuthenticatedSystem  
+  
+  $global_entity_id = 0
+  
+  def global_entity_id
+	$global_entity_id = $global_entity_id + 1
+  end
+  	
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password

@@ -11,5 +11,6 @@ class HomeController < ApplicationController
 		@user = Query.userByLogin("amber").first
 		puts "User"
 		puts @user
+		session[:current_user] = @user
 	end
 end

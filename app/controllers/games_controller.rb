@@ -83,12 +83,12 @@ class GamesController < ApplicationController
   
   #Displaying/picking questions
   def game_entry
-    user_id = curr_user_id
+    user = current_user
     
     game = Query.gameById(params[:id])
     word = Query.wordByWord(game.currentword)
     
-    @player = Query.gamePlayerByGame(game.id, user_id)
+    @player = Query.gamePlayerByGame(game.game_id, user.name)
     @game_id = game.id
     
     definition = word.definition
@@ -116,11 +116,11 @@ class GamesController < ApplicationController
   end
 
   def new_game
-    user_id = curr_user_id
     
     #Create the actual game object
     
     game = Game.new
+    game.puts("game_id", global_entity_id)
     game.puts("wordlist_name", params[:name])
     game.puts("finished", false)
     game.puts("winner_id", nil)
@@ -128,8 +128,8 @@ class GamesController < ApplicationController
     
     #Create Game Player for the user
     player = GamePlayer.new
-    player.puts("game_id", game.id)
-    player.puts("user_id", user_id)
+    player.puts("game", game.id)
+    player.puts("user_login", current_user)
     player.puts("score", 0)
     player.save
   	
@@ -162,7 +162,7 @@ class GamesController < ApplicationController
     #Allow guest access for playing games without login
     if User.guest_account_enabled
       if !authorized?
-        self.current_user = Queries.userByLogin("guest")
+        self.current_user = Queries.userByLogin("amber")
         new_cookie_flag = (params[:remember_me] == "1")
         handle_remember_cookie! new_cookie_flag
       end
