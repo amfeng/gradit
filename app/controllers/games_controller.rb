@@ -75,13 +75,14 @@ class GamesController < ApplicationController
   
   #Displaying/picking questions
   def game_entry
-    user = current_user
+  	puts 'GAME_ENTRY:'
+    curr_user = Query.userByLogin("amber").first
+    puts curr_user
+    game = Query.gameById(params[:id].to_i).first
+    puts game
+    word = Query.wordByWord(game.currentword).first
     
-    game = Query.gameById(params[:id])
-    word = Query.wordByWord(game.currentword)
-    
-    @player = Query.gamePlayerByGame(game.game_id, user.name)
-    @game_id = game.id
+    @player = Query.gamePlayerByGame(game, curr_user).first
     
     definition = word.definition
     
@@ -111,11 +112,16 @@ class GamesController < ApplicationController
     curr_user = Query.userByLogin("amber").first
     #Create the actual game object
     
+	puts "global var"
+	id = global_entity_id.to_i
+	puts java.lang.Integer.new(id)
     game = Game.new
-    game.put("game_id", java.lang.Integer.new(global_entity_id))
+    game.put("game_id", java.lang.Integer.new(id))
     game.put("wordlist_name", Query.wordlistByName(params[:name]).first)
     game.put("finished", false)
     game.save
+    
+    puts game
     
     #Create Game Player for the user
     player = GamePlayer.new
@@ -129,16 +135,15 @@ class GamesController < ApplicationController
     wordlist = Query.wordlistByName(game.wordlist_name.name).first
     puts wordlist
     puts "finding words in wordlist"
-    words = wordlist.WordsFromWordlist
+    words = wordlist.WordFromWordlist($piql_env).to_a
     puts words
-    words = [] if (words==nil)
-    word = words[rand(word.length)]
+    word = words[rand(words.length)]
     
     #If there is a word
     if(word)
       game.put("currentword", word.word)
       game.save
-      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.game_id)
       return
     end
     flash[:notice] = "Wordlist has no words!"
