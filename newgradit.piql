@@ -173,7 +173,7 @@ ENTITY WordReference
 ////GamePlayer.find(:first, :conditions => {:game_id => game.id, :user_id => user_id})
 	QUERY gamePlayerByGame
 	FETCH GamePlayer
-	WHERE game = [1:game_id] AND user_login = [2:login]
+	WHERE game.game_id = [1:game_id] AND user_login.login = [2:login]
 	LIMIT 1 MAX 1
 ////Game.find(params[:id])
 	QUERY gameById

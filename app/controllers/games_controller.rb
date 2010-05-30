@@ -24,7 +24,7 @@ class GamesController < ApplicationController
     game = Query.gameById(params[:id])
     word = Query.wordByWord(game.currentword)
     
-    @player = Query.game(game.id, user_id)
+    @player = Query.gamePlayerByGame(game.id, user_id)
     choice = params[:answer]
     word = Query.wordByWord(choice)
     definition = word.definition
@@ -82,7 +82,8 @@ class GamesController < ApplicationController
     puts game
     word = Query.wordByWord(game.currentword).first
     
-    @player = Query.gamePlayerByGame(game, curr_user).first
+    @player = Query.gamePlayerByGame(game, curr_user)
+    puts @player
     
     definition = word.definition
     
