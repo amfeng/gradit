@@ -71,6 +71,11 @@ class User
   def has_active_game
   	return false if User.is_guest(self) && User.guest_account_enabled
   	games = self.games
+  	
+  	
+  	if(games == nil)
+  		games = Array.new
+  	end
   	for g in games
   		return g if !g.finished
   	end

@@ -108,30 +108,35 @@ class GamesController < ApplicationController
   end
 
   def new_game
-    
+    curr_user = Query.userByLogin("amber").first
     #Create the actual game object
     
     game = Game.new
-    game.puts("game_id", global_entity_id)
-    game.puts("wordlist_name", params[:name])
-    game.puts("finished", false)
-    game.puts("winner_id", nil)
+    game.put("game_id", java.lang.Integer.new(global_entity_id))
+    game.put("wordlist_name", Query.wordlistByName(params[:name]).first)
+    game.put("finished", false)
     game.save
     
     #Create Game Player for the user
     player = GamePlayer.new
-    player.puts("game", game.id)
-    player.puts("user_login", current_user)
-    player.puts("score", 0)
-    player.save
+    player.put("game", game)
+    player.put("user_login", curr_user)
+    player.put("score", java.lang.Integer.new(0))
+    player.save($piql_env)
   	
     #Select a random word from the wordlist for the new "current" word
-    word = game.wordlist.words.to_a
-    word = word[rand(word.length)]
+    puts "wordlist"
+    wordlist = Query.wordlistByName(game.wordlist_name.name).first
+    puts wordlist
+    puts "finding words in wordlist"
+    words = wordlist.WordsFromWordlist
+    puts words
+    words = [] if (words==nil)
+    word = words[rand(word.length)]
     
     #If there is a word
     if(word)
-      game.puts("currentword", word.word)
+      game.put("currentword", word.word)
       game.save
       redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
       return
@@ -141,9 +146,9 @@ class GamesController < ApplicationController
   end
   
   def active_filter
-  	current_user = Query.userByLogin("amber").first
+  	curr_user = Query.userByLogin("amber").first
     #Is the user currently in an active (not-over) game?
-    active = current_user.has_active_game
+    active = curr_user.has_active_game
     if active
       flash[:notice] = "Oops! You already have an active game. Please quit the current game before you try to open a new one!"
       redirect_to :back
@@ -168,7 +173,7 @@ class GamesController < ApplicationController
   def quit_game
     #Quit the game - end the game and return to dashboard
     game = Query.gameById(params[:game_id])
-    game.puts("finished", true)
+    game.put("finished", true)
     game.save
     redirect_to :controller => :dashboard
   end

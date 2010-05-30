@@ -3,6 +3,6 @@
 	  <%=h @wordlist.name %>
 	</p>
 	
-	<%= link_to "Play a game with this wordlist", {:controller=>:games, :action=>:new_game, :id=>@wordlist.id} %>
+	<%= link_to "Play a game with this wordlist", {:controller=>:games, :action=>:new_game, :id => 1, :name=>@wordlist.name} %>
 	<%= link_to 'Back', wordlists_path %>
 </div>
