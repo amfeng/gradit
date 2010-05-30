@@ -82,14 +82,16 @@ class GamesController < ApplicationController
     puts game
     word = Query.wordByWord(game.currentword).first
     
-    @player = Query.gamePlayerByGame(game, curr_user)
+    @player = Query.gamePlayerByGame(game.key, curr_user.key)
     puts @player
     
     definition = word.definition
     
     #Get a random context for the word
+    puts "finding contexts"
     @para = false
-    contexts = Search.search(word.word) #get context
+    contexts = Search.search(word.word).to_a #get context
+    puts contexts
   	con = contexts[rand(contexts.length)]
   	if(con)
   	  #Initialize paragraph, multiple choice settings
@@ -100,8 +102,12 @@ class GamesController < ApplicationController
       @mc_array = @mc.getChoices
     else
       #Find another word to use, no contexts
-      wordlist = Query.allWordList
-      game.currentword = wordlist[rand(wordlist.length)].word
+      wordlist = Query.wordlistByName(game.wordlist_name.name).first
+      words = wordlist.WordFromWordlist($piql_env).to_a
+      puts words
+      word = words[rand(words.length)]
+      puts word
+      game.currentword = word
       game.save
       redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
     end    

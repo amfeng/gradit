@@ -1,0 +1,13 @@
+Install:
+jruby script/plugin install git://github.com/radlab/PIQL-on-Rails.git
+Update:
+jruby script/plugin install -f git://github.com/radlab/PIQL-on-Rails.git
+
+If you prefer to use SVN:
+svn checkout http://svn.github.com/radlab/PIQL-on-Rails.git
+
+See Wiki for more information including an example Rails project.
+
+The database is not persistent at the moment. It is reset every time you reset the server. See the wiki on writing a loader script to load data into the database on start.
+
+Please let us know what are the most important features/bugs to add/fix so that you can get work done.
