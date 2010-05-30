@@ -153,6 +153,13 @@ ENTITY Game
 	PRIMARY(game_id)
 }
 
+ENTITY GlobalId
+{
+	int row_id,
+	int id_counter
+	PRIMARY(row_id)	
+}
+
 ////****Explicit Find Calls****
 ////???BookLine.find(:all, :conditions => ["line like ?", "%" + query + "%"])
 
@@ -204,6 +211,12 @@ ENTITY Game
 	QUERY allWord
 	FETCH Word
 	LIMIT 1000 MAX 1000
+	
+////GlobalId.find(id)
+	QUERY globalIdbyId
+	FETCH GlobalID
+	WHERE row_id = [1:gi_id]
+	LIMIT 1 MAX 1
 ////Word.all(:order=>'RANDOM()', :limit=>4)
 ////	QUERY randomWord
 ////	FETCH Word
