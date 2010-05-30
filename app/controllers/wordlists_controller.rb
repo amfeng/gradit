@@ -13,7 +13,7 @@ class WordlistsController < ApplicationController
   # GET /wordlists/1
   # GET /wordlists/1.xml
   def show
-    @wordlist = Wordlist.find(params[:id])
+    @wordlist = Query.wordlistByName(params[:name]).first
 
     respond_to do |format|
       format.html # show.html.erb

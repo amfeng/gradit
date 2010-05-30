@@ -7,7 +7,7 @@
 		Or give yourself a quick vocab review? You can <%= link_to "create your own", new_wordlist_path %> or choose from some of our premade wordlists.
 		<br>
 		<% for a in @wordlists %>
-			<%= link_to a.name, :controller => :games, :action => :new_game, :name => a.name %>
+			<%= link_to a.name, {:controller=>:wordlists, :action=>:show, :name => a.name} %>
 		<% end %>
 	</div>
 </div>

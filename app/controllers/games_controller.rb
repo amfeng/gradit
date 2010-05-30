@@ -16,15 +16,7 @@ class GamesController < ApplicationController
 
   # GET /games/1
   # GET /games/1.xml
-  def show
-    @game = Query.gameById(params[:id]).first
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @game }
-    end
-  end
-
+ 
   #Check if the answer was correct
   def ans
     #Find the current user, game, and word
@@ -149,6 +141,7 @@ class GamesController < ApplicationController
   end
   
   def active_filter
+  	current_user = Query.userByLogin("amber").first
     #Is the user currently in an active (not-over) game?
     active = current_user.has_active_game
     if active
