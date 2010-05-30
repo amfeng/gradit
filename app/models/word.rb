@@ -49,8 +49,12 @@ class Word
     #  end
     #end
 	
-    wrongchoices = self.wrong_choices
-    
+    puts "wrong choices"
+    wrongchoices = self.wrongChoicesFromWord(5, $piql_env).to_a
+    puts wrongchoices
+    if(wrongchoices == nil)
+    	wrongchoices = Array.new
+	end
     if (wrongchoices.length > 0)
       #generate one attractive distractor if there are wrong choices (attractive distractors) available
       r1 = rand(wrongchoices.length)
@@ -63,7 +67,15 @@ class Word
       end
     end
     
-    allwords = Query.allWord
+    puts "all words"
+    #allwords = Query.allWord.to_a
+    #ALL WORDS QUICK HACK..WAITING FOR A WORKAROUND
+    allwords = Array.new
+    allwords << Query.wordByWord("vex").first
+    allwords << Query.wordByWord("indulged").first
+    allwords << Query.wordByWord("discerned").first
+    allwords << Query.wordByWord("chastened").first
+    puts allwords
     allwords = allwords.sort {rand}
     
     counter = 0
@@ -74,13 +86,13 @@ class Word
     #if (mc.nil? or mc.is_intersection) 
     mc_new = MultipleChoice.new
     #NEED TO ADD multiple_choice_id
-    mc_new.puts(":word_id", self.id)
-    mc_new.puts("is_intersection", false)
-    mc_new.puts("choice1", mclist[0])
-    mc_new.puts("choice2", mclist[1])
-    mc_new.puts("choice3", mclist[2])
-    mc_new.puts("choice4", self.word)
-    mc_new.puts("score", 0)
+    mc_new.put("word_word", self)
+    mc_new.put("is_intersection", false)
+    mc_new.put("choice1", mclist[0])
+    mc_new.put("choice2", mclist[1])
+    mc_new.put("choice3", mclist[2])
+    mc_new.put("choice4", self.word)
+    mc_new.put("score", java.lang.Integer.new(0))
     #WHAT IS MultipleChoice.word_word? NEED TO ADD THAT
 
     #end

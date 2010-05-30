@@ -92,10 +92,14 @@ class GamesController < ApplicationController
     @para = false
     contexts = Search.search(word.word).to_a #get context
     puts contexts
-  	con = contexts[rand(contexts.length)]
+    puts contexts.length
+    con = contexts.first
+  	#con = contexts[rand(contexts.length)]
+  	puts "THIS IS THE CONTEXT"
+  	puts con
   	if(con)
   	  #Initialize paragraph, multiple choice settings
-  	  @para_book = con.book.name;
+  	  @para_book = con.book_name;
       @para = con.before << con.wordline << con.after
       @para.gsub!(word.word, '___________') #underline the missing word
       @mc = word.choices
@@ -105,13 +109,13 @@ class GamesController < ApplicationController
       wordlist = Query.wordlistByName(game.wordlist_name.name).first
       words = wordlist.WordFromWordlist($piql_env).to_a
       puts words
-      word = words[rand(words.length)]
+      word = words[rand(words.length)].word
       puts word
       game.currentword = word
       game.save
-      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.id)
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.game_id)
     end    
-    nexturl = url_for :controller => :games, :action => :game_entry, :id => game.id
+    nexturl = url_for :controller => :games, :action => :game_entry, :id => game.game_id
     @disp = nexturl
   end
 
