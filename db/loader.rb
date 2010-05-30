@@ -81,7 +81,7 @@ bookline1.put("source", b1)
 bookline1.save($piql_env)
 
 c1 = Context.new
-c1.context_id = 1.to_i
+c1.context_id = java.lang.Integer.new(1)
 c1.wordline = bookline1.line
 c1.before = ""
 c1.after = ""
@@ -101,7 +101,7 @@ bookline2.put("source", b1)
 bookline2.save($piql_env)
 
 c2 = Context.new
-c2.context_id = 2.to_i
+c2.context_id = java.lang.Integer.new(2)
 c2.wordline = bookline2.line
 c2.before = ""
 c2.after = ""
@@ -118,10 +118,10 @@ bookline3 = BookLine.new
 bookline3.put("line", "‘It’s well the hellish villain has kept his word!’ growled my future host, searching the darkness beyond me in expectation of discovering Heathcliff; and then he indulged in a soliloquy of execrations, and threats of what he would have done had the ‘fiend’ deceived him.")
 #bookline3.put("linenum", 3)
 bookline3.put("source", b1)
-bookline3.put($piql_env)
+bookline3.save($piql_env)
 
 c3 = Context.new
-c2.context_id = 3.to_i
+c2.context_id = java.lang.Integer.new(3)
 c3.wordline = bookline3.line
 c3.before = ""
 c3.after = ""

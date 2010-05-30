@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.xml
   def show
-    @game = Query.gameById(params[:id])
+    @game = Query.gameById(params[:id]).first
 
     respond_to do |format|
       format.html # show.html.erb

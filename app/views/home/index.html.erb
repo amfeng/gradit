@@ -2,6 +2,7 @@
 	<div id="logo"></div>
 	Hello, <%= @user.login %>
 	<%= render :partial => "search/searchbox" %>
+	<% puts "home index"%>
 	<div id="play">
 		Or give yourself a quick vocab review? You can <%= link_to "create your own", new_wordlist_path %> or choose from some of our premade wordlists.
 		<br>
