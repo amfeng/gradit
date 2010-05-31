@@ -93,6 +93,7 @@ class Word
     mc_new.put("choice3", mclist[2])
     mc_new.put("choice4", self.word)
     mc_new.put("score", java.lang.Integer.new(0))
+    mc_new.save($piql_env)
     #WHAT IS MultipleChoice.word_word? NEED TO ADD THAT
 
     #end

@@ -85,6 +85,9 @@ class GamesController < ApplicationController
     @player = Query.gamePlayerByGame(game.key, curr_user.key)
     puts @player
     
+    #HARD CODE USER IN UNTIL GAMEPLAYER/USER QUERY WORKS
+    @player = curr_user
+    
     definition = word.definition
     
     #Get a random context for the word
@@ -103,7 +106,8 @@ class GamesController < ApplicationController
       @para = con.before << con.wordline << con.after
       @para.gsub!(word.word, '___________') #underline the missing word
       @mc = word.choices
-      @mc_array = @mc.getChoices
+      
+      @mc_array = [@mc.choice1,@mc.choice2,@mc.choice3,@mc.choice4].sort_by{ rand }
     else
       #Find another word to use, no contexts
       wordlist = Query.wordlistByName(game.wordlist_name.name).first
