@@ -32,7 +32,7 @@ class Word
     end
   end
     
-  def choices
+  def choices(entity_id)
     #mc = self.multiple_choices
     #mc = mc[rand(mc.length)]
     mclist = []
@@ -86,6 +86,7 @@ class Word
     #if (mc.nil? or mc.is_intersection) 
     mc_new = MultipleChoice.new
     #NEED TO ADD multiple_choice_id
+    mc_new.put("multiple_choice_id", java.lang.Integer.new(entity_id))
     mc_new.put("word_word", self)
     mc_new.put("is_intersection", false)
     mc_new.put("choice1", mclist[0])

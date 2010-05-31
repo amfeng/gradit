@@ -113,6 +113,7 @@ class GamesController < ApplicationController
     curr_user = Query.userByLogin("amber").first
     puts curr_user
     game = Query.gameById(params[:id].to_i).first
+    @game_id = game.game_id
     puts game
     word = Query.wordByWord(game.currentword).first
     
@@ -139,7 +140,7 @@ class GamesController < ApplicationController
   	  @para_book = con.book_name;
       @para = con.before << con.wordline << con.after
       @para.gsub!(word.word, '___________') #underline the missing word
-      @mc = word.choices
+      @mc = word.choices(global_entity_id)
       
       @mc_array = [@mc.choice1,@mc.choice2,@mc.choice3,@mc.choice4].sort_by{ rand }
     else
@@ -228,21 +229,24 @@ class GamesController < ApplicationController
   
   def quit_game
     #Quit the game - end the game and return to dashboard
-    game = Query.gameById(params[:game_id]).first
+    game = Query.gameById(params[:game_id].to_i).first
     game.put("finished", true)
     game.save
     redirect_to :controller => :dashboard
   end
   
   def vote_mc
+  	puts "voting MC"
     #Up/down voting multiple choices
     vote = params[:vote] #true for up, false for down
-    mc = Query.multipleChoiceById(params[:mc_id])
+    puts vote
+    mc = Query.multipleChoiceById(params[:mc_id].to_i).first
+    puts mc
     
     #Change multiple choice score accordingly
-    mc.score = mc.score + 1 if vote == "up"
-    mc.score = mc.score - 1 if vote == "down"
-    mc.save
+    mc.put("score", java.lang.Integer.new(mc.score + 1)) if vote == "up"
+    mc.put("score", java.lang.Integer.new(mc.score - 1)) if vote == "down"
+    mc.save($piql_env)
     
     #AJAX update the page to reflect changes
     render :update do |page|
