@@ -28,10 +28,9 @@ class GamesController < ApplicationController
     word = Query.wordByWord(game.currentword).first
     puts word
     
-    @player = Query.gamePlayerByGame(game.key, curr_user.key)
+    @player = Query.gamePlayerByGame(game.key, curr_user.key).first
     
     #HARD CODE IN ANSWER UNTIL GAMEPLAYER/USER WORKS
-    @player = curr_user
     
     puts "looking for an answer.."
     choice = params[:answer].to_s
@@ -55,9 +54,14 @@ class GamesController < ApplicationController
       
       puts "saved the game"
       
+      puts "gameplayer"
+      puts @player
       #Add points to the user's score REMOVED UNTIL GAMEPLAYER WORKS
-      #@player.put("score", @player.score + 10)
-      #@player.save
+      oldscore = @player.score
+      @player.put("score", java.lang.Integer.new(oldscore + 10))
+      puts "newscore"
+      puts @player.score
+      @player.save($piql_env)
       
       puts "AJAX-ing"
       
@@ -73,8 +77,14 @@ class GamesController < ApplicationController
     else #Incorrect answer
       puts "wrong answer"
       #Lower score 
-      #@player.put("score", @player.score - 5)
-      #@player.save
+     
+      oldscore = @player.score
+      puts "old score"
+      puts oldscore
+      @player.put("score", java.lang.Integer.new(oldscore - 5))
+      puts "newscore"
+      puts @player.score
+      @player.save($piql_env)
       
      puts "saved the player"
       #Add wrong choice to the database for making questions "smarter"
@@ -106,11 +116,11 @@ class GamesController < ApplicationController
     puts game
     word = Query.wordByWord(game.currentword).first
     
-    @player = Query.gamePlayerByGame(game.key, curr_user.key)
+    @player = Query.gamePlayerByGame(game.key, curr_user.key).first
     puts @player
     
     #HARD CODE USER IN UNTIL GAMEPLAYER/USER QUERY WORKS
-    @player = curr_user
+    #@player = curr_user
     
     definition = word.definition
     
@@ -148,6 +158,7 @@ class GamesController < ApplicationController
   end
 
   def new_game
+  	puts "hello? creating a new game"
     curr_user = Query.userByLogin("amber").first
     #Create the actual game object
     
@@ -164,9 +175,10 @@ class GamesController < ApplicationController
     
     #Create Game Player for the user
     player = GamePlayer.new
+    player.put("game_player_id", java.lang.Integer.new(global_entity_id.to_i))
     player.put("game", game)
     player.put("user_login", curr_user)
-    player.put("score", java.lang.Integer.new(0))
+    player.put("score", java.lang.Integer.new(5))
     player.save($piql_env)
   	
     #Select a random word from the wordlist for the new "current" word
@@ -216,7 +228,7 @@ class GamesController < ApplicationController
   
   def quit_game
     #Quit the game - end the game and return to dashboard
-    game = Query.gameById(params[:game_id])
+    game = Query.gameById(params[:game_id]).first
     game.put("finished", true)
     game.save
     redirect_to :controller => :dashboard
