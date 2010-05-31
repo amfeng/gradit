@@ -35,7 +35,7 @@ masterwordlist = [
 ["verdant", "green"]
 
 ]
-
+allwords = []
 for wordobj in masterwordlist do
 	nw = Word.new
 	nw.word = wordobj[0]
