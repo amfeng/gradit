@@ -19,26 +19,44 @@ class GamesController < ApplicationController
  
   #Check if the answer was correct
   def ans
+  	puts "ANSWER CHOSEN"
+  	curr_user = Query.userByLogin("amber").first
+  	puts curr_user
     #Find the current user, game, and word
-    user_id = curr_user_id
-    game = Query.gameById(params[:id])
-    word = Query.wordByWord(game.currentword)
+    game = Query.gameById(params[:id].to_i).first
+    puts game
+    word = Query.wordByWord(game.currentword).first
+    puts word
     
-    @player = Query.gamePlayerByGame(game.id, user_id)
-    choice = params[:answer]
-    word = Query.wordByWord(choice)
+    @player = Query.gamePlayerByGame(game.key, curr_user.key)
+    
+    #HARD CODE IN ANSWER UNTIL GAMEPLAYER/USER WORKS
+    @player = curr_user
+    
+    puts "looking for an answer.."
+    choice = params[:answer].to_s
+    puts choice
+    word = Query.wordByWord(choice).first
+    puts word
     definition = word.definition
 
+	puts "current word"
+	puts game.currentword
     #If correct answer
-    if game.answer_choice(choice)
+    if game.currentword == choice
       #Pick a new "current" word **NEED TO OPTIMIZE THIS**
-      wordlist = game.wordlist.words.to_a
-      game.put("currentword", wordlist[rand(wordlist.length)].word)
+      wordlist = Query.wordlistByName(game.wordlist_name.name).first 
+      words = wordlist.WordFromWordlist($piql_env).to_a
+      game.put("currentword", words[rand(words.length)].word)
       game.save
       
-      #Add points to the user's score
-      @player.score += 10
-      @player.save
+      puts "saved the game"
+      
+      #Add points to the user's score REMOVED UNTIL GAMEPLAYER WORKS
+      #@player.put("score", @player.score + 10)
+      #@player.save
+      
+      puts "AJAX-ing"
       
       #AJAX update page to reflect changes in score, let the user know they are correct
       render :update do |page|
@@ -50,16 +68,19 @@ class GamesController < ApplicationController
       end
       
     else #Incorrect answer
+      puts "wrong answer"
       #Lower score 
-      @player.score -= 5
-      @player.save
+      #@player.put("score", @player.score - 5)
+      #@player.save
       
-     
+     puts "saved the player"
       #Add wrong choice to the database for making questions "smarter"
       #How do associations work in rails? Which fields do we set?
 
       #NEED TO CHANGE THE FOLLOWING LINE
-      word.wrong_choices << WrongChoice.create(:wrong_choice_id => word.id)
+      w = WrongChoice.new
+      w.put("word_word", word)
+      #word.wrong_choices << w
       
       #Add defintion to incorrectly chosen word
       
