@@ -55,7 +55,7 @@ class Search
 		puts cc
 		cc.save($piql_env)
 	end
-    return @contexts
+    return @contexts.sort_by{ rand }
   end
 end
 

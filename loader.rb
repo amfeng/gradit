@@ -1,3 +1,8 @@
+#gi1 = GlobalId.new
+#gi1.row_id = 1
+#gi1.id_counter = 1
+#gi1.save
+
 # Sample user
 # username: allen
 # password: allenc
@@ -8,25 +13,28 @@ u.crypted_password = "44d1f9bd456ae2fb8558b1c4877227fbb16cf4e9"
 u.salt = "756b488e613c4899fa16bf3e6c350e39c626296d"
 u.save
 
+u = User.new
+u.put("login", "amber")
+u.save
 
-puts "Added User!!"
-puts u
 
-nw = Word.new
-nw.word = "indulged"
-nw.definition = "gratify give way to satisfy allow oneself"
 
-nw = Word.new
-nw.word = "vex"
-nw.definition = "annoy distress trouble"
+masterwordlist = [
+["indulged", "gratify give way to satisfy allow oneself"],
+["vex", "annoy distress trouble"],
+["chastened", "corrected, punished"],
+["discerned", "see with an effort but clearly"]
+]
 
-nw = Word.new
-nw.word = "chastened"
-nw.definition = "corrected, punished"
+allwords = []
 
-nw = Word.new
-nw.word = "discerned"
-nw.definition = "see with an effort but clearly"
+for wordobj in masterwordlist do
+	nw = Word.new
+	nw.word = wordobj[0]
+	nw.definition = wordobj[1]
+	nw.save
+	allwords << nw
+end
 
 
 # Set 'content' here as a full book corpus.
@@ -36,6 +44,117 @@ nw.definition = "see with an effort but clearly"
 b1 = Book.new
 b1.name = "Wuthering Heights"
 b1.save
+
+wl1 = Wordlist.new
+wl1.put("name", "amber")
+wl1.save
+
+wl2 = Wordlist.new
+wl2.put("name", "hello")
+wl2.save
+
+ww1 = WordsWordlist.new
+ww1.put("word_word", allwords[0])
+ww1.put("wordlist_name", wl2)
+ww1.save($piql_env)
+
+ww2 = WordsWordlist.new
+ww2.put("word_word", allwords[1])
+ww2.put("wordlist_name", wl2)
+ww2.save($piql_env)
+
+ww3 = WordsWordlist.new
+ww3.put("word_word", allwords[2])
+ww3.put("wordlist_name", wl2)
+ww3.save($piql_env)
+
+ww4 = WordsWordlist.new
+ww4.put("word_word", allwords[3])
+ww4.put("wordlist_name", wl2)
+ww4.save($piql_env)
+=begin
+bookline1 = BookLine.new
+bookline1.put("line", "But one day, when she had been peculiarly wayward, rejecting her breakfast, complaining that the servants did not do what she told them; that the mistress would allow her to be nothing in the house, and Edgar neglected her; that she had caught a cold with the doors being left open, and we let the parlour fire go out on purpose to vex her, with a hundred yet more frivolous accusations, Mrs. Linton peremptorily insisted that she should get to bed; and, having scolded her heartily, threatened to send for the doctor.")
+#bookline1.put("linenum", 1)
+bookline1.put("source", b1)
+bookline1.save($piql_env)
+
+c1 = Context.new
+c1.context_id = java.lang.Integer.new(1)
+c1.wordline = bookline1.line
+c1.before = ""
+c1.after = ""
+c1.book_name = b1
+c1.word_word = nw2
+c1.save
+
+wr1 = WordReference.new
+wr1.word_word = nw2
+wr1.context_id = c1
+wr1.save
+
+bookline2 = BookLine.new
+bookline2.put("line", "That sounds ill-natured: but she was so proud it became really impossible to pity her distresses, till she should be chastened into more humility.")
+#bookline2.put("linenum", 2)
+bookline2.put("source", b1)
+bookline2.save($piql_env)
+
+c2 = Context.new
+c2.context_id = java.lang.Integer.new(2)
+c2.wordline = bookline2.line
+c2.before = ""
+c2.after = ""
+c2.book_name = b1
+c2.word_word = nw3
+c2.save
+
+wr2 = WordReference.new
+wr2.word_word = nw3
+wr2.context_id = c2
+wr2.save
+
+bookline3 = BookLine.new
+bookline3.put("line", "‘It’s well the hellish villain has kept his word!’ growled my future host, searching the darkness beyond me in expectation of discovering Heathcliff; and then he indulged in a soliloquy of execrations, and threats of what he would have done had the ‘fiend’ deceived him.")
+#bookline3.put("linenum", 3)
+bookline3.put("source", b1)
+bookline3.save($piql_env)
+
+c3 = Context.new
+c3.context_id = java.lang.Integer.new(3)
+c3.wordline = bookline3.line
+c3.before = ""
+c3.after = ""
+c3.book_name = b1
+c3.word_word = nw1
+c3.save
+
+wr3 = WordReference.new
+wr3.word_word = nw1
+wr3.context_id = c3
+wr3.save
+
+
+bookline4 = BookLine.new
+bookline4.put("line", "As it spoke, I discerned, obscurely, a child's face looking through the window.  Terror made me cruel; and, finding it useless to attempt shaking the creature off, I pulled its wrist on to the broken pane, and rubbed it to and fro till the blood ran down and soaked the bedclothes: still it wailed, 'Let me in!' and maintained its tenacious gripe, almost maddening me with fear.")
+bookline4.put("source", b1)
+bookline4.save($piql_env)
+
+c4 = Context.new
+c4.context_id = java.lang.Integer.new(4)
+c4.wordline = bookline4.line
+c4.before = ""
+c4.after = ""
+c4.book_name = b1
+c4.word_word = nw4
+c4.save
+
+wr4 = WordReference.new
+wr4.word_word = nw1
+wr4.context_id = c4
+wr4.save
+=end
+
+puts "Starting work on preparsing text..."
 
 content = "
 I took a seat at the end of the hearthstone opposite that towards which
@@ -589,88 +708,34 @@ was a strange way of killing: not by inches, but by fractions of
 hairbreadths, to beguile me with the spectre of a hope through eighteen
 years!'
 "
-
-content = content.scan(/[^\.\?\!]+[\.\?\!]+[\n]*/)
-allwords = Word.all
-num = 0
+contentarray = content.scan(/[^\.\?\!]+[\.\?\!]+[\n]*/)
+contentsize = contentarray.size
+num = 1
 for line in content
-	a = BookLine.new({"line" => line, "linenum" => num})
-	a.source = b1.id
-	a.save
-	for word in allwords
-		reg = /\b#{query}\b/i
-		if (reg.match(line))
-			wr = WordReference.new
-			wr.word = word.id
-			wr.bookline = a.id
-			wr.save
-		end
-	end
-	num=num+1
-end
-
-b2 = Book.new
-b2.name = "Pride and Prejudice"
-b2.save
-
-content2 = "It must have been his sister's doing. They were certainly no friends to his acquaintance with me, which I cannot wonder at, since he might have chosen so much more advantageously in many respects. But when they see, as I trust they will, that their brother is happy with me, they will learn to be contented, and we shall be on good terms again; though we can never be what we once were to each other.\"
-
-\"That is the most unforgiving speech,\" said Elizabeth, \"that I ever heard you utter. Good girl! It would vex me, indeed, to see you again the dupe of Miss Bingley's pretended regard.\"
-
-\"Would you believe it, Lizzy, that when he went to town last November, he really loved me, and nothing but a persuasion of my being indifferent would have prevented his coming down again!\"
-
-\"He made a little mistake to be sure; but it is to the credit of his modesty.\"
-
-\"That is capital,\" added her sister, and they both laughed heartily.
-
-\"If they had uncles enough to fill all Cheapside,\" cried Bingley, \"it would not make them one jot less agreeable.\"
-
-\"But it must very materially lessen their chance of marrying men of any consideration in the world,\" replied Darcy.
-
-To this speech Bingley made no answer; but his sisters gave it their hearty assent, and indulged their mirth for some time at the expense of their dear friend's vulgar relations.
-
-With a renewal of tenderness, however, they returned to her room on leaving the dining-parlour, and sat with her till summoned to coffee. She was still very poorly, and Elizabeth would not quit her at all, till late in the evening, when she had the comfort of seeing her sleep, and when it seemed to her rather right than pleasant that she should go downstairs herself. On entering the drawing-room she found the whole party at loo, and was immediately invited to join them; but suspecting them to be playing high she declined it, and making her sister the excuse, said she would amuse herself for the short time she could stay below, with a book. Mr. Hurst looked at her with astonishment.
-
-\"Do you prefer reading to cards?\" said he; \"that is rather singular.\"
-
-\"Miss Eliza Bennet,\" said Miss Bingley, \"despises cards. She is a great reader, and has no pleasure in anything else.\"
-
-\"I deserve neither such praise nor such censure,\" cried Elizabeth; \"I am not a great reader, and I have pleasure in many things.\"
-
-\"In nursing your sister I am sure you have pleasure,\" said Bingley; \"and I hope it will be soon increased by seeing her quite well.\"
-
-Hope was over, entirely over; and when Jane could attend to the rest of the letter, she found little, except the professed affection of the writer, that could give her any comfort. Miss Darcy's praise occupied the chief of it. Her many attractions were again dwelt on, and Caroline boasted joyfully of their increasing intimacy, and ventured to predict the accomplishment of the wishes which had been unfolded in her former letter. She wrote also with great pleasure of her brother's being an inmate of Mr. Darcy's house, and mentioned with raptures some plans of the latter with regard to new furniture.
-
-Elizabeth, to whom Jane very soon communicated the chief of all this, heard it in silent indignation. Her heart was divided between concern for her sister, and resentment against all others. To Caroline's assertion of her brother's being partial to Miss Darcy she paid no credit. That he was really fond of Jane, she doubted no more than she had ever done; and much as she had always been disposed to like him, she could not think without anger, hardly without contempt, on that easiness of temper, that want of proper resolution, which now made him the slave of his designing friends, and led him to sacrifice of his own happiness to the caprice of their inclination. Had his own happiness, however, been the only sacrifice, he might have been allowed to sport with it in whatever manner he thought best, but her sister's was involved in it, as she thought he must be sensible himself. It was a subject, in short, on which reflection would be long indulged, and must be unavailing. She could think of nothing else; and yet whether Bingley's regard had really died away, or were suppressed by his friends' interference; whether he had been aware of Jane's attachment, or whether it had escaped his observation; whatever were the case, though her opinion of him must be materially affected by the difference, her sister's situation remained the same, her peace equally wounded.";
-
-content = content.scan(/[^\.\?\!]+[\.\?\!]+[\n]*/)
-allwords = Word.all
-num = 0
-for line in content2
 	a = BookLine.new
-	a.line = line
-	a.linenum = num
-	a.source = b2.id
-	a.save
+	a.put("line", line)
+	a.put("source", b1)
+	a.save($piql_env)
+	
 	for word in allwords
-		reg = /\b#{query}\b/i
+		reg = /\b#{word.word}\b/i
 		if (reg.match(line))
+			puts line
+			c = Context.new
+			c.context_id = java.lang.Integer.new(num)
+			c.wordline = a.line
+			c.before = ""
+			c.after = ""
+			c.book_name = b1
+			c.word_word = word
+			c.save
 			wr = WordReference.new
-			wr.word = word.id
-			wr.bookline = a.id
+			wr.word_word = word
+			wr.context_id = c
 			wr.save
 		end
 	end
 	num=num+1
 end
 
-# Create some wordlists so we can actually play games.
-
-wl = Wordlist.new
-wl.name = "Wordlist 1"
-wl.description = "A quick, sample word list for the game."
-wl.words << Word.find(1)
-wl.words << Word.find(2)
-wl.words << Word.find(3)
-wl.save
-
+puts "Done!"

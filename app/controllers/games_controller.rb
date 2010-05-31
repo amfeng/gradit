@@ -50,6 +50,9 @@ class GamesController < ApplicationController
       game.put("currentword", words[rand(words.length)].word)
       game.save
       
+      puts "next word"
+      puts game.currentword
+      
       puts "saved the game"
       
       #Add points to the user's score REMOVED UNTIL GAMEPLAYER WORKS
@@ -117,7 +120,7 @@ class GamesController < ApplicationController
     contexts = Search.search(word.word).to_a #get context
     puts contexts
     puts contexts.length
-    con = contexts.first
+    con = contexts.sort_by{ rand }.first
   	#con = contexts[rand(contexts.length)]
   	puts "THIS IS THE CONTEXT"
   	puts con
