@@ -197,7 +197,6 @@ for line in contentarray
 			else
 				c.after = contentarray[num][0]
 			end
-			c.after = ""
 			c.book_name = b1
 			c.word_word = word
 			c.save
