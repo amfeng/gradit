@@ -140,6 +140,7 @@ class GamesController < ApplicationController
   	  @para_book = con.book_name;
       @para = con.before << con.wordline << con.after
       @para.gsub!(word.word, '___________') #underline the missing word
+	  puts "THIS IS A LIST OF THE CHOICES"
       @mc = word.choices(global_entity_id)
       
       @mc_array = [@mc.choice1,@mc.choice2,@mc.choice3,@mc.choice4].sort_by{ rand }

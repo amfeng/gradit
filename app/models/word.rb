@@ -88,11 +88,14 @@ class Word
     allwords << Query.wordByWord("verdant").first
     allwords << Query.wordByWord("absurd").first
     puts allwords
-    allwords = allwords.sort {rand}
+    allwords = allwords.sort_by {rand}
+	puts "AFTER SORTED" 
+	puts allwords
     
     counter = 0
     while (mclist.length < 4)
-      mclist << allwords[counter].word
+	  w = allwords[counter]
+      mclist << w.word if(w != self)
       counter = counter + 1
     end
     #if (mc.nil? or mc.is_intersection) 
