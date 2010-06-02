@@ -75,6 +75,18 @@ class Word
     allwords << Query.wordByWord("indulged").first
     allwords << Query.wordByWord("discerned").first
     allwords << Query.wordByWord("chastened").first
+	allwords << Query.wordByWord("abide").first
+    allwords << Query.wordByWord("abjured").first
+    allwords << Query.wordByWord("alleviation").first
+    allwords << Query.wordByWord("ascribed").first
+	allwords << Query.wordByWord("benign").first
+    allwords << Query.wordByWord("dissented").first
+    allwords << Query.wordByWord("eloquence").first
+    allwords << Query.wordByWord("hollow").first
+	allwords << Query.wordByWord("perilous").first
+    allwords << Query.wordByWord("slate").first
+    allwords << Query.wordByWord("verdant").first
+    allwords << Query.wordByWord("absurd").first
     puts allwords
     allwords = allwords.sort {rand}
     

@@ -71,7 +71,7 @@ class GamesController < ApplicationController
      	page[:player_score].replace_html "#{@player.score}"
      	page[:player_score].highlight
      	
-        page["mult_choice_#{choice}"].replace_html "<b>#{choice} - #{definition}</b>"
+        page["mult_choice_#{choice}"].replace_html "<b>#{choice} (definition: #{definition})</b>"
       end
       
     else #Incorrect answer
@@ -102,7 +102,7 @@ class GamesController < ApplicationController
         page[:ans_result].replace_html "Wrong, try again!"
 	    page[:player_score].replace_html "#{@player.score}"
         page[:player_score].highlight
-        page["mult_choice_#{choice}"].replace_html "#{choice} - #{definition}"
+        page["mult_choice_#{choice}"].replace_html "#{choice} (definition: #{definition})"
       end
     end
   end
