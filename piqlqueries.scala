@@ -11,10 +11,20 @@ case class Word(var word: String) extends AvroPair {
 }
 
 case class WordList(var name: String) extends AvroPair{
+
 }
 
-case class Book(var title: String) extends AvroPair
+case class Book(var title: String) extends AvroPair {
 
+}
+
+case class Context(var word: Word, var book: Book, var linenum: Int) extends AvroPair {
+    // PKEY: var book: Book = _
+    // PKEY: var linenum: Integer = _
+    // PKEY: var word: Word = _
+    var wordLine: String = _
+}
+/*
 case class Context(var contextId: Int) extends AvroPair {
   var word: Word = _
   var book: Book = _
@@ -22,6 +32,7 @@ case class Context(var contextId: Int) extends AvroPair {
   var before: String = _
   var after: String = _
 }
+*/
 
 class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   val maxResultsPerPage = 10
@@ -31,8 +42,8 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   // class)
 
   lazy val words = cluster.getNamespace[Word]("words")
-  lazy val thoughts = cluster.getNamespace[Book]("books")
-  lazy val context  = cluster.getNamespace[Context]("contexts")
+  lazy val books = cluster.getNamespace[Book]("books")
+  lazy val contexts  = cluster.getNamespace[Context]("contexts")
   lazy val wordlists  = cluster.getNamespace[WordList]("wordlists")
 
   private def exec(plan: QueryPlan, args: Any*) = {
@@ -44,9 +55,26 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   }
 
   //contextsForWord
-
+  // Finds all contexts for a particular word given
+  
+    def contextsForWord = (
+        words
+            .where("word".a === (0.?))
+            .join(contexts)
+            .where("context.word".a === "word".a) // !Q - reference
+            .limit(50)
+            // !Q: random?
+    )
+  
   //wordsFromWordlist
-
+    def wordsFromWordList = (
+        wordlists
+            .where("name".a === (0.?))
+            .join(words)
+            .where("word.wordlist".a === "wordlist".a) // !Q - how do I reference this?
+            .limit(50)
+            // !Q: randomization possible?
+    )
   
   /*def findUser = users.where("username".a === (0.?))
 
