@@ -1,4 +1,5 @@
-package edu.berkeley.cs.scads.piql
+package edu.berkeley.cs.scads.piql.gradit
+//change package to not .piql so no conflicts
 
 import edu.berkeley.cs.scads.storage._
 import edu.berkeley.cs.avro.marker._
@@ -6,6 +7,7 @@ import edu.berkeley.cs.avro.marker._
 import org.apache.avro.util._
 
 case class Word(var word: String) extends AvroPair {
+  //assign PK int to do randomness, but need to provide int when loading in words
   var definition: String = _
   var wordlist: WordList = _
 }
@@ -18,6 +20,8 @@ case class Book(var title: String) extends AvroPair {
 
 }
 
+
+//call WORDcontext
 case class Context(var word: Word, var book: Book, var linenum: Int) extends AvroPair {
     // PKEY: var book: Book = _
     // PKEY: var linenum: Integer = _
@@ -73,7 +77,6 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
             .join(words)
             .where("word.wordlist".a === "wordlist".a) // !Q - how do I reference this?
             .limit(50)
-            // !Q: randomization possible?
     )
   
   /*def findUser = users.where("username".a === (0.?))
