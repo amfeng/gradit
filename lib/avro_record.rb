@@ -4,7 +4,7 @@ import Java::EduBerkeleyCsScadsPiqlGradit::GraditClient
 import Java::EduBerkeleyCsScadsPiql::SimpleExecutor
 import Java::EduBerkeleyCsScadsStorage::TestScalaEngine
 
-$CLIENT = GraditClient.new(TestScalaEngine.new_scads_cluster(1), SimpleExecutor.new, 10)
+$CLIENT = GraditClient.new(TestScalaEngine.new_scads_cluster(1), SimpleExecutor.new)
 
 class Object
   # Mainly to convert String to Utf8 without having to check if an Object is a String
