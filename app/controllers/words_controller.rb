@@ -44,14 +44,6 @@ class WordsController < ApplicationController
 	
 	respond_to do |format|
       if @word.save
-	    allwords = Word.all(:order=>'RANDOM()', :limit=>6)
-		counter = 0
-		while (mclist.length < 6)
-		  mclist << allwords[counter].word
-		  counter = counter + 1
-		end
-		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[0], :choice2 => mclist[1], :choice3 => mclist[2], :choice4 => @word.word, :score => 20)
-		MultipleChoice.create(:word_id => @word.id, :is_intersection => false, :intersection_id => nil, :choice1 => mclist[3], :choice2 => mclist[4], :choice3 => mclist[5], :choice4 => @word.word, :score => 20)
         flash[:notice] = 'Word was successfully created.'
         format.html { redirect_to(@word) }
         format.xml  { render :xml => @word, :status => :created, :location => @word }

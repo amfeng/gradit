@@ -54,7 +54,7 @@ class AvroRecord
   def initialize(opts={})
     @is_new_record = true
     begin
-      @avro_pair = eval("Java::EduBerkeleyCsScadsPiqlScadr::#{self.class.to_s}").new
+      @avro_pair = eval("Java::EduBerkeleyCsScadsPiqlGradit::#{self.class.to_s}").new
     # Catches if the class does not exist
     rescue NameError => e
       raise e, "#{e.message} -- does #{self.class} exist in the schema?"

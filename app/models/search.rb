@@ -1,5 +1,4 @@
 class Search
-  include PIQLEntity
   def self.search(query)
 	w = Query.wordByWord(query)
   	if(!w.empty?) #If word exists, context might exist

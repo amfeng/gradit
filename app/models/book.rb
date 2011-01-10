@@ -1,4 +1,3 @@
-class Book
-	include PIQLEntity
-	has_many :book_lines
+class Book < AvroRecord
+	#has_many :book_lines
 end
