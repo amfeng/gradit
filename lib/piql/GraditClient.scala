@@ -8,13 +8,13 @@ import avro.marker._
 
 import org.apache.avro.util._
 
-case class Word(var id: Int) extends AvroPair {
+case class Word(var wordid: Int) extends AvroPair {
   //assign PK int to do randomness, but need to provide int when loading in words
   var word: String = _
   var definition: String = _
 }
 
-case class WordList_Word(var wordlist: String, var word: Int) extends AvroPair {
+case class WordListWord(var wordlist: String, var word: Int) extends AvroPair {
     var v = 1
 }
 
@@ -52,13 +52,22 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   // createNamespace calls to happen first (and after instantiating this
   // class)
 
-  lazy val words = cluster.getNamespace[Word]("words")
-  lazy val books = cluster.getNamespace[Book]("books")
-  lazy val wordcontexts = cluster.getNamespace[WordContext]("wordcontexts")
-  lazy val wordlists = cluster.getNamespace[WordList]("wordlists")
-  lazy val wordlist_word = cluster.getNamespace[WordList_Word]("wordlist_word")
+  lazy val words = cluster.getNamespace[Word]("words").asInstanceOf[Namespace]
+  lazy val books = cluster.getNamespace[Book]("books").asInstanceOf[Namespace]
+  lazy val wordcontexts = cluster.getNamespace[WordContext]("wordcontexts").asInstanceOf[Namespace]
+  lazy val wordlists = cluster.getNamespace[WordList]("wordlists").asInstanceOf[Namespace]
+  lazy val wordlistword = cluster.getNamespace[WordListWord]("wordlistword").asInstanceOf[Namespace]
 
 
+  // findWord
+  // Primary key lookup for word
+  
+    val findWord = (
+        words
+            .where("word.wordid".a === (0.?))
+            .limit(1)
+    ).toPiql
+  
   //contextsForWord
   // Finds all contexts for a particular word given
   
@@ -70,10 +79,10 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   
   //wordsFromWordlist
     val wordsFromWordList = (
-        wordlist_word
-            .where("wordlist_word.wordlist".a === (0.?))
+        wordlistword
+            .where("wordlistword.wordlist".a === (0.?))
             .limit(50)
             .join(words)
-            .where("words.id".a === "wordlist_word.word".a)
+            .where("words.wordid".a === "wordlistword.word".a)
     ).toPiql
 }
