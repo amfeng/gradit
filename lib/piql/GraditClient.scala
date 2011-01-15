@@ -3,7 +3,7 @@ package scads
 package piql
 package gradit
 
-import storage._
+import storage.ScadsCluster
 import avro.marker._
 
 import org.apache.avro.util._
@@ -56,17 +56,13 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   lazy val books = cluster.getNamespace[Book]("books").asInstanceOf[Namespace]
   lazy val wordcontexts = cluster.getNamespace[WordContext]("wordcontexts").asInstanceOf[Namespace]
   lazy val wordlists = cluster.getNamespace[WordList]("wordlists").asInstanceOf[Namespace]
-  lazy val wordlistword = cluster.getNamespace[WordListWord]("wordlistword").asInstanceOf[Namespace]
+  lazy val wordlistwords = cluster.getNamespace[WordListWord]("wordlistwords").asInstanceOf[Namespace]
 
 
   // findWord
   // Primary key lookup for word
   
-    val findWord = (
-        words
-            .where("word.wordid".a === (0.?))
-            .limit(1)
-    ).toPiql
+  val findWord = words.where("words.wordid".a === (0.?)).toPiql
   
   //contextsForWord
   // Finds all contexts for a particular word given
@@ -79,10 +75,10 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   
   //wordsFromWordlist
     val wordsFromWordList = (
-        wordlistword
-            .where("wordlistword.wordlist".a === (0.?))
+        wordlistwords
+            .where("wordlistwords.wordlist".a === (0.?))
             .limit(50)
             .join(words)
-            .where("words.wordid".a === "wordlistword.word".a)
+            .where("words.wordids".a === "wordlistwords.word".a)
     ).toPiql
 }

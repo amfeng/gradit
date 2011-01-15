@@ -109,6 +109,8 @@ class AvroRecord
       begin
         raw_results = $CLIENT.send(method_id).apply { sl.to_list }
       rescue Exception => e
+        puts "exception was thrown"
+        puts e
         raw_results = []
       end
       results = []
