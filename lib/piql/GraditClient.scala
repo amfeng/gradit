@@ -64,7 +64,17 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   
   val findWord = words.where("words.wordid".a === (0.?)).toPiql
   
-  //contextsForWord
+  //findWordByWord
+  // Find a word by its actual string word (not wordid)
+  
+  //val findWordByWord = words.where("words.word".a === (0.?)).toPiql
+  
+  // findWordList
+  // Primary key lookup for wordlist
+  
+  //val findWordList = wordlists.where("wordlists.name".a === (0.?)).toPiql
+  
+  // contextsForWord
   // Finds all contexts for a particular word given
   
     val contextsForWord = (
@@ -73,7 +83,7 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
             .limit(50)
     ).toPiql
   
-  //wordsFromWordlist
+  // wordsFromWordlist
     val wordsFromWordList = (
         wordlistwords
             .where("wordlistwords.wordlist".a === (0.?))

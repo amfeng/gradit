@@ -1,6 +1,4 @@
 class GlobalId
-	include PIQLEntity
-	
 	def self.getUniqueID
 		# Generates a unique ID
 		globalid = Query.globalIdbyId(1)

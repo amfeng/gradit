@@ -1,11 +1,9 @@
 class BookController < ApplicationController
 	def create
       book = Book.new(:name=>params[:book][:name])
-#	  puts "\n\n\n"
-#	  puts "params[:book][:name] = "
-#      puts params[:book][:content]
-#	  puts "\n\n\n"
-	  book.save
+      book.name = params[:book][:name]
+	    book.save
+	    
       text = params[:books][:content]
       file = params[:textfile]
       content = text.empty? ? File.open(file) : text
