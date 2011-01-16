@@ -1,7 +1,11 @@
 class WordList < AvroRecord
   
-  def self.findWordList(id)
+  def self.find(id)
     WordList.findWordList(id)
+  end
+  
+  def words
+    WordList.wordsFromWordList(name)
   end
   
 end

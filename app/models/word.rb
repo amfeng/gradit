@@ -1,11 +1,11 @@
 class Word < AvroRecord
   
   #Find word by wordid
-  def self.findWord(id)
+  def self.find(id)
     Word.findWord(java.lang.Integer.new(id))
   end
   
-  def self.findWordByWord(word)
+  def self.find_by_name(word)
     Word.findWordByWord(word)
   end
   
