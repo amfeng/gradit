@@ -29,17 +29,18 @@ class GamesController < ApplicationController
       #Pick a new "current" word from the wordlist **NEED TO OPTIMIZE THIS**
       wordlist = WordList.find(params[:wordlist])
       
-      w2 = Word.createNew(2, "chastise", "definition", "wordlist")
-      wc2 = WordContext.createNew(2, "Book Title 2", 9, "This is what the chastise book line is lol.")
+      if !Word.find(2)
+        w2 = Word.createNew(2, "chastise", "definition", "wordlist")
+        wc2 = WordContext.createNew(2, "Book Title 2", 9, "This is what the chastise book line is lol.")
       
-      w3 = Word.createNew(3, "amber", "definition", "wordlist")
-      wc3 = WordContext.createNew(1, "Book Title 3", 8, "This is what the book amber line is vex lol.")
+        w3 = Word.createNew(3, "amber", "definition", "wordlist")
+        wc3 = WordContext.createNew(1, "Book Title 3", 8, "This is what the book amber line is vex lol.")
       
-      w4 = Word.createNew(4, "rawr", "definition", "wordlist")
-      wc4 = WordContext.createNew(4, "Book Title 4", 7, "This is what the book line is lol rawr.")
-      
+        w4 = Word.createNew(4, "rawr", "definition", "wordlist")
+        wc4 = WordContext.createNew(4, "Book Title 4", 7, "This is what the book line is lol rawr.")
+      end
       #words = wordlist.words 
-      words = [w2, w3, w4] #FIXME: replace with actual query wordlist.words
+      words = [Word.find(2), Word.find(3), Word.find(4)] #FIXME: replace with actual query wordlist.words
       
       #Pick a random word next
       nextWord = words[rand(words.length())]
@@ -99,8 +100,9 @@ class GamesController < ApplicationController
       @mc = currentword.choices  
       @mc_array = (@mc << word).sort_by{ rand }
     else #Find another word to use, no contexts
-      wordlist = WordList.findWordlist(params[:wordlist])
-      words = wordlist.words
+      wordlist = WordList.find(params[:wordlist])
+      #words = wordlist.words
+      words = [Word.find(2), Word.find(3), Word.find(4)]
       currentword = words[rand(words.length)].word
       
       redirect_to(:controller=> :games, :action=> :game_entry)

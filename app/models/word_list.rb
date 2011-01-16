@@ -10,7 +10,7 @@ class WordList < AvroRecord
     wl = WordList.findWordList(id)
     puts "***JUST RAN PK QUERY ON WORDLIST***"
     puts wl
-    return nil if w && w.empty?
+    return nil if wl && wl.empty?
     wl = wl.first unless wl == nil || wl.empty?
     wl = wl.first unless wl == nil || wl.empty?
     wl
