@@ -14,7 +14,12 @@ class Word < AvroRecord
   end
 
   def self.find(id)
-    Word.findWord(java.lang.Integer.new(id)) #HACK: call everything twice for piql bug
+    begin #HACK: rescue exception
+      Word.findWord(java.lang.Integer.new(id)) #HACK: call everything twice for piql bug
+    rescue Exception => e
+      puts "exception was thrown"
+      puts e
+    end
     w = Word.findWord(java.lang.Integer.new(id))
     puts "***JUST RAN PK QUERY ON WORD***"
     puts w
@@ -48,7 +53,12 @@ class Word < AvroRecord
   end 
   
   def contexts
-    WordContext.contextsForWord(java.lang.Integer.new(self.wordid))
+    begin #HACK: rescue exception
+      WordContext.contextsForWord(java.lang.Integer.new(self.wordid))
+    rescue Exception => e
+      puts "exception was thrown"
+      puts e
+    end
     wc = WordContext.contextsForWord(java.lang.Integer.new(self.wordid)) #HACK: call everything twice for piql bug
     puts "***JUST CALLED WORD.CONTEXTS***"
     puts wc
