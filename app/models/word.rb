@@ -1,6 +1,17 @@
 class Word < AvroRecord
   
   #Find word by wordid
+  
+  def self.createNew(id, word, definition, wordlist)
+    w = Word.new
+    w.wordid = id
+    w.word = word
+    w.definition = definition
+    w.wordlist = wordlist
+    w.save
+    w.save #HACK: call everything twice for piql bug
+    w
+  end
 
   def self.find(id)
     Word.findWord(java.lang.Integer.new(id)) #HACK: call everything twice for piql bug

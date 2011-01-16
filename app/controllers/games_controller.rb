@@ -18,61 +18,67 @@ class GamesController < ApplicationController
  
   #Check if the answer was correct
   def ans
+    puts "Inside ANS"
     #Find currentword in the game and answer chosen  
-    choice = Word.findWord(params[:answer].to_i).first.first
-    word = choice.word
-    definition = word.definition
+    choice = params[:answer]
+    answer = Word.find(params[:id].to_i)
 
-	currentword = params[:currentword]
-
-    if currentword == word #If correct answer
+    puts "@@@@AND THE ANSWER IS@@@@@@@@"
+    if choice == answer.word #If correct answer
+      puts "CORRECT"
       #Pick a new "current" word from the wordlist **NEED TO OPTIMIZE THIS**
-      wordlist = WordList.findWordlist(params[:wordlist]).first.first
-      words = wordlist.words #FIXME: with real query
+      wordlist = WordList.find(params[:wordlist])
+      
+      w2 = Word.createNew(2, "chastise", "definition", "wordlist")
+      wc2 = WordContext.createNew(2, "Book Title 2", 9, "This is what the chastise book line is lol.")
+      
+      w3 = Word.createNew(3, "amber", "definition", "wordlist")
+      wc3 = WordContext.createNew(1, "Book Title 3", 8, "This is what the book amber line is vex lol.")
+      
+      w4 = Word.createNew(4, "rawr", "definition", "wordlist")
+      wc4 = WordContext.createNew(4, "Book Title 4", 7, "This is what the book line is lol rawr.")
+      
+      #words = wordlist.words 
+      words = [w2, w3, w4] #FIXME: replace with actual query wordlist.words
+      
+      #Pick a random word next
+      nextWord = words[rand(words.length())]
       
       #Raise score
       score = 0 #FIXME
       
+      flash[:notice] = "Correct!"
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => nextWord.wordid)
       #AJAX update page to reflect changes in score, let the user know they are correct
-      render :update do |page|
-    	  page[:ans_result].replace_html "Correct! Press next." #**NEED TO HAVE THIS REDIRECT, BUT IT DOESN'T WORK**
-     	  page[:player_score].replace_html "#{score}"
-     	  page[:player_score].highlight
-     	
-        page["mult_choice_#{word}"].replace_html "<b>#{word} (definition: #{definition})</b>"
-      end
+      #render :update do |page|
+    	#  page[:ans_result].replace_html "Correct! Press next." #**NEED TO HAVE THIS REDIRECT, BUT IT DOESN'T WORK**
+     	#  page[:player_score].replace_html "#{score}"
+     	#  page[:player_score].highlight
+     	#
+      #  page["mult_choice_#{choice}"].replace_html "<b>#{choice} (definition: #{answer.definition})</b>"
+      #end
       
     else #Incorrect answer
+      puts "INCORRECT"
       #Lower score 
       score = 0 
      
+      flash[:notice] = "Oops, that's wrong"
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => params[:id])
       #AJAX update page to reflect changes in score, let user know they are incorrect
-      render :update do |page|
-        page[:ans_result].replace_html "Wrong, try again!"
-	      page[:player_score].replace_html "#{score}"
-        page[:player_score].highlight
-        page["mult_choice_#{word}"].replace_html "#{word} (definition: #{definition})"
-      end
+      #render :update do |page|
+      #  page[:ans_result].replace_html "Wrong, try again!"
+	    #  page[:player_score].replace_html "#{score}"
+      #  page[:player_score].highlight
+      #  page["mult_choice_#{choice}"].replace_html "#{choice} (definition: #{answer.definition})"
+      #end
     end
   end
   
   #Displaying/picking questions
   def game_entry
-    w = Word.new
-    w.wordid = 1
-    w.word = "vex"
-    w.definition = "definition"
-    w.wordlist = "wordlist"
-    w.save
-    w.save #HACK: call everything twice for piql bug
-    
-    wc = WordContext.new
-    wc.word = 1
-    wc.book = "Book Title"
-    wc.linenum = 5
-    wc.wordLine = "This is what the book line is vex lol."
-    wc.save
-    wc.save #HACK: call everything twice for piql bug
+    w = Word.createNew(1, "vex", "definition", "wordlist")
+    wc = WordContext.createNew(1, "Book Title", 5, "This is what the book line is vex lol.")
     
   	currentword = Word.find(params[:id].to_i)
     word = currentword.word
