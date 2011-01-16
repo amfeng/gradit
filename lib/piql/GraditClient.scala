@@ -12,12 +12,13 @@ case class Word(var wordid: Int) extends AvroPair {
   //assign PK int to do randomness, but need to provide int when loading in words
   var word: String = _
   var definition: String = _
+  var wordlist: Int = _
 }
-
+/*
 case class WordListWord(var wordlist: String, var word: Int) extends AvroPair {
     var v = 1
 }
-
+*/
 case class WordList(var name: String) extends AvroPair {
     var v = 1
 }
@@ -56,7 +57,7 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   lazy val books = cluster.getNamespace[Book]("books").asInstanceOf[Namespace]
   lazy val wordcontexts = cluster.getNamespace[WordContext]("wordcontexts").asInstanceOf[Namespace]
   lazy val wordlists = cluster.getNamespace[WordList]("wordlists").asInstanceOf[Namespace]
-  lazy val wordlistwords = cluster.getNamespace[WordListWord]("wordlistwords").asInstanceOf[Namespace]
+  //lazy val wordlistwords = cluster.getNamespace[WordListWord]("wordlistwords").asInstanceOf[Namespace]
 
 
   // findWord
@@ -67,7 +68,11 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   //findWordByWord
   // Find a word by its actual string word (not wordid)
   
-  //val findWordByWord = words.where("words.word".a === (0.?)).toPiql
+  val findWordByWord = (
+        words
+            .where("words.word".a === (0.?))
+            .limit(1)
+  ).toPiql
   
   // findWordList
   // Primary key lookup for wordlist
@@ -84,11 +89,18 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
     ).toPiql
   
   // wordsFromWordlist
+  /*
     val wordsFromWordList = (
         wordlistwords
             .where("wordlistwords.wordlist".a === (0.?))
             .limit(50)
             .join(words)
             .where("words.wordids".a === "wordlistwords.word".a)
+    ).toPiql
+    */
+    val wordsFromWordList = (
+        words
+            .where("words.wordlist".a === (0.?))
+            .limit(50)
     ).toPiql
 }
