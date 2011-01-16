@@ -19,15 +19,15 @@ class GamesController < ApplicationController
   #Check if the answer was correct
   def ans
     #Find currentword in the game and answer chosen  
-    choice = Word.findWord(params[:answer].to_i)
+    choice = Word.findWord(params[:answer].to_i).first.first
     word = choice.word
     definition = word.definition
 
-	  currentword = params[:currentword]
+	currentword = params[:currentword]
 
     if currentword == word #If correct answer
       #Pick a new "current" word from the wordlist **NEED TO OPTIMIZE THIS**
-      wordlist = WordList.findWordlist(params[:wordlist])
+      wordlist = WordList.findWordlist(params[:wordlist]).first.first
       words = wordlist.words #FIXME: with real query
       
       #Raise score
