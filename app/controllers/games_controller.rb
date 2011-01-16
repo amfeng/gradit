@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  
+  require "lib/avro_record.rb"
   # GET /games
   # GET /games.xml
   def index
@@ -31,7 +33,7 @@ class GamesController < ApplicationController
       #Raise score
       score = 0 #FIXME
       
-      AJAX update page to reflect changes in score, let the user know they are correct
+      #AJAX update page to reflect changes in score, let the user know they are correct
       render :update do |page|
     	  page[:ans_result].replace_html "Correct! Press next." #**NEED TO HAVE THIS REDIRECT, BUT IT DOESN'T WORK**
      	  page[:player_score].replace_html "#{score}"
@@ -56,17 +58,36 @@ class GamesController < ApplicationController
   
   #Displaying/picking questions
   def game_entry
-  	currentword = Word.findWordByWord(params[:currentword])
+    w = Word.new
+    w.wordid = 1
+    w.word = "vex"
+    w.definition = "definition"
+    w.wordlist = "wordlist"
+    w.save
+    w.save #HACK: call everything twice for piql bug
+    
+    wc = WordContext.new
+    wc.word = 1
+    wc.book = "Book Title"
+    wc.linenum = 5
+    wc.wordLine = "This is what the book line is vex lol."
+    wc.save
+    wc.save #HACK: call everything twice for piql bug
+    
+  	currentword = Word.find(params[:id].to_i)
     word = currentword.word
+    
+    puts "***"
+    puts word
     
     #Get a random context for the word
     @para = false
-    contexts = word.contexts #get context
+    contexts = currentword.contexts #get context
     con = contexts.sort_by{ rand }.first
 
   	if(con)
   	  #Initialize paragraph, multiple choice settings
-  	  @para_book = con.book.title;
+  	  @para_book = con.book;
       @para = con.wordLine
       @para.gsub!(word, '___________') #underline the missing word    
       @mc = currentword.choices  

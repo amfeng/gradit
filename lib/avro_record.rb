@@ -86,7 +86,9 @@ class AvroRecord
       $CLIENT.send(self.class.to_s.downcase.pluralize).put(avro_pair.key, avro_pair.value)
       @is_new_record = false
       true
-    rescue NativeException
+    rescue NativeException => e
+      puts "exception was thrown"
+      puts e
       false
     end
   end

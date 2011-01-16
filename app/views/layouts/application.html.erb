@@ -12,34 +12,18 @@
   <body>	
     <div id='everything'>
       <div id="banner_top">
-	<div id="header_wrapper">
-	  <div id="logo">
-	    <%= link_to image_tag('/images/gradit_inside_logo.png'), :controller => :home%>
-	  </div>
-	  <div id="user_bar">
-	    <% if logged_in? %>
-	    Welcome, <%= current_user.login %><br>
-	      <%= link_to "Log Out", '/logout'%>
-	      <% else %>
-	      Welcome, Guest!<br>
-		<%= link_to "Log in", '/login' %> | <%= link_to "Sign Up", '/signup'%>	
-		<% end %>
-		<br>
-		  <%= link_to "Dashboard", :controller => :dashboard%>
-		</div>
-	      </div>
-	    </div>
-	    <div id="wrapper">
-	      <div id="trans_back">
-	      </div>	
-	      <div id="content_holder">
-		<div id="content">
-		  <span id="notice"><%= flash[:notice] %></span>
-		  <%= yield %>
-		</div>
-	      </div>
-	    </div>
-	  </div>
+	      <div id="header_wrapper">
+	        <div id="logo">
+	          <%= link_to image_tag('/images/gradit_inside_logo.png'), :controller => :home%>
+	        </div>
+        </div>
+		  <div id="content">
+		    <span id="notice"><%= flash[:notice] %></span>
+		    <%= yield %>
+		  </div>
+      </div>
+    </div>
+  </div>
 	</body>
       </html>
       

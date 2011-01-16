@@ -1,18 +1,8 @@
 <div id="ans_result">
 </div>
-<div id="player_panel">
-	Player Score: <span id="player_score"><%= @player.score %></span> | <a href="<%= @disp %>"> Next Word >> </a> | 
-	<%= link_to "Quit Game", :controller => :games, :action => :quit_game, :game_id => @game_id, :id => params[:id] %>
-</div>
 <div class="game_entry">
 	<% if @para %>
-		From <u><%= @para_book.name %></u> -- [ Rating: <span id="mc_rating"><%= @mc.score %></span> / 
-		<span id="mc_voting">
-			<%= link_to_remote "This is a good question", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "up", :mc_id => @mc.multiple_choice_id }%>
-			 | 
-		 	<%= link_to_remote "This is a bad question", :url => {:controller => :games, :action => :vote_mc, :id => params[:id], :vote => "down", :mc_id => @mc.multiple_choice_id }%>
-		 
-	 	</span> ]
+		From <u><%= @para_book %></u> 
 	<br><br>
 	<div class="game_entry_question">
 		"..<%= @para %>.."
