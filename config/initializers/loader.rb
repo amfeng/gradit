@@ -1,3 +1,4 @@
+$AVRO_LOADED = 0
 puts "************"
 puts "Loader beginning\n\n\n"
 

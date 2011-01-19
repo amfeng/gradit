@@ -1,10 +1,14 @@
-require File.join(RAILS_ROOT,'lib/piql/scads.jar')
+if ($AVRO_LOADED == 0)
+    require File.join(RAILS_ROOT,'lib/piql/scads.jar')
 
-import Java::EduBerkeleyCsScadsPiqlGradit::GraditClient
-import Java::EduBerkeleyCsScadsPiql::SimpleExecutor
-import Java::EduBerkeleyCsScadsStorage::TestScalaEngine
+    import Java::EduBerkeleyCsScadsPiqlGradit::GraditClient
+    import Java::EduBerkeleyCsScadsPiql::SimpleExecutor
+    import Java::EduBerkeleyCsScadsStorage::TestScalaEngine
 
-$CLIENT = GraditClient.new(TestScalaEngine.new_scads_cluster(1), SimpleExecutor.new)
+    $CLIENT = GraditClient.new(TestScalaEngine.new_scads_cluster(1), SimpleExecutor.new)
+    
+    $AVRO_LOADED = 1
+end
 
 class Object
   # Mainly to convert String to Utf8 without having to check if an Object is a String
