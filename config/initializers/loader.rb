@@ -29,15 +29,14 @@ wordid = 1
 
 words.each { |w|
     print "Adding word " + wordid.to_s + ": " + w[0] + ": " + w[1] + "...   "
-    newWord = Word.new
-    newWord.wordid = wordid
-    newWord.word = w[0]
-    newWord.definition = w[1]
-    newWord.wordlist = "1"
-    while (!newWord.save) do #HACK HACK HACK
-        puts "Trying again."
+    #if (Word.createNew(wordid, w[0],w[1],"wordlist"))
+    #    puts "Success."
+    #else
+    #    puts ">>>>> FAILURE : Failed adding word. <<<<<"
+    #end
+    if Word.createNew(wordid, w[0],w[1],"wordlist")
+        puts "Success."
     end
-    puts "Success."
     wordid = wordid + 1
 }
 
@@ -78,13 +77,10 @@ puts "\n\nAdding " + contexts.size.to_s + " contexts...\n"
 
 contexts.each { |c|
     print "Adding context for word " + c[0].to_s + ", book: " + c[1] + " linenum: " + c[2].to_s + "...   "
-    newContext = WordContext.new
-    newContext.word = c[0]
-    newContext.book = c[1]
-    newContext.linenum = c[2]
-    newContext.wordLine = c[3]
-    while (!newContext.save) do #HACK HACK HACK
-        puts "Trying again."
+    if (WordContext.createNew(c[0],c[1],c[2],c[3]))
+        puts "Success."
+    else
+        puts ">>>>> FAILURE : Failed adding wordcontext. <<<<<"
     end
     puts "Success."
 }
