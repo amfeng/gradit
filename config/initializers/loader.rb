@@ -2,9 +2,7 @@ $AVRO_LOADED = 0
 puts "************"
 puts "Loader beginning\n\n\n"
 
-puts "Starting up SCADS..."
-
-w = Word.new # What's a better way to startup SCADS?
+require "lib/avro_record.rb"
 
 words = [
     ["abscond", "to leave secretly and hide, often to avoid the law"], # 1
@@ -25,9 +23,7 @@ words = [
 ]
 
 puts "\n\nAdding " + words.size.to_s + " words...\n"
-
 wordid = 1
-
 words.each { |w|
     print "Adding word " + wordid.to_s + ": " + w[0] + ": " + w[1] + "...   "
     #if (Word.createNew(wordid, w[0],w[1],"wordlist"))
@@ -37,6 +33,8 @@ words.each { |w|
     #end
     if Word.createNew(wordid, w[0],w[1],"wordlist")
         puts "Success."
+    else
+        puts ">>>>> FAILURE : Failed adding word. <<<<<"
     end
     wordid = wordid + 1
 }
@@ -70,12 +68,10 @@ contexts = [
 
 'This is no very striking resemblance of your own character, I am sure,' said he. 'How near it may be to mine, I cannot pretend to say. You think it a faithful portrait undoubtedly.' "],
     [15, "Wuthering Heights", 885, "In the confluence of the multitude, several clubs crossed; blows, aimed at me, fell on other sconces.  Presently the whole chapel resounded with rappings and counter rappings: every man’s hand was against his neighbour; and Branderham, unwilling to remain idle, poured forth his zeal in a shower of loud taps on the boards of the pulpit, which responded so smartly that, at last, to my unspeakable relief, they woke me.  And what was it that had suggested the tremendous tumult?  What had played Jabez’s part in the row?  Merely the branch of a fir-tree that touched my lattice as the blast wailed by, and rattled its dry cones against the panes!  I listened doubtingly an instant; detected the disturber, then turned and dozed, and dreamt again: if possible, still more disagreeably than before."]
-    
-    
+   
 ]
 
 puts "\n\nAdding " + contexts.size.to_s + " contexts...\n"
-
 contexts.each { |c|
     print "Adding context for word " + c[0].to_s + ", book: " + c[1] + " linenum: " + c[2].to_s + "...   "
     if (WordContext.createNew(c[0],c[1],c[2],c[3]))
@@ -83,10 +79,12 @@ contexts.each { |c|
     else
         puts ">>>>> FAILURE : Failed adding wordcontext. <<<<<"
     end
-    puts "Success."
 }
 
 # TODO: MORE CONTEXTS
+
+puts "\n\nAdding wordlist(s)...\n"
+WordList.createNew("wordlist")
 
 puts "\n\n\nLoader finished"
 puts "************"

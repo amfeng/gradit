@@ -27,10 +27,11 @@ case class Book(var title: String) extends AvroPair {
     var v = 1
 }
 
-//case class Game(var gameid: Int, var score: Int) extends AvroPair {
-//    var v = 1
-//}
-
+case class Game(var gameid: Int) extends AvroPair {
+    var score: Int = 0
+    var wordlist: String = _
+    var currentword: String = _
+}
 
 //call WORDcontext
 case class WordContext(var word: Int, var book: String, var linenum: Int) extends AvroPair {
@@ -61,7 +62,7 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   lazy val books = cluster.getNamespace[Book]("books").asInstanceOf[Namespace]
   lazy val wordcontexts = cluster.getNamespace[WordContext]("wordcontexts").asInstanceOf[Namespace]
   lazy val wordlists = cluster.getNamespace[WordList]("wordlists").asInstanceOf[Namespace]
-  //lazy val games = cluster.getNamespace[Game]("games").asInstanceOf[Namespace]
+  lazy val games = cluster.getNamespace[Game]("games").asInstanceOf[Namespace]
   //lazy val wordlistwords = cluster.getNamespace[WordListWord]("wordlistwords").asInstanceOf[Namespace]
 
   // findWord
@@ -85,12 +86,9 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
   
   // findGame
   // Primary key lookup for game
-  /*
   
-  val findGame = (games
-                    .("game.gameid".a === (0.?))
-                  ).toPiql
-  */
+  
+  val findGame = games.where("games.gameid".a === (0.?)).toPiql
   
   // contextsForWord
   // Finds all contexts for a particular word given
@@ -111,9 +109,9 @@ class GraditClient(val cluster: ScadsCluster, executor: QueryExecutor) {
             .where("words.wordids".a === "wordlistwords.word".a)
     ).toPiql
     */
-    val wordsFromWordList = (
+    /*val wordsFromWordList = (
         words
             .where("words.wordlist".a === (0.?))
             .limit(50)
-    ).toPiql
+    ).toPiql*/
 }

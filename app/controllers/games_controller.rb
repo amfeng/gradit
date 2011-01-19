@@ -4,7 +4,8 @@ class GamesController < ApplicationController
   # GET /games.xml
   def index
     #Note: .all does not yet work
-    #@games = Game.all
+    @games = Game.all
+    @wordlists = WordList.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -98,13 +99,16 @@ class GamesController < ApplicationController
   end
 
   def new_game
-    wordlist = WordList.findWordlist(params[:wordlist])
-    words = wordlist.words
-    currentword = words[rand(words.length)]
+    wordlist = WordList.find(params[:wordlist])
+    game = Game.createNew(wordlist.name)
+    
+    #words = wordlist.words 
+    #currentword = words[rand(words.length)]
+    currentword = Word.find(1) #FIXME: to above
     
     if(currentword) #If there is a word
       #Save the currentword in the session or something?
-      redirect_to(:controller=> :games, :action=> :game_entry)
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.gameid)
       return
     end
     flash[:notice] = "Wordlist has no words!"
