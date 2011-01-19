@@ -1,6 +1,5 @@
 class GamesController < ApplicationController
   
-  require "lib/avro_record.rb"
   # GET /games
   # GET /games.xml
   def index
@@ -28,17 +27,7 @@ class GamesController < ApplicationController
       puts "CORRECT"
       #Pick a new "current" word from the wordlist **NEED TO OPTIMIZE THIS**
       wordlist = WordList.find(params[:wordlist])
-      
-      if !Word.find(2)
-        w2 = Word.createNew(2, "chastise", "definition", "wordlist")
-        wc2 = WordContext.createNew(2, "Book Title 2", 9, "This is what the chastise book line is lol.")
-      
-        w3 = Word.createNew(3, "amber", "definition", "wordlist")
-        wc3 = WordContext.createNew(1, "Book Title 3", 8, "This is what the book amber line is vex lol.")
-      
-        w4 = Word.createNew(4, "rawr", "definition", "wordlist")
-        wc4 = WordContext.createNew(4, "Book Title 4", 7, "This is what the book line is lol rawr.")
-      end
+
       #words = wordlist.words 
       words = [Word.find(2), Word.find(3), Word.find(4)] #FIXME: replace with actual query wordlist.words
       
@@ -78,9 +67,6 @@ class GamesController < ApplicationController
   
   #Displaying/picking questions
   def game_entry
-    w = Word.createNew(1, "vex", "definition", "wordlist")
-    wc = WordContext.createNew(1, "Book Title", 5, "This is what the book line is vex lol.")
-    
   	currentword = Word.find(params[:id].to_i)
     word = currentword.word
     
