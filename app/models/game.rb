@@ -3,7 +3,8 @@ class Game < AvroRecord
   #Find word by wordid
   
   def self.all
-    return [game] if game = Game.find(1) != nil
+    game = nil
+    return ([] << game) if game = Game.find(1)
     return []
   end
   
@@ -41,6 +42,12 @@ class Game < AvroRecord
   def incrementScore(amount)
     self.score += amount
     self.save 
+    self.save #HACK: call everything twice for piql bug
+  end
+  
+  def changeWord(word)
+    self.currentword = word
+    self.save
     self.save #HACK: call everything twice for piql bug
   end
     

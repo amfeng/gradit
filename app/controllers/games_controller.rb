@@ -19,27 +19,29 @@ class GamesController < ApplicationController
   #Check if the answer was correct
   def ans
     puts "Inside ANS"
+    game = Game.find(params[:id].to_i)
     #Find currentword in the game and answer chosen  
     choice = params[:answer]
-    answer = Word.find(params[:id].to_i)
+    answer = game.currentword
 
     puts "@@@@AND THE ANSWER IS@@@@@@@@"
-    if choice == answer.word #If correct answer
+    if choice == answer #If correct answer
       puts "CORRECT"
       #Pick a new "current" word from the wordlist **NEED TO OPTIMIZE THIS**
-      wordlist = WordList.find(params[:wordlist])
+      wordlist = game.wordlist
 
       #words = wordlist.words 
       words = [Word.find(2), Word.find(3), Word.find(4)] #FIXME: replace with actual query wordlist.words
       
       #Pick a random word next
       nextWord = words[rand(words.length())]
+      game.changeWord(nextWord.word)
       
       #Raise score
-      score = 0 #FIXME
+      game.incrementScore(10)
       
       flash[:notice] = "Correct!"
-      redirect_to(:controller=> :games, :action=> :game_entry, :id => nextWord.wordid)
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.gameid)
       #AJAX update page to reflect changes in score, let the user know they are correct
       #render :update do |page|
     	#  page[:ans_result].replace_html "Correct! Press next." #**NEED TO HAVE THIS REDIRECT, BUT IT DOESN'T WORK**
@@ -51,11 +53,12 @@ class GamesController < ApplicationController
       
     else #Incorrect answer
       puts "INCORRECT"
+      
       #Lower score 
-      score = 0 
+      game.incrementScore(-5)
      
       flash[:notice] = "Oops, that's wrong"
-      redirect_to(:controller=> :games, :action=> :game_entry, :id => params[:id])
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.gameid)
       #AJAX update page to reflect changes in score, let user know they are incorrect
       #render :update do |page|
       #  page[:ans_result].replace_html "Wrong, try again!"
@@ -68,15 +71,19 @@ class GamesController < ApplicationController
   
   #Displaying/picking questions
   def game_entry
-  	currentword = Word.find(params[:id].to_i)
-    word = currentword.word
-    
+    game = Game.find(params[:id].to_i)
+  	word = game.currentword
+  	#w = Word.find_by_word(word)
+    w = Word.find(1) #HACK: fix me
+  	
+  	@score = game.score
+  
     puts "***"
     puts word
     
     #Get a random context for the word
     @para = false
-    contexts = currentword.contexts #get context
+    contexts = w.contexts #get context
     con = contexts.sort_by{ rand }.first
 
   	if(con)
@@ -84,7 +91,7 @@ class GamesController < ApplicationController
   	  @para_book = con.book;
       @para = con.wordLine
       @para.gsub!(word, '___________') #underline the missing word    
-      @mc = currentword.choices  
+      @mc = w.choices 
       @mc_array = (@mc << word).sort_by{ rand }
     else #Find another word to use, no contexts
       wordlist = WordList.find(params[:wordlist])
@@ -92,9 +99,9 @@ class GamesController < ApplicationController
       words = [Word.find(2), Word.find(3), Word.find(4)]
       currentword = words[rand(words.length)].word
       
-      redirect_to(:controller=> :games, :action=> :game_entry)
+      redirect_to(:controller=> :games, :action=> :game_entry, :id => game.gameid)
     end    
-    nexturl = url_for :controller => :games, :action => :game_entry
+    nexturl = url_for :controller => :games, :action => :game_entry, :id => game.gameid
     @disp = nexturl
   end
 
@@ -105,6 +112,8 @@ class GamesController < ApplicationController
     #words = wordlist.words 
     #currentword = words[rand(words.length)]
     currentword = Word.find(1) #FIXME: to above
+    game.changeWord(currentword.word)
+
     
     if(currentword) #If there is a word
       #Save the currentword in the session or something?

@@ -84,7 +84,11 @@ contexts.each { |c|
 # TODO: MORE CONTEXTS
 
 puts "\n\nAdding wordlist(s)...\n"
-WordList.createNew("wordlist")
+if WordList.createNew("wordlist")
+  puts "Success."
+else
+    puts ">>>>> FAILURE : Failed adding wordlist. <<<<<"
+end
 
 puts "\n\n\nLoader finished"
 puts "************"
