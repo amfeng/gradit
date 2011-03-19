@@ -1,9 +1,4 @@
-== gRADit
+This repository has been integrated with the RAD Lab demo repository:
 
-gRADit is ..[insert description]
-
-== Getting Started
-
-Enter instructions for running on PIQL (ex. jruby gems and everything)
-
+https://github.com/radlab/SCADS/tree/demo/piql/gradit/src/main/rails
 
